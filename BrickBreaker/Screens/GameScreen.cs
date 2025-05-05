@@ -24,13 +24,15 @@ namespace BrickBreaker
 
         // Game values
         int lives;
+        public static int level;
+        public static int layerCount;
 
         // Paddle and Ball objects
         Paddle paddle;
         Ball ball;
 
         // list of all blocks for current level
-        List<Block> blocks = new List<Block>();
+        public static List<Block> blocks = new List<Block>();
 
         // Brushes
         SolidBrush paddleBrush = new SolidBrush(Color.White);
@@ -50,6 +52,7 @@ namespace BrickBreaker
         {
             //set life counter
             lives = 3;
+            level = 1;
 
             //set all button presses to false.
             leftArrowDown = rightArrowDown = false;
@@ -73,18 +76,20 @@ namespace BrickBreaker
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
 
             #region Creates blocks for generic level. Need to replace with code that loads levels.
-            
-            //TODO - replace all the code in this region eventually with code that loads levels from xml files
-            
-            blocks.Clear();
-            int x = 10;
 
-            while (blocks.Count < 12)
-            {
-                x += 57;
-                Block b1 = new Block(x, 10, 1, Color.White);
-                blocks.Add(b1);
-            }
+            //TODO - replace all the code in this region eventually with code that loads levels from xml files
+
+            //**********LevelLoader lvlLoader = new LevelLoader(level, layerCount, $"{blockBrush}");
+
+            //blocks.Clear();
+            //int x = 10;
+
+            //while (blocks.Count < 15)
+            //{
+                //x += 57;
+                //Block b1 = new Block(x, 10, 1, Color.White);
+                //blocks.Add(b1);
+            //}
 
             #endregion
 
