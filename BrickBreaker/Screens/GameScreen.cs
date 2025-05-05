@@ -24,13 +24,15 @@ namespace BrickBreaker
 
         // Game values
         int lives;
+        public static int level;
+        public static int layerCount;
 
         // Paddle and Ball objects
         Paddle paddle;
         Ball ball;
 
         // list of all blocks for current level
-        List<Block> blocks = new List<Block>();
+        public static List<Block> blocks = new List<Block>();
 
         // Brushes
         SolidBrush paddleBrush = new SolidBrush(Color.White);
@@ -50,6 +52,7 @@ namespace BrickBreaker
         {
             //set life counter
             lives = 3;
+            level = 1;
 
             //set all button presses to false.
             leftArrowDown = rightArrowDown = escapeKeyDown = spaceKeyDown = false;
@@ -76,10 +79,12 @@ namespace BrickBreaker
 
             //TODO - replace all the code in this region eventually with code that loads levels from xml files
 
+            //**********LevelLoader lvlLoader = new LevelLoader(level, layerCount, $"{blockBrush}");
+            
             blocks.Clear();
             int x = 10;
 
-            while (blocks.Count < 12)
+            while (blocks.Count < 15)
             {
                 x += 57;
                 Block b1 = new Block(x, this.Height - paddle.height - 10, 1, Color.White);
