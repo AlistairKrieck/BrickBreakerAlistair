@@ -22,12 +22,13 @@ namespace BrickBreaker
 
         public void Move()
         {
-                y = y + ySpeed;
-                x = x + xSpeed;    
+            x += xSpeed;
+            y += ySpeed;
         }
 
-        public bool BlockCollision(Block b)
+        public bool Collision(Rectangle rect)
         {
+
             Rectangle blockRec = new Rectangle(b.x, b.y, b.width, b.height);
             Rectangle ballRec = new Rectangle(x, y, size, size);
             
