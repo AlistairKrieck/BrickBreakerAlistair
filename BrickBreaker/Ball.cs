@@ -29,23 +29,24 @@ namespace BrickBreaker
         public bool Collision(Rectangle rect)
         {
 
-            Rectangle blockRec = new Rectangle(b.x, b.y, b.width, b.height);
-            Rectangle ballRec = new Rectangle(x, y, size, size);
-            
+            //Rectangle blockRec = new Rectangle(b.x, b.y, b.width, b.height);
+            //Rectangle ballRec = new Rectangle(x, y, size, size);
 
-            if (ballRec.IntersectsWith(blockRec))
-            {
-                ySpeed *= -1;
-                //if (xSpeed < 6 && )
-                //{
-                    //xSpeed++;
-                //}
 
-                //SpeedLimitY();
-                //SpeedLimitX();
-            }
+            //if (ballRec.IntersectsWith(blockRec))
+            //{
+            //    ySpeed *= -1;
+            //    //if (xSpeed < 6 && )
+            //    //{
+            //        //xSpeed++;
+            //    //}
 
-            return blockRec.IntersectsWith(ballRec);
+            //    //SpeedLimitY();
+            //    //SpeedLimitX();
+            //}
+
+            //return blockRec.IntersectsWith(ballRec);
+            return false;
         }
 
         public void PaddleCollision(Paddle p)

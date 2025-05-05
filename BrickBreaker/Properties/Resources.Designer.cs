@@ -59,7 +59,7 @@ namespace BrickBreaker.Properties {
                 resourceCulture = value;
             }
         }
-     
+        
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt; 
         ///.
@@ -67,6 +67,16 @@ namespace BrickBreaker.Properties {
         internal static string _1 {
             get {
                 return ResourceManager.GetString("_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Cobblestone {
+            get {
+                object obj = ResourceManager.GetObject("Cobblestone", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

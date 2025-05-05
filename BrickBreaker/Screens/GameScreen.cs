@@ -30,7 +30,6 @@ namespace BrickBreaker
         Random randGen = new Random();
         bool bounce = true;
         int BulletBallTimer = 0;
-        Image brickImage = Properties.Resources.Cobblestone;
         public static int lives = 3;
         public static int points = 0;
         public static int level;
@@ -49,6 +48,8 @@ namespace BrickBreaker
         // Brushes
         SolidBrush paddleBrush = new SolidBrush(Color.White);
         SolidBrush ballBrush = new SolidBrush(Color.White);
+
+        Image brickImage = Properties.Resources.Cobblestone;
 
         #endregion
 
@@ -325,10 +326,10 @@ namespace BrickBreaker
                 e.Graphics.FillEllipse(p.color, p.x, p.y, p.size, p.size);
             }
 
-            // Draw bricks using an image
-            foreach (Bricks b in bricks)
+            // Draws Blocks
+            foreach (Block b in blocks)
             {
-                e.Graphics.DrawImage(brickImage, b.Rect);
+                e.Graphics.DrawImage(brickImage, b.x, b.y, b.width, b.height);
             }
 
             // Draws ball
