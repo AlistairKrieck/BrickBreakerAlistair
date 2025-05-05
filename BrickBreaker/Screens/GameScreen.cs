@@ -81,15 +81,15 @@ namespace BrickBreaker
 
             //**********LevelLoader lvlLoader = new LevelLoader(level, layerCount, $"{blockBrush}");
 
-            //blocks.Clear();
-            //int x = 10;
+            blocks.Clear();
+            int x = 10;
 
-            //while (blocks.Count < 15)
-            //{
-                //x += 57;
-                //Block b1 = new Block(x, 10, 1, Color.White);
-                //blocks.Add(b1);
-            //}
+            while (blocks.Count < 15)
+            {
+                x += 57;
+                Block b1 = new Block(x, 10, 1, Color.White);
+                blocks.Add(b1);
+            }
 
             #endregion
 
