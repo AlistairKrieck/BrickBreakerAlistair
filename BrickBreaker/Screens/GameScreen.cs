@@ -67,7 +67,7 @@ namespace BrickBreaker
             int ballY = paddle.height + 20;
 
             // Creates a new ball
-            int xSpeed = 6;
+            int xSpeed = 0;
             int ySpeed = 6;
             int ballSize = 20;
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
@@ -141,7 +141,7 @@ namespace BrickBreaker
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
-            ball.OverallSpeedLimit();
+            //ball.OverallSpeedLimit();
 
             // Move the paddle
             if (leftArrowDown && paddle.x > 0)

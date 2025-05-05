@@ -22,22 +22,26 @@ namespace BrickBreaker
 
         public void Move()
         {
-            
-            y = y + ySpeed;
-            x = x + xSpeed;
+                y = y + ySpeed;
+                x = x + xSpeed;    
         }
 
         public bool BlockCollision(Block b)
         {
             Rectangle blockRec = new Rectangle(b.x, b.y, b.width, b.height);
             Rectangle ballRec = new Rectangle(x, y, size, size);
+            
 
             if (ballRec.IntersectsWith(blockRec))
             {
                 ySpeed *= -1;
+                //if (xSpeed < 6 && )
+                //{
+                    //xSpeed++;
+                //}
 
-                SpeedLimitY();
-                SpeedLimitX();
+                //SpeedLimitY();
+                //SpeedLimitX();
             }
 
             return blockRec.IntersectsWith(ballRec);
@@ -57,7 +61,7 @@ namespace BrickBreaker
                     xSpeed *= -1;
                 }
 
-                SpeedLimitY();
+                //SpeedLimitY();
             }
         }
 
@@ -87,10 +91,14 @@ namespace BrickBreaker
 
         public void OverallSpeedLimit()
         {
-            if (xSpeed == 10 || ySpeed == 10 || xSpeed == -10 || ySpeed == -10)
+            if (xSpeed == 10 || ySpeed == 10  || ySpeed == -10)
             {
                 ySpeed = 6;
                 xSpeed = 6;
+            }
+            else if (xSpeed == -10)
+            {
+                xSpeed = -6;
             }
         }
 
@@ -101,19 +109,19 @@ namespace BrickBreaker
             if (x <= 0)
             {
                 xSpeed *= -1;
-                SpeedLimitX();
+                //SpeedLimitX();
             }
             // Collision with right wall
             if (x >= (UC.Width - size))
             {
                 xSpeed *= -1;
-                SpeedLimitX();
+                //SpeedLimitX();
             }
             // Collision with bottom wall
             if (y >= UC.Height)
             {
                 ySpeed *= -1;
-                SpeedLimitX();
+                //SpeedLimitX();
             }
         }
 
