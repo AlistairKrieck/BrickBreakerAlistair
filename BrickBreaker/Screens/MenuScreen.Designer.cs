@@ -30,6 +30,7 @@
         {
             this.playButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
+            this.saveLevel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // playButton
@@ -41,7 +42,7 @@
             this.playButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.playButton.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.playButton.Location = new System.Drawing.Point(276, 238);
-            this.playButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.playButton.Margin = new System.Windows.Forms.Padding(4);
             this.playButton.Name = "playButton";
             this.playButton.Size = new System.Drawing.Size(242, 96);
             this.playButton.TabIndex = 0;
@@ -56,7 +57,7 @@
             this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitButton.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitButton.Location = new System.Drawing.Point(276, 343);
-            this.exitButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.exitButton.Margin = new System.Windows.Forms.Padding(4);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(242, 96);
             this.exitButton.TabIndex = 1;
@@ -64,14 +65,32 @@
             this.exitButton.UseVisualStyleBackColor = false;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
+            // saveLevel
+            // 
+            this.saveLevel.BackColor = System.Drawing.Color.White;
+            this.saveLevel.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.saveLevel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.saveLevel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.saveLevel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveLevel.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveLevel.Location = new System.Drawing.Point(560, 485);
+            this.saveLevel.Margin = new System.Windows.Forms.Padding(4);
+            this.saveLevel.Name = "saveLevel";
+            this.saveLevel.Size = new System.Drawing.Size(242, 96);
+            this.saveLevel.TabIndex = 2;
+            this.saveLevel.Text = "Save Level";
+            this.saveLevel.UseVisualStyleBackColor = false;
+            this.saveLevel.Click += new System.EventHandler(this.saveLevel_Click);
+            // 
             // MenuScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Controls.Add(this.saveLevel);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.playButton);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MenuScreen";
             this.Size = new System.Drawing.Size(1067, 677);
             this.ResumeLayout(false);
@@ -82,5 +101,6 @@
 
         private System.Windows.Forms.Button playButton;
         private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.Button saveLevel;
     }
 }

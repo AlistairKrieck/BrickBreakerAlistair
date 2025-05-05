@@ -59,14 +59,14 @@ namespace BrickBreaker.Properties {
                 resourceCulture = value;
             }
         }
-        
+     
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt; 
+        ///.
         /// </summary>
-        internal static System.Drawing.Bitmap Cobblestone {
+        internal static string _1 {
             get {
-                object obj = ResourceManager.GetObject("Cobblestone", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("_1", resourceCulture);
             }
         }
     }

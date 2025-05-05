@@ -1,7 +1,7 @@
 ﻿/*  Created by: 
  *  Project: Brick Breaker
  *  Date: 
- */ 
+ */
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,7 +22,7 @@ namespace BrickBreaker
         #region global values
 
         //player1 button control keys - DO NOT CHANGE
-        Boolean leftArrowDown, rightArrowDown;
+        Boolean leftArrowDown, rightArrowDown, escapeKeyDown, spaceKeyDown;
 
         // Game values
         public static int screenHeight;
@@ -33,8 +33,8 @@ namespace BrickBreaker
         Image brickImage = Properties.Resources.Cobblestone;
         public static int lives = 3;
         public static int points = 0;
-
-
+        public static int level;
+        public static int layerCount;
 
         // Paddle and Ball objects
         Paddle paddle;
@@ -43,6 +43,8 @@ namespace BrickBreaker
         // list of all blocks for current level
         List<Bricks> bricks = new List<Bricks>();
         List<Powers> powerUps = new List<Powers>();
+        public static List<Block> blocks = new List<Block>();
+
 
         // Brushes
         SolidBrush paddleBrush = new SolidBrush(Color.White);
@@ -65,33 +67,53 @@ namespace BrickBreaker
         {
             //set life counter
             lives = 3;
+            level = 1;
 
             //make bricks 
             CreateBricks();
 
             //set all button presses to false.
-            leftArrowDown = rightArrowDown = false;
+            leftArrowDown = rightArrowDown = escapeKeyDown = spaceKeyDown = false;
 
             // setup starting paddle values and create paddle object
-            int paddleWidth = 80;
-            int paddleHeight = 20;
+            int paddleWidth = 60;
+            int paddleHeight = 10;
             int paddleX = ((this.Width / 2) - (paddleWidth / 2));
-            int paddleY = (this.Height - paddleHeight) - 60;
+            int paddleY = 10 + paddleHeight;
             int paddleSpeed = 8;
             paddle = new Paddle(paddleX, paddleY, paddleWidth, paddleHeight, paddleSpeed, Color.White);
 
             // setup starting ball values
             int ballX = this.Width / 2 - 10;
-            int ballY = this.Height - paddle.height - 80;
+            int ballY = paddle.height + 20;
 
             // Creates a new ball
-            int xSpeed = 6;
+            int xSpeed = 0;
             int ySpeed = 6;
             int ballSize = 20;
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
 
             // start the game engine loop
             gameTimer.Enabled = true;
+
+            #region Creates blocks for generic level. Need to replace with code that loads levels.
+
+            //TODO - replace all the code in this region eventually with code that loads levels from xml files
+
+            //**********LevelLoader lvlLoader = new LevelLoader(level, layerCount, $"{blockBrush}");
+            
+            blocks.Clear();
+            int x = 10;
+
+            while (blocks.Count < 15)
+            {
+                x += 57;
+                Block b1 = new Block(x, this.Height - paddle.height - 10, 1, Color.White);
+                blocks.Add(b1);
+            }
+
+
+            #endregion
         }
 
         private void GameScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
@@ -104,6 +126,17 @@ namespace BrickBreaker
                     break;
                 case Keys.Right:
                     rightArrowDown = true;
+                    break;
+                case Keys.Escape:
+                    escapeKeyDown = true;
+                    Application.Exit();
+                    break;
+                case Keys.Space:
+                    spaceKeyDown = true;
+                    if (gameTimer.Enabled == false)
+                    {
+                        gameTimer.Enabled = true;
+                    }
                     break;
                 default:
                     break;
@@ -121,6 +154,12 @@ namespace BrickBreaker
                 case Keys.Right:
                     rightArrowDown = false;
                     break;
+                case Keys.Escape:
+                    escapeKeyDown = false;
+                    break;
+                case Keys.Space:
+                    spaceKeyDown = false;
+                    break;
                 default:
                     break;
             }
@@ -128,6 +167,8 @@ namespace BrickBreaker
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
+            //ball.OverallSpeedLimit();
+
             // Move the paddle
             if (leftArrowDown && paddle.x > 0)
             {
@@ -144,20 +185,21 @@ namespace BrickBreaker
             // Check for collision with top and side walls
             ball.WallCollision(this);
 
-            // Check for ball hitting bottom of screen
-            if (ball.BottomCollision(this))
+            // Check for ball hitting top of screen
+            if (ball.TopCollision(this))
             {
                 lives--;
 
                 // Moves the ball back to origin
                 ball.x = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
-                ball.y = (this.Height - paddle.height) - 85;
+                ball.y = paddle.y + ball.size;
 
                 if (lives == 0)
                 {
-                    gameTimer.Enabled = false;
                     OnEnd();
                 }
+
+                gameTimer.Enabled = false;
             }
 
             // Check for collision of ball with paddle, (incl. paddle movement)
@@ -205,7 +247,7 @@ namespace BrickBreaker
             // Goes to the game over screen
             Form form = this.FindForm();
             MenuScreen ps = new MenuScreen();
-            
+
             ps.Location = new Point((form.Width - ps.Width) / 2, (form.Height - ps.Height) / 2);
 
             form.Controls.Add(ps);
@@ -290,7 +332,7 @@ namespace BrickBreaker
             }
 
             // Draws ball
-            e.Graphics.FillRectangle(ballBrush, ball.x, ball.y, ball.size, ball.size);
+            e.Graphics.FillEllipse(ballBrush, ball.x, ball.y, ball.size, ball.size);
         }
     }
 }
