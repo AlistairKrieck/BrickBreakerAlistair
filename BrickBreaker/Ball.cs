@@ -28,7 +28,6 @@ namespace BrickBreaker
 
         public bool Collision(Rectangle rect)
         {
-
             //Rectangle blockRec = new Rectangle(b.x, b.y, b.width, b.height);
             //Rectangle ballRec = new Rectangle(x, y, size, size);
 
@@ -93,7 +92,7 @@ namespace BrickBreaker
 
         public void OverallSpeedLimit()
         {
-            if (xSpeed == 10 || ySpeed == 10  || ySpeed == -10)
+            if (xSpeed == 10 || ySpeed == 10 || ySpeed == -10)
             {
                 ySpeed = 6;
                 xSpeed = 6;

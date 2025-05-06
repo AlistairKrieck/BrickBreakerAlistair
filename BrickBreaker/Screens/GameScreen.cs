@@ -51,6 +51,9 @@ namespace BrickBreaker
 
         Image brickImage = Properties.Resources.Cobblestone;
 
+        List<Arrow> arrows = new List<Arrow>();
+        List<MobBlock> mobs = new List<MobBlock>();
+
         #endregion
 
         public GameScreen()
@@ -295,6 +298,11 @@ namespace BrickBreaker
                     int y = row * (Bricks.height + Bricks.spacing) + 30; // Offset from top
 
                     bricks.Add(new Bricks(x, y, Bricks.width, Bricks.height));
+
+                    if(randGen.Next(100) < 30)
+                    {
+                        mobs.Add(new MobBlock(x, y, 1, Color.Red, "zombie"));
+                    }
                 }
             }
         }
@@ -331,6 +339,8 @@ namespace BrickBreaker
             {
                 e.Graphics.DrawImage(brickImage, b.x, b.y, b.width, b.height);
             }
+
+            foreach (MobBlock mb in mobs)
 
             // Draws ball
             e.Graphics.FillEllipse(ballBrush, ball.x, ball.y, ball.size, ball.size);

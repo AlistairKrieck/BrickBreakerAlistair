@@ -64,6 +64,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Arrow.cs" />
     <Compile Include="Ball.cs" />
     <Compile Include="Block.cs" />
     <Compile Include="Bricks.cs" />
@@ -74,10 +75,11 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="LevelDesign.cs">
+    <Compile Include="MobBlock.cs" />
+    <Compile Include="Screens\LevelDesign.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="LevelDesign.Designer.cs">
+    <Compile Include="Screens\LevelDesign.Designer.cs">
       <DependentUpon>LevelDesign.cs</DependentUpon>
     </Compile>
     <Compile Include="LevelLoader.cs" />
@@ -100,7 +102,7 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LevelDesign.resx">
+    <EmbeddedResource Include="Screens\LevelDesign.resx">
       <DependentUpon>LevelDesign.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
