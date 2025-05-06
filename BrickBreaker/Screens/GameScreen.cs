@@ -42,14 +42,11 @@ namespace BrickBreaker
         // list of all blocks for current level
         List<Bricks> bricks = new List<Bricks>();
         List<Powers> powerUps = new List<Powers>();
-        public static List<Block> blocks = new List<Block>();
 
 
         // Brushes
         SolidBrush paddleBrush = new SolidBrush(Color.White);
         SolidBrush ballBrush = new SolidBrush(Color.White);
-
-        Image brickImage = Properties.Resources.Cobblestone;
 
         #endregion
 
@@ -89,32 +86,13 @@ namespace BrickBreaker
             int ballY = paddle.height + 20;
 
             // Creates a new ball
-            int xSpeed = 0;
+            int xSpeed = 6;
             int ySpeed = 6;
             int ballSize = 20;
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
 
             // start the game engine loop
             gameTimer.Enabled = true;
-
-            #region Creates blocks for generic level. Need to replace with code that loads levels.
-
-            //TODO - replace all the code in this region eventually with code that loads levels from xml files
-
-            //**********LevelLoader lvlLoader = new LevelLoader(level, layerCount, $"{blockBrush}");
-            
-            blocks.Clear();
-            int x = 10;
-
-            while (blocks.Count < 15)
-            {
-                x += 57;
-                Block b1 = new Block(x, this.Height - paddle.height - 10, 1, Color.White);
-                blocks.Add(b1);
-            }
-
-
-            #endregion
         }
 
         private void GameScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
@@ -286,16 +264,17 @@ namespace BrickBreaker
         public void CreateBricks()
         {
             bricks.Clear(); // Clear existing bricks to prevent duplication
+            int totalHeight = Bricks.numRows * (Bricks.height + Bricks.spacing);
 
             for (int row = 0; row < Bricks.numRows; row++)
             {
                 for (int col = 0; col < Bricks.numCols; col++)
                 {
-                    int x = col * (Bricks.width + Bricks.spacing) + 2;// Offset from side
-                    int y = row * (Bricks.height + Bricks.spacing) + 30; // Offset from top
+                    int x = col * (Bricks.width + Bricks.spacing) + 2; // Offset from side
+                    int y = this.Height - totalHeight + row * (Bricks.height + Bricks.spacing) - 10; // Spawn from bottom
 
                     bricks.Add(new Bricks(x, y, Bricks.width, Bricks.height));
-                }
+                }              
             }
         }
 
@@ -327,9 +306,9 @@ namespace BrickBreaker
             }
 
             // Draws Blocks
-            foreach (Block b in blocks)
+            foreach (Bricks b in bricks)
             {
-                e.Graphics.DrawImage(brickImage, b.x, b.y, b.width, b.height);
+                e.Graphics.DrawImage(Properties.Resources.Cobblestone, b.Rect);
             }
 
             // Draws ball
