@@ -30,7 +30,7 @@ namespace BrickBreaker
         // Move power-up down
         public void Move()
         {
-            y += 2;
+            y -= 2;
         }
     }
 }

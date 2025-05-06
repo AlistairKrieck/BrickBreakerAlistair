@@ -9,22 +9,26 @@ namespace BrickBreaker
 {
     public class Block
     {
-        public int width = 50;
-        public int height = 25;
 
-        public int x;
-        public int y; 
-        public int hp;
-        public Color colour;
+        public static int width = 40;
+        public static int height = 40;
+        public static int numRows = 5;
+        public static int numCols = 10;
+        public static int spacing = 5;
+        public Rectangle Rect { get; set; }
+        public Brush Color { get; set; }
 
-        public static Random rand = new Random();
+        int X_;
 
-        public Block(int _x, int _y, int _hp, Color _colour)
+        public Block(int x, int y, int width, int height)
         {
-            x = _x;
-            y = _y;
-            hp = _hp;
-            colour = _colour;
+            Rect = new Rectangle(x, y, width, height);
+            X_ = x;
+
+        }
+        public int returnX()
+        {
+            return X_;
         }
     }
 }
