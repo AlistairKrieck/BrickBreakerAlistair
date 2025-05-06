@@ -76,7 +76,7 @@ namespace BrickBreaker
 
         public void OverallSpeedLimit()
         {
-            if (xSpeed == 10 || ySpeed == 10  || ySpeed == -10)
+            if (xSpeed == 10 || ySpeed == 10 || ySpeed == -10)
             {
                 ySpeed = 6;
                 xSpeed = 6;

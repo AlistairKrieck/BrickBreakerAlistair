@@ -48,6 +48,10 @@ namespace BrickBreaker
         SolidBrush paddleBrush = new SolidBrush(Color.White);
         SolidBrush ballBrush = new SolidBrush(Color.White);
 
+        Image brickImage = Properties.Resources.Cobblestone;
+
+        List<Arrow> arrows = new List<Arrow>();
+        List<MobBlock> mobs = new List<MobBlock>();
         #endregion
 
         public GameScreen()
@@ -274,7 +278,12 @@ namespace BrickBreaker
                     int y = this.Height - totalHeight + row * (Bricks.height + Bricks.spacing) - 10; // Spawn from bottom
 
                     bricks.Add(new Bricks(x, y, Bricks.width, Bricks.height));
-                }              
+                    
+                    if(randGen.Next(100) < 30)
+                    {
+                        mobs.Add(new MobBlock(x, y, 1, Color.Red, "zombie"));
+                    }
+                }
             }
         }
 
@@ -310,6 +319,8 @@ namespace BrickBreaker
             {
                 e.Graphics.DrawImage(Properties.Resources.Cobblestone, b.Rect);
             }
+
+            foreach (MobBlock mb in mobs)
 
             // Draws ball
             e.Graphics.FillEllipse(ballBrush, ball.x, ball.y, ball.size, ball.size);
