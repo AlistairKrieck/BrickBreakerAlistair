@@ -15,6 +15,7 @@ namespace BrickBreaker
         public MenuScreen()
         {
             InitializeComponent();
+            Dock = DockStyle.Fill;
         }
 
         private void exitButton_Click(object sender, EventArgs e)

@@ -9,14 +9,12 @@ namespace BrickBreaker
 {
     internal class Bricks
     {
-
-        public static int width = 40;
-        public static int height = 40;
+        public static int width = 15;
+        public static int height = 15;
         public static int numRows = 5;
         public static int numCols = 10;
-        public static int spacing = 5;
+        public static int spacing = 3;
         public Rectangle Rect { get; set; }
-        public Brush Color { get; set; }
 
         int X_;
 

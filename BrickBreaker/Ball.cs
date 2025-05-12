@@ -88,7 +88,7 @@ namespace BrickBreaker
         }
 
 
-        public void WallCollision(UserControl UC)
+        public void WallCollision(UserControl UC, float scaleX, float scaleY)
         {
             // Collision with left wall
             if (x <= 0)
@@ -103,7 +103,7 @@ namespace BrickBreaker
                 //SpeedLimitX();
             }
             // Collision with bottom wall
-            if (y >= UC.Height)
+            if (y >= UC.Height - size)
             {
                 ySpeed *= -1;
                 //SpeedLimitX();

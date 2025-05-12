@@ -34,6 +34,12 @@ namespace BrickBreaker
         public static int points = 0;
         public static int level;
         public static int layerCount;
+        private readonly int baseWidth = 1068;   // Original game width
+        private readonly int baseHeight = 678;  // Original game height
+                                                // Calculate scaling
+       public float scaleX;
+        public float scaleY;
+
 
         // Paddle and Ball objects
         Paddle paddle;
@@ -48,18 +54,17 @@ namespace BrickBreaker
         SolidBrush paddleBrush = new SolidBrush(Color.White);
         SolidBrush ballBrush = new SolidBrush(Color.White);
 
-        Image brickImage = Properties.Resources.Cobblestone;
-
         List<Arrow> arrows = new List<Arrow>();
-        List<MobBlock> mobs = new List<MobBlock>();
         #endregion
 
         public GameScreen()
         {
+            scaleX = baseWidth / (float)this.Width;
+            scaleY = baseHeight / (float)this.Height;
             InitializeComponent();
-
-           screenHeight = this.Height;
-           screenWidth = this.Width;
+            Dock = DockStyle.Fill;
+            screenHeight = this.Height;
+            screenWidth = this.Width;
 
             OnStart();
         }
@@ -67,6 +72,7 @@ namespace BrickBreaker
 
         public void OnStart()
         {
+
             //set life counter
             lives = 3;
             level = 1;
@@ -166,12 +172,13 @@ namespace BrickBreaker
             ball.Move();
 
             // Check for collision with top and side walls
-            ball.WallCollision(this);
+            ball.WallCollision(this,scaleX,scaleY);
 
             // Check for ball hitting top of screen
             if (ball.TopCollision(this))
             {
                 lives--;
+                
 
                 // Moves the ball back to origin
                 ball.x = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
@@ -239,8 +246,10 @@ namespace BrickBreaker
 
         private void CheckBallBrickCollision()
         {
+
             for (int i = 0; i < bricks.Count; i++)
             {
+
                 if (ball.Collision(bricks[i].Rect))
                 {
                     BricksDestroyed(i);
@@ -252,6 +261,7 @@ namespace BrickBreaker
                 }
             }
         }
+
         public void BricksDestroyed(int i)
         {
 
@@ -268,20 +278,25 @@ namespace BrickBreaker
         public void CreateBricks()
         {
             bricks.Clear(); // Clear existing bricks to prevent duplication
-            int totalHeight = Bricks.numRows * (Bricks.height + Bricks.spacing);
+
+            int brickWidth = (int)(Bricks.width * scaleX);
+            int brickHeight = (int)(Bricks.height * scaleY);
+            int brickSpacing = (int)(Bricks.spacing * scaleX);
+
+           
 
             for (int row = 0; row < Bricks.numRows; row++)
             {
                 for (int col = 0; col < Bricks.numCols; col++)
                 {
-                    int x = col * (Bricks.width + Bricks.spacing) + 2; // Offset from side
-                    int y = this.Height - totalHeight + row * (Bricks.height + Bricks.spacing) - 10; // Spawn from bottom
+                    int x = (col * (brickWidth + brickSpacing) + 2) + this.Width/4;
+                    int y = (this.Height - 50) + row * (brickHeight + brickSpacing);
 
-                    bricks.Add(new Bricks(x, y, Bricks.width, Bricks.height));
-                    }
+                    bricks.Add(new Bricks(x, y, brickWidth, brickHeight));
                 }
             }
         }
+
 
         public void ApplyPowerUps(string type)
         {
@@ -292,34 +307,33 @@ namespace BrickBreaker
             {
                 bounce = false;
                 BulletBallTimer = 200;
-
             }
 
         }
-
-
         public void GameScreen_Paint(object sender, PaintEventArgs e)
         {
-            // Draws paddle
+
+           // e.Graphics.ScaleTransform(scaleX, scaleY);
+
+            // Draw paddle
             paddleBrush.Color = paddle.colour;
             e.Graphics.FillRectangle(paddleBrush, paddle.x, paddle.y, paddle.width, paddle.height);
 
-            // Draws PowerUp
+            // Draw power-ups
             foreach (Powers p in powerUps)
             {
                 e.Graphics.FillEllipse(p.color, p.x, p.y, p.size, p.size);
             }
 
-            // Draws Blocks
+            // Draw ball
+            e.Graphics.FillRectangle(ballBrush, ball.x, ball.y, ball.size, ball.size);
+
+            // Draw bricks using resource image
             foreach (Bricks b in bricks)
             {
                 e.Graphics.DrawImage(Properties.Resources.Cobblestone, b.Rect);
             }
-
-            foreach (MobBlock mb in mobs)
-
-            // Draws ball
-            e.Graphics.FillEllipse(ballBrush, ball.x, ball.y, ball.size, ball.size);
         }
+
     }
 }

@@ -15,6 +15,7 @@ namespace BrickBreaker
             height = _height;
             speed = _speed;
             colour = _colour;
+
         }
 
         public void Move(string direction)
