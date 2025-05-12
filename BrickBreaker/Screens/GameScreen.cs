@@ -278,10 +278,6 @@ namespace BrickBreaker
                     int y = this.Height - totalHeight + row * (Bricks.height + Bricks.spacing) - 10; // Spawn from bottom
 
                     bricks.Add(new Bricks(x, y, Bricks.width, Bricks.height));
-                    
-                    if(randGen.Next(100) < 30)
-                    {
-                        mobs.Add(new MobBlock(x, y, 1, Color.Red, "zombie"));
                     }
                 }
             }
@@ -291,7 +287,7 @@ namespace BrickBreaker
         {
             if (type == "ExtraLife") lives++;
             else if (type == "SpeedBoost") paddle.speed += 2;
-            else if (type == "BigPaddle") paddle.width += 20;
+            else if (type == "BigPaddle") paddle.width += 40;
             else if (type == "Bullet")
             {
                 bounce = false;
