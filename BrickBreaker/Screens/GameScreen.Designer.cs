@@ -45,7 +45,7 @@
             this.liveslabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.liveslabel.Location = new System.Drawing.Point(234, 53);
             this.liveslabel.Name = "liveslabel";
-            this.liveslabel.Size = new System.Drawing.Size(14, 16);
+            this.liveslabel.Size = new System.Drawing.Size(13, 13);
             this.liveslabel.TabIndex = 0;
             this.liveslabel.Text = "2";
             // 

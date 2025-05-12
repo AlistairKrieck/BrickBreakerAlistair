@@ -28,25 +28,8 @@ namespace BrickBreaker
 
         public bool Collision(Rectangle rect)
         {
-
-            //Rectangle blockRec = new Rectangle(b.x, b.y, b.width, b.height);
-            //Rectangle ballRec = new Rectangle(x, y, size, size);
-
-
-            //if (ballRec.IntersectsWith(blockRec))
-            //{
-            //    ySpeed *= -1;
-            //    //if (xSpeed < 6 && )
-            //    //{
-            //        //xSpeed++;
-            //    //}
-
-            //    //SpeedLimitY();
-            //    //SpeedLimitX();
-            //}
-
-            //return blockRec.IntersectsWith(ballRec);
-            return false;
+            Rectangle ballRec = new Rectangle(x, y, size, size);
+            return ballRec.IntersectsWith(rect);
         }
 
         public void PaddleCollision(Paddle p)
@@ -56,74 +39,65 @@ namespace BrickBreaker
 
             if (ballRec.IntersectsWith(paddleRec))
             {
-                ySpeed *= -1;
+                ySpeedLimit();
 
                 if (ballRec.X < paddleRec.X + p.width / 2 && xSpeed > 0 || ballRec.X > paddleRec.X + p.width / 2 && xSpeed < 0)
                 {
                     xSpeed *= -1;
+                    y = y + 10;
                 }
-
-                //SpeedLimitY();
             }
         }
 
-        public void SpeedLimitY()
+        public void ySpeedLimit()
         {
-            if (ySpeed > 0 && ySpeed < 11)
+            if (ySpeed >= 0 && ySpeed >= 8)
             {
                 ySpeed++;
             }
-            else if (ySpeed < 0 && ySpeed > -11)
+            if (ySpeed < 0 && ySpeed >= -8)
             {
                 ySpeed--;
             }
+
+            ySpeed *= -1;
         }
 
-        public void SpeedLimitX()
+        public void xSpeedLimit()
         {
-            if (xSpeed > 0 && xSpeed < 11)
+            if (xSpeed >= 0 && xSpeed >= 8)
             {
                 xSpeed++;
             }
-            else if (xSpeed < 0 && xSpeed > -11)
+            if (xSpeed < 0 && xSpeed >= -8)
             {
                 xSpeed--;
             }
-        }
 
-        public void OverallSpeedLimit()
-        {
-            if (xSpeed == 10 || ySpeed == 10  || ySpeed == -10)
-            {
-                ySpeed = 6;
-                xSpeed = 6;
-            }
-            else if (xSpeed == -10)
-            {
-                xSpeed = -6;
-            }
+            xSpeed *= -1;
         }
-
 
         public void WallCollision(UserControl UC)
         {
             // Collision with left wall
             if (x <= 0)
             {
-                xSpeed *= -1;
-                //SpeedLimitX();
+                xSpeedLimit();
             }
             // Collision with right wall
             if (x >= (UC.Width - size))
             {
-                xSpeed *= -1;
-                //SpeedLimitX();
+                xSpeedLimit();
             }
             // Collision with bottom wall
             if (y >= UC.Height)
             {
                 ySpeed *= -1;
-                //SpeedLimitX();
+
+                if (xSpeed == 0)
+                {
+                    xSpeed = 3;
+                }
             }
         }
 

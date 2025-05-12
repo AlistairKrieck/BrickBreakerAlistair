@@ -21,7 +21,6 @@ namespace BrickBreaker
         {
             level = _level;
             layersCount = _layersCount;
-            color = color;
             currentLayer = 1;
             int x = 10;
 

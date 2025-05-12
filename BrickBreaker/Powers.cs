@@ -12,6 +12,7 @@ namespace BrickBreaker
         public int x, y, size;
         public string type;
         public SolidBrush color;
+
         public Powers(int x, int y, string type)
         {
             this.x = x;
@@ -30,7 +31,7 @@ namespace BrickBreaker
         // Move power-up down
         public void Move()
         {
-            y += 2;
+            y -= 2;
         }
     }
 }

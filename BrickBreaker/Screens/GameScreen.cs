@@ -34,16 +34,18 @@ namespace BrickBreaker
         public static int points = 0;
         public static int level;
         public static int layerCount;
+        int xSpeed = 0;
+        int ySpeed = 3;
 
         // Paddle and Ball objects
         Paddle paddle;
         Ball ball;
 
         // list of all blocks for current level
-        List<Bricks> bricks = new List<Bricks>();
+        
         List<Powers> powerUps = new List<Powers>();
         public static List<Block> blocks = new List<Block>();
-
+        List<Bricks> bricks = new List<Bricks>();
 
         // Brushes
         SolidBrush paddleBrush = new SolidBrush(Color.White);
@@ -55,12 +57,12 @@ namespace BrickBreaker
 
         public GameScreen()
         {
-            InitializeComponent();
+           InitializeComponent();
 
            screenHeight = this.Height;
            screenWidth = this.Width;
 
-            OnStart();
+           OnStart();
         }
 
 
@@ -89,32 +91,8 @@ namespace BrickBreaker
             int ballY = paddle.height + 20;
 
             // Creates a new ball
-            int xSpeed = 0;
-            int ySpeed = 6;
             int ballSize = 20;
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
-
-            // start the game engine loop
-            gameTimer.Enabled = true;
-
-            #region Creates blocks for generic level. Need to replace with code that loads levels.
-
-            //TODO - replace all the code in this region eventually with code that loads levels from xml files
-
-            //**********LevelLoader lvlLoader = new LevelLoader(level, layerCount, $"{blockBrush}");
-            
-            blocks.Clear();
-            int x = 10;
-
-            while (blocks.Count < 15)
-            {
-                x += 57;
-                Block b1 = new Block(x, this.Height - paddle.height - 10, 1, Color.White);
-                blocks.Add(b1);
-            }
-
-
-            #endregion
         }
 
         private void GameScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
@@ -168,7 +146,6 @@ namespace BrickBreaker
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
-            //ball.OverallSpeedLimit();
 
             // Move the paddle
             if (leftArrowDown && paddle.x > 0)
@@ -194,6 +171,8 @@ namespace BrickBreaker
                 // Moves the ball back to origin
                 ball.x = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
                 ball.y = paddle.y + ball.size;
+                ball.xSpeed = 0;
+                ball.ySpeed = 3;
 
                 if (lives == 0)
                 {
@@ -220,22 +199,18 @@ namespace BrickBreaker
             {
                 Powers p = powerUps[i];
 
-
                 if (paddle.x < p.x + p.size && paddle.x + paddle.width > p.x &&
                     paddle.y < p.y + p.size && paddle.y + paddle.height > p.y)
                 {
                     ApplyPowerUps(p.type);
                     powerUps.RemoveAt(i);
-
                 }
             }
-
 
             if (bounce == false)
             {
                 BulletBallTimer--;
                 if (BulletBallTimer <= 0) bounce = true;
-
             }
 
             //redraw the screen
@@ -261,8 +236,19 @@ namespace BrickBreaker
             {
                 if (ball.Collision(bricks[i].Rect))
                 {
+                    if (ball.xSpeed == 0)
+                    {
+                        ball.xSpeed = 3;
+                    }
+
+                    if (ball.x < 202 || ball.x > 652)
+                    {
+                        ball.xSpeed = ball.xSpeed * -1;
+                    }
+
                     BricksDestroyed(i);
                     bricks.RemoveAt(i);
+
                     if (bounce == true)
                     {
                         ball.ySpeed = ball.ySpeed * -1;
@@ -270,10 +256,9 @@ namespace BrickBreaker
                 }
             }
         }
+
         public void BricksDestroyed(int i)
         {
-
-
             if (randGen.Next(100) < 30)
             {
                 string[] powerUpTypes = { "ExtraLife", "SpeedBoost", "BigPaddle", "Bullet" };
@@ -286,15 +271,16 @@ namespace BrickBreaker
         public void CreateBricks()
         {
             bricks.Clear(); // Clear existing bricks to prevent duplication
+            int totalHeight = Bricks.numRows * (Bricks.height + Bricks.spacing);
 
             for (int row = 0; row < Bricks.numRows; row++)
             {
                 for (int col = 0; col < Bricks.numCols; col++)
                 {
-                    int x = col * (Bricks.width + Bricks.spacing) + 2;// Offset from side
-                    int y = row * (Bricks.height + Bricks.spacing) + 30; // Offset from top
+                    int x = col * (Bricks.width + Bricks.spacing) + 202;// Offset from side
+                    int y = this.Height - totalHeight + row * (Bricks.height + Bricks.spacing) - 10; // Offset from top
 
-                    bricks.Add(new Bricks(x, y, Bricks.width, Bricks.height));
+                    bricks.Add(new Bricks(x, y));
                 }
             }
         }
@@ -308,11 +294,8 @@ namespace BrickBreaker
             {
                 bounce = false;
                 BulletBallTimer = 200;
-
             }
-
         }
-
 
         public void GameScreen_Paint(object sender, PaintEventArgs e)
         {
@@ -327,9 +310,9 @@ namespace BrickBreaker
             }
 
             // Draws Blocks
-            foreach (Block b in blocks)
+            foreach (Bricks b in bricks)
             {
-                e.Graphics.DrawImage(brickImage, b.x, b.y, b.width, b.height);
+                e.Graphics.DrawImage(Properties.Resources.Cobblestone, b.Rect);
             }
 
             // Draws ball
