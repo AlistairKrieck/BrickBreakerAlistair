@@ -1,8 +1,4 @@
-﻿/*  Created by: 
- *  Project: Brick Breaker
- *  Date: 
- */
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -94,7 +90,7 @@ namespace BrickBreaker
             // Creates a new ball
             int xSpeed = 6;
             int ySpeed = 6;
-            int ballSize = Convert.ToInt32(10 * scaleY);
+            int ballSize = Convert.ToInt32(10 * ((scaleY + scaleX)/2));
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
 
             // start the game engine loop
