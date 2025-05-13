@@ -56,8 +56,8 @@ namespace BrickBreaker
 
         public GameScreen()
         {
-            scaleX = 1068 / (float)this.Width;
-            scaleY = 678 / (float)this.Height;
+            scaleX = 1068 / this.Width;
+            scaleY = 678 / this.Height;
             InitializeComponent();
             Dock = DockStyle.Fill;
             screenHeight = this.Height;
@@ -94,7 +94,7 @@ namespace BrickBreaker
             // Creates a new ball
             int xSpeed = 6;
             int ySpeed = 6;
-            int ballSize = 20;
+            int ballSize = Convert.ToInt32(10 * scaleY);
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
 
             // start the game engine loop
