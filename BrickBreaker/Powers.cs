@@ -12,11 +12,13 @@ namespace BrickBreaker
         public int x, y, size;
         public string type;
         public SolidBrush color;
+
+
         public Powers(int x, int y, string type)
         {
             this.x = x;
             this.y = y;
-            this.size = 15; // Power-up size
+            this.size = 5 * GameScreen.totalScale; // Power-up size
             this.type = type;
 
             // Assign colors based on power-up type

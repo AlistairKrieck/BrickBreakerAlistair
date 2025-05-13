@@ -30,8 +30,9 @@ namespace BrickBreaker
         public static int points = 0;
         public static int level;
         public static int layerCount;
-        public float scaleX;
-        public float scaleY;
+        int scaleX;
+        int scaleY;
+        public static int totalScale;
 
 
         // Paddle and Ball objects
@@ -52,8 +53,9 @@ namespace BrickBreaker
 
         public GameScreen()
         {
-            scaleX = 1068 / this.Width;
-            scaleY = 678 / this.Height;
+            scaleX = Convert.ToInt32 (1068 / this.Width);
+            scaleY = Convert.ToInt32 (678 / this.Height);
+            totalScale = (scaleY + scaleX) / 2;
             InitializeComponent();
             Dock = DockStyle.Fill;
             screenHeight = this.Height;
@@ -76,21 +78,21 @@ namespace BrickBreaker
             leftArrowDown = rightArrowDown = escapeKeyDown = spaceKeyDown = false;
 
             // setup starting paddle values and create paddle object
-            int paddleWidth = Convert.ToInt32 (30 * scaleX);
-            int paddleHeight = Convert.ToInt32 (7 * scaleY);
+            int paddleWidth = 30 * scaleX;
+            int paddleHeight =7 * scaleY;
             int paddleX = ((this.Width / 2) - (paddleWidth / 2));
             int paddleY = 10 + paddleHeight;
-            int paddleSpeed = Convert.ToInt32 (3 * scaleX);
+            int paddleSpeed = 3 * scaleX;
             paddle = new Paddle(paddleX, paddleY, paddleWidth, paddleHeight, paddleSpeed, Color.White);
 
             // setup starting ball values
             int ballX = this.Width / 2 - 10;
-            int ballY = Convert.ToInt32 (paddleHeight + 20*scaleY);
+            int ballY =paddleHeight + 20 * scaleY;
 
             // Creates a new ball
             int xSpeed = 6;
             int ySpeed = 6;
-            int ballSize = Convert.ToInt32(10 * ((scaleY + scaleX)/2));
+            int ballSize = 5 * totalScale;
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
 
             // start the game engine loop
