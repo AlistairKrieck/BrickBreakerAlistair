@@ -55,8 +55,8 @@ namespace BrickBreaker
         List<ZombieSpit> spits = new List<ZombieSpit>();
 
         List<MobBlock> mobs = new List<MobBlock>();
-        List<Skeleton> skeletons = new List<Skeleton>();
-        List<Zombie> zombies = new List<Zombie>();
+        //List<Skeleton> skeletons = new List<Skeleton>();
+        //List<Zombie> zombies = new List<Zombie>();
         List<Creeper> creepers = new List<Creeper>();
 
         int levelMobCount = 3;
@@ -187,25 +187,21 @@ namespace BrickBreaker
             // Move ball
             ball.Move();
 
-            foreach (Skeleton s in skeletons)
+            foreach (MobBlock m in mobs)
             {
                 if (randGen.Next(0, 100) < 1)
                 {
-                    var ar = s.AttackPlayer();
+                    if (m.mobType == "skeleton")
+                    {
+                        Skeleton s = (Skeleton)m;
+                        projectiles.Add(s.AttackPlayer());
+                    }
 
-                    //arrows.Add(ar);
-                    projectiles.Add(ar);
-                }
-            }
-
-            foreach (Zombie z in zombies)
-            {
-                if (randGen.Next(0, 100) < 1)
-                {
-                    var spit = z.AttackPlayer();
-
-                    //spits.Add(spit);
-                    projectiles.Add(spit);
+                    if (m.mobType == "zombie")
+                    {
+                        Zombie z = (Zombie)m;
+                        projectiles.Add(z.AttackPlayer());
+                    }
                 }
             }
 
@@ -263,6 +259,9 @@ namespace BrickBreaker
             //ball brick collision
             CheckBallBrickCollision();
 
+            // Check if ball collides with a mob and kill it if so
+            KillMobs();
+
             //move powers 
             foreach (Powers p in powerUps)
             {
@@ -316,6 +315,21 @@ namespace BrickBreaker
                 {
                     BricksDestroyed(i);
                     bricks.RemoveAt(i);
+                    if (bounce == true)
+                    {
+                        ball.ySpeed = ball.ySpeed * -1;
+                    }
+                }
+            }
+        }
+
+        private void KillMobs()
+        {
+            for (int i = 0; i < mobs.Count; i++)
+            {
+                if (ball.Collision(mobs[i].Rect))
+                {
+                    mobs.RemoveAt(i);
                     if (bounce == true)
                     {
                         ball.ySpeed = ball.ySpeed * -1;
@@ -390,17 +404,14 @@ namespace BrickBreaker
                 {
                     case "skeleton":
                         m = new Skeleton(x, y);
-                        skeletons.Add((Skeleton)m);
                         break;
 
                     case "zombie":
                         m = new Zombie(x, y);
-                        zombies.Add((Zombie)m);
                         break;
 
                     default:
                         m = new Skeleton(x, y);
-                        skeletons.Add((Skeleton)m);
                         break;
                 }
 
