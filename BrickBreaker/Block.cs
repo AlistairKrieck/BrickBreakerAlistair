@@ -9,7 +9,7 @@ namespace BrickBreaker
 {
     public class Block
     {
-
+        public int x, y;
         public static int width = 40;
         public static int height = 40;
         public static int numRows = 5;
@@ -18,17 +18,12 @@ namespace BrickBreaker
         public Rectangle Rect { get; set; }
         public Brush Color { get; set; }
 
-        int X_;
-
-        public Block(int x, int y, int width, int height)
+        public Block(int _x, int _y)
         {
+            x = _x;
+            y = _y;
+
             Rect = new Rectangle(x, y, width, height);
-            X_ = x;
-
-        }
-        public int returnX()
-        {
-            return X_;
         }
     }
 }
