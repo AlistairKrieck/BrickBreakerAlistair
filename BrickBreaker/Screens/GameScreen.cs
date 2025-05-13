@@ -426,7 +426,7 @@ namespace BrickBreaker
             paddleBrush.Color = paddle.colour;
             e.Graphics.FillRectangle(paddleBrush, paddle.x, paddle.y, paddle.width, paddle.height);
 
-            // Draws PowerUp
+            // draws power ups
             foreach (Powers p in powerUps)
             {
                 e.Graphics.FillEllipse(p.color, p.x, p.y, p.size, p.size);
