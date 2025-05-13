@@ -41,10 +41,13 @@ namespace BrickBreaker
             {
                 ySpeedLimit();
 
-                if (ballRec.X < paddleRec.X + p.width / 2 && xSpeed > 0 || ballRec.X > paddleRec.X + p.width / 2 && xSpeed < 0)
+                if (ballRec.X < paddleRec.X + p.width / 2 && xSpeed > 0)
                 {
                     xSpeed *= -1;
-                    y = y + 10;
+                }
+                if (ballRec.X > paddleRec.X + p.width / 2 && xSpeed < 0)
+                {
+                    xSpeed *= -1;
                 }
             }
         }

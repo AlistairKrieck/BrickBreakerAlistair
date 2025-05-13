@@ -14,15 +14,17 @@ namespace BrickBreaker
         public static int numRows = 5;
         public static int numCols = 10;
         public static int spacing = 5;
+        public static int hp = 1;
 
         public Rectangle Rect { get; set; }
 
         public static int x, y;
 
-        public Bricks(int _x, int _y)
+        public Bricks(int _x, int _y, int _hp)
         {
             x = _x;
             y = _y;
+            hp = _hp;
 
             Rect = new Rectangle(x, y, width, height);
         }

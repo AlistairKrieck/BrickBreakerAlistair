@@ -27,7 +27,9 @@ namespace BrickBreaker
         // Game values
         public static int screenHeight;
         public static int screenWidth;
+
         Random randGen = new Random();
+
         bool bounce = true;
         int BulletBallTimer = 0;
         public static int lives = 3;
@@ -280,7 +282,7 @@ namespace BrickBreaker
                     int x = col * (Bricks.width + Bricks.spacing) + 202;// Offset from side
                     int y = this.Height - totalHeight + row * (Bricks.height + Bricks.spacing) - 10; // Offset from top
 
-                    bricks.Add(new Bricks(x, y));
+                    bricks.Add(new Bricks(x, y, 1));
                 }
             }
         }
