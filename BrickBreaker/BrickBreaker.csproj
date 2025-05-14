@@ -102,7 +102,6 @@
     <Compile Include="Screens\GameScreen.Designer.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Screens\MobBlock.cs" />
     <Compile Include="Mobs\Skeleton.cs" />
     <Compile Include="Mobs\Zombie.cs" />
     <EmbeddedResource Include="Form1.resx">
