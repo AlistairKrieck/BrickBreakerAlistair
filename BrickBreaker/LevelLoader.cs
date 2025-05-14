@@ -24,7 +24,7 @@ namespace BrickBreaker
             currentLayer = 1;
             int x = 10;
 
-            GameScreen.blocks.Clear();
+           // GameScreen.Bricks.Clear();
 
             XmlReader reader = XmlReader.Create("Resources/1.xml");
 

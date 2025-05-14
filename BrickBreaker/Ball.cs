@@ -28,8 +28,8 @@ namespace BrickBreaker
 
         public bool Collision(Rectangle rect)
         {
-            Rectangle ballRec = new Rectangle(x, y, size, size);
-            return ballRec.IntersectsWith(rect);
+            Rectangle ballRect = new Rectangle(x, y, size, size);
+            return ballRect.IntersectsWith(rect);
         }
 
         public void PaddleCollision(Paddle p)
@@ -76,8 +76,19 @@ namespace BrickBreaker
             {
                 xSpeed--;
             }
+        }
 
-            xSpeed *= -1;
+        public void OverallSpeedLimit()
+        {
+            if (xSpeed == 10 || ySpeed == 10 || ySpeed == -10)
+            {
+                ySpeed = 6;
+                xSpeed = 6;
+            }
+            else if (xSpeed == -10)
+            {
+                xSpeed = -6;
+            }
         }
 
         public void WallCollision(UserControl UC)
