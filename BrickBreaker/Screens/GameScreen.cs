@@ -39,6 +39,7 @@ namespace BrickBreaker
         int xSpeed = 0;
         int ySpeed = 3;
 
+
         // Paddle and Ball objects
         public static Paddle paddle;
         public static Ball ball;
@@ -80,7 +81,7 @@ namespace BrickBreaker
 
             screenHeight = this.Height;
             screenWidth = this.Width;
-
+            
            OnStart();
         }
 
