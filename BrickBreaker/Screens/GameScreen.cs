@@ -27,22 +27,27 @@ namespace BrickBreaker
         // Game values
         public static int screenHeight;
         public static int screenWidth;
+
         Random randGen = new Random();
+
         bool bounce = true;
         int BulletBallTimer = 0;
         public static int lives = 3;
         public static int points = 0;
         public static int level;
         public static int layerCount;
+        int xSpeed = 0;
+        int ySpeed = 3;
 
         // Paddle and Ball objects
         public static Paddle paddle;
         public static Ball ball;
 
         // list of all blocks for current level
-        List<Bricks> bricks = new List<Bricks>();
+        
         List<Powers> powerUps = new List<Powers>();
-
+        public static List<Block> blocks = new List<Block>();
+        List<Bricks> bricks = new List<Bricks>();
 
         // Brushes
         SolidBrush paddleBrush = new SolidBrush(Color.White);
@@ -71,12 +76,12 @@ namespace BrickBreaker
 
         public GameScreen()
         {
-            InitializeComponent();
+           InitializeComponent();
 
             screenHeight = this.Height;
             screenWidth = this.Width;
 
-            OnStart();
+           OnStart();
         }
 
 
@@ -116,9 +121,6 @@ namespace BrickBreaker
 
             // start the game engine loop
             gameTimer.Enabled = true;
-
-            // spawn a test arrow
-            //arrows.Add(new Arrow(30, this.Height - 25, 20, 5, 25));
         }
 
         private void GameScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
@@ -172,7 +174,6 @@ namespace BrickBreaker
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
-            //ball.OverallSpeedLimit();
 
             // Move the paddle
             if (leftArrowDown && paddle.x > 0)
@@ -244,6 +245,8 @@ namespace BrickBreaker
                 // Moves the ball back to origin
                 ball.x = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
                 ball.y = paddle.y + ball.size;
+                ball.xSpeed = 0;
+                ball.ySpeed = 3;
 
                 if (lives == 0)
                 {
@@ -273,7 +276,6 @@ namespace BrickBreaker
             {
                 Powers p = powerUps[i];
 
-
                 if (paddle.x < p.x + p.size && paddle.x + paddle.width > p.x &&
                     paddle.y < p.y + p.size && paddle.y + paddle.height > p.y)
                 {
@@ -282,12 +284,10 @@ namespace BrickBreaker
                 }
             }
 
-
             if (bounce == false)
             {
                 BulletBallTimer--;
                 if (BulletBallTimer <= 0) bounce = true;
-
             }
 
             //redraw the screen
@@ -313,8 +313,19 @@ namespace BrickBreaker
             {
                 if (ball.Collision(bricks[i].Rect))
                 {
+                    if (ball.xSpeed == 0)
+                    {
+                        ball.xSpeed = 3;
+                    }
+
+                    if (ball.x < 202 || ball.x > 652)
+                    {
+                        ball.xSpeed = ball.xSpeed * -1;
+                    }
+
                     BricksDestroyed(i);
                     bricks.RemoveAt(i);
+
                     if (bounce == true)
                     {
                         ball.ySpeed = ball.ySpeed * -1;
@@ -358,10 +369,10 @@ namespace BrickBreaker
             {
                 for (int col = 0; col < Bricks.numCols; col++)
                 {
-                    int x = col * (Bricks.width + Bricks.spacing) + 2; // Offset from side
-                    int y = this.Height - totalHeight + row * (Bricks.height + Bricks.spacing) - 10; // Spawn from bottom
+                    int x = col * (Bricks.width + Bricks.spacing) + 202;// Offset from side
+                    int y = this.Height - totalHeight + row * (Bricks.height + Bricks.spacing) - 10; // Offset from top
 
-                    bricks.Add(new Bricks(x, y, Bricks.width, Bricks.height));
+                    bricks.Add(new Bricks(x, y, 1));
                 }
             }
         }
@@ -375,9 +386,7 @@ namespace BrickBreaker
             {
                 bounce = false;
                 BulletBallTimer = 200;
-
             }
-
         }
 
         public void SpawnMobs()

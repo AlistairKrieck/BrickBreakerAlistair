@@ -12,6 +12,7 @@ namespace BrickBreaker
         public int x, y, size;
         public string type;
         public SolidBrush color;
+
         public Powers(int x, int y, string type)
         {
             this.x = x;
@@ -23,7 +24,7 @@ namespace BrickBreaker
             if (type == "ExtraLife") color = new SolidBrush(Color.Green);
             else if (type == "SpeedBoost") color = new SolidBrush(Color.Blue);
             else if (type == "BigPaddle") color = new SolidBrush(Color.Orange);
-            else if (type == "Bullet") color = new SolidBrush(Color.Black);
+            else if (type == "Bullet") color = new SolidBrush(Color.Purple);
 
         }
 

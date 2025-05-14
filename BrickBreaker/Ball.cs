@@ -39,36 +39,40 @@ namespace BrickBreaker
 
             if (ballRec.IntersectsWith(paddleRec))
             {
-                ySpeed *= -1;
+                ySpeedLimit();
 
-                if (ballRec.X < paddleRec.X + p.width / 2 && xSpeed > 0 || ballRec.X > paddleRec.X + p.width / 2 && xSpeed < 0)
+                if (ballRec.X < paddleRec.X + p.width / 2 && xSpeed > 0)
                 {
                     xSpeed *= -1;
                 }
-
-                //SpeedLimitY();
+                if (ballRec.X > paddleRec.X + p.width / 2 && xSpeed < 0)
+                {
+                    xSpeed *= -1;
+                }
             }
         }
 
-        public void SpeedLimitY()
+        public void ySpeedLimit()
         {
-            if (ySpeed > 0 && ySpeed < 11)
+            if (ySpeed >= 0 && ySpeed >= 8)
             {
                 ySpeed++;
             }
-            else if (ySpeed < 0 && ySpeed > -11)
+            if (ySpeed < 0 && ySpeed >= -8)
             {
                 ySpeed--;
             }
+
+            ySpeed *= -1;
         }
 
-        public void SpeedLimitX()
+        public void xSpeedLimit()
         {
-            if (xSpeed > 0 && xSpeed < 11)
+            if (xSpeed >= 0 && xSpeed >= 8)
             {
                 xSpeed++;
             }
-            else if (xSpeed < 0 && xSpeed > -11)
+            if (xSpeed < 0 && xSpeed >= -8)
             {
                 xSpeed--;
             }
@@ -87,26 +91,27 @@ namespace BrickBreaker
             }
         }
 
-
         public void WallCollision(UserControl UC)
         {
             // Collision with left wall
             if (x <= 0)
             {
-                xSpeed *= -1;
-                //SpeedLimitX();
+                xSpeedLimit();
             }
             // Collision with right wall
             if (x >= (UC.Width - size))
             {
-                xSpeed *= -1;
-                //SpeedLimitX();
+                xSpeedLimit();
             }
             // Collision with bottom wall
             if (y >= UC.Height)
             {
                 ySpeed *= -1;
-                //SpeedLimitX();
+
+                if (xSpeed == 0)
+                {
+                    xSpeed = 3;
+                }
             }
         }
 

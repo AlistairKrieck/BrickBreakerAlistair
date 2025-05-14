@@ -9,29 +9,24 @@ namespace BrickBreaker
 {
     internal class Bricks
     {
-
         public static int width = 40;
         public static int height = 40;
         public static int numRows = 5;
         public static int numCols = 10;
         public static int spacing = 5;
+        public static int hp = 1;
+
         public Rectangle Rect { get; set; }
-        public Brush Color { get; set; }
 
-        int X_;
+        public static int x, y;
 
-        public Bricks(int x, int y, int width, int height)
+        public Bricks(int _x, int _y, int _hp)
         {
+            x = _x;
+            y = _y;
+            hp = _hp;
 
             Rect = new Rectangle(x, y, width, height);
-            X_ = x;
-
         }
-
-        public int returnX()
-        {
-            return X_;
-        }
-
     }
 }
