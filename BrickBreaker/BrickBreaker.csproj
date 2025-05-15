@@ -162,7 +162,21 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\stoneBlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grassBlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dirtBlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bedrockpng.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deepslate.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

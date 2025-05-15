@@ -76,6 +76,7 @@ namespace BrickBreaker
             {
                 xSpeed--;
             }
+            xSpeed*= -1;
         }
 
         public void OverallSpeedLimit()

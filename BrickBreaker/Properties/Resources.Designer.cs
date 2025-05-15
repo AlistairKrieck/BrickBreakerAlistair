@@ -73,9 +73,49 @@ namespace BrickBreaker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Cobblestone {
+        internal static System.Drawing.Bitmap bedrockpng {
             get {
-                object obj = ResourceManager.GetObject("Cobblestone", resourceCulture);
+                object obj = ResourceManager.GetObject("bedrockpng", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap deepslate {
+            get {
+                object obj = ResourceManager.GetObject("deepslate", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dirtBlock {
+            get {
+                object obj = ResourceManager.GetObject("dirtBlock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap grassBlock {
+            get {
+                object obj = ResourceManager.GetObject("grassBlock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap stoneBlock {
+            get {
+                object obj = ResourceManager.GetObject("stoneBlock", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
