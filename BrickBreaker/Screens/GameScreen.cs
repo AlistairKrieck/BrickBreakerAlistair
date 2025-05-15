@@ -57,13 +57,9 @@ namespace BrickBreaker
         Image brickImage = Properties.Resources.Cobblestone;
 
         List<Projectile> projectiles = new List<Projectile>();
-        List<Arrow> arrows = new List<Arrow>();
-        List<ZombieSpit> spits = new List<ZombieSpit>();
 
         List<MobBlock> mobs = new List<MobBlock>();
-        //List<Skeleton> skeletons = new List<Skeleton>();
-        //List<Zombie> zombies = new List<Zombie>();
-        List<Creeper> creepers = new List<Creeper>();
+
 
         int levelMobCount = 3;
 
@@ -398,12 +394,12 @@ namespace BrickBreaker
 
             for (int i = 0; i < levelMobCount; i++)
             {
-                int x = randGen.Next(0, Bricks.numCols) * (Bricks.width + Bricks.spacing) + 2;
+                int x = randGen.Next(0, Bricks.numCols) * (Bricks.width + Bricks.spacing) + 202;
                 int y = this.Height - totalHeight + randGen.Next(0, Bricks.numRows) * (Bricks.height + Bricks.spacing) - 10;
 
                 while (mobs.Any(s => s.x == x && s.y == y))
                 {
-                    x = randGen.Next(0, Bricks.numCols) * (Bricks.width + Bricks.spacing) + 2;
+                    x = randGen.Next(0, Bricks.numCols) * (Bricks.width + Bricks.spacing) + 202;
                     y = this.Height - totalHeight + randGen.Next(0, Bricks.numRows) * (Bricks.height + Bricks.spacing) - 10;
                 }
 
@@ -469,7 +465,7 @@ namespace BrickBreaker
             // Draw mobs over their blocks
             foreach (MobBlock m in mobs)
             {
-                e.Graphics.FillRectangle(new SolidBrush(m.mobColor), m.Rect);
+                e.Graphics.FillRectangle(m.mobBrush, m.Rect);
             }
 
             // Draws ball

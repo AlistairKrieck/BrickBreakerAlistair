@@ -64,7 +64,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Creeper.cs" />
+    <Compile Include="Mobs\Creeper.cs" />
     <Compile Include="Projectiles\Projectile.cs" />
     <Compile Include="Projectiles\ZombieSpit.cs" />
     <Compile Include="Projectiles\Arrow.cs" />

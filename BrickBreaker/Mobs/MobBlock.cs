@@ -12,7 +12,7 @@ namespace BrickBreaker
         public string mobType;
         public int xSpeed = 5;
         public int ySpeed = 5;
-        public Color mobColor;
+        public Brush mobBrush;
 
         public static string[] mobTypes = { "skeleton", "zombie", "creeper" };
 
