@@ -13,7 +13,7 @@ namespace BrickBreaker
         public int width, height;
         public string image;
         public double angle;
-        public Color color;
+        public SolidBrush projBrush;
 
         public void Move()
         {

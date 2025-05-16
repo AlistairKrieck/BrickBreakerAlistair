@@ -18,7 +18,7 @@ namespace BrickBreaker
 
         public MobBlock(int _x, int _y) : base(_x, _y)
         {
-
+            
         }
 
         public void Move(string direction)

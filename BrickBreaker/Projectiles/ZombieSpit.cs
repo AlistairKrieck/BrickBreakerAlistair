@@ -19,7 +19,7 @@ namespace BrickBreaker
             speed = _speed;
 
             image = "slimeball";
-            color = Color.GreenYellow;
+            projBrush = new SolidBrush(Color.GreenYellow);
 
             GetTarget(GameScreen.paddle);
             GetAngle();

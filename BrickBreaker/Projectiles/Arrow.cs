@@ -22,7 +22,7 @@ namespace BrickBreaker
             width = GameScreen.arrowWidth;
 
             image = "arrow";
-            color = Color.Brown;
+            projBrush = new SolidBrush(Color.Brown);
 
             GetTarget(GameScreen.paddle);
             GetAngle();

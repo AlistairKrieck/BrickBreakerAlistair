@@ -45,7 +45,7 @@ namespace BrickBreaker
         public static Ball ball;
 
         // list of all blocks for current level
-        
+
         List<Powers> powerUps = new List<Powers>();
         public static List<Block> blocks = new List<Block>();
         List<Bricks> bricks = new List<Bricks>();
@@ -65,20 +65,20 @@ namespace BrickBreaker
 
         public static int arrowHeight = 20;
         public static int arrowWidth = 5;
-        public static int arrowSpeed = 15;
+        public static int arrowSpeed = 8;
 
-        public static int spitSpeed = 15;
+        public static int spitSpeed = 7;
         public static int spitDiameter = 20;
         #endregion
 
         public GameScreen()
         {
-           InitializeComponent();
+            InitializeComponent();
 
             screenHeight = this.Height;
             screenWidth = this.Width;
-            
-           OnStart();
+
+            OnStart();
         }
 
 
@@ -211,23 +211,29 @@ namespace BrickBreaker
                 {
                     // Update position and break the loop so the arrow is not deleted until one of those conditions is true
                     p.Move();
-                    break;
                 }
 
                 else if (p.PaddleCollision(paddle))
                 {
-                    //Remove a life from the player if an arrow hits them
+                    //Remove a life from the player if a projectile hits them
                     lives--;
+
+                    projectiles.Remove(p);
 
                     if (lives == 0)
                     {
                         OnEnd();
                     }
+
+                    break;
                 }
 
-                // Remove the arrow if it has reached its target
-                projectiles.Remove(p);
-                return;
+                else
+                {
+                    // Remove the projectile if it has reached its target
+                    projectiles.Remove(p);
+                    break;
+                }
             }
 
 
@@ -333,15 +339,12 @@ namespace BrickBreaker
 
         private void KillMobs()
         {
-            for (int i = 0; i < mobs.Count; i++)
+            foreach (MobBlock m in mobs)
             {
-                if (ball.Collision(mobs[i].Rect))
+                if (ball.Collision(m.Rect))
                 {
-                    mobs.RemoveAt(i);
-                    if (bounce == true)
-                    {
-                        ball.ySpeed = ball.ySpeed * -1;
-                    }
+                    mobs.Remove(m);
+                    break;
                 }
             }
         }
@@ -452,13 +455,13 @@ namespace BrickBreaker
                     Arrow a = (Arrow)proj;
                     a.GetArrowBody();
 
-                    e.Graphics.FillPolygon(new SolidBrush(proj.color), a.points);
+                    e.Graphics.FillPolygon(a.projBrush, a.points);
                 }
 
                 if (proj.image == "slimeball")
                 {
                     ZombieSpit s = (ZombieSpit)proj;
-                    e.Graphics.FillEllipse(new SolidBrush(s.color), s.x, s.y, s.diameter, s.diameter);
+                    e.Graphics.FillEllipse(s.projBrush, s.x, s.y, s.diameter, s.diameter);
                 }
             }
 
