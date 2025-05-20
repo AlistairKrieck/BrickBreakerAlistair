@@ -347,15 +347,20 @@ namespace BrickBreaker
                     {
                         ball.xSpeed = ball.xSpeed * -1;
                     }
+                    bool destroyed = bricks[i].TakeDamage();
 
-                    BricksDestroyed(i);
-                    bricks.RemoveAt(i);
-
+                    if (destroyed)
+                    {
+                        BricksDestroyed(i);
+                        bricks.RemoveAt(i);
+                    }
                     if (bounce == true)
                     {
                         ball.ySpeed = ball.ySpeed * -1;
                     }
-                }
+
+                    break; // Exit loop after hitting one brick
+                }                                   
             }
         }
 
