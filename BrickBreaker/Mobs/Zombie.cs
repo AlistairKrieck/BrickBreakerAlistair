@@ -11,7 +11,7 @@ namespace BrickBreaker
     {
         public Zombie(int _x, int _y) : base(_x, _y)
         {
-            mobBrush = new SolidBrush(System.Drawing.Color.Green);
+            //mobBrush = new SolidBrush(System.Drawing.Color.Green);
             mobType = "zombie";
         }
 

@@ -46,7 +46,7 @@ namespace BrickBreaker
 
         // Enum for Brick Types
         public enum BrickType
-        {      
+        {
             Grass,
             Dirt,
             Stone,
@@ -54,7 +54,7 @@ namespace BrickBreaker
             Bedrock,
         }
 
-        Dictionary<BrickType, Image> brickImages = new Dictionary<BrickType, Image>()
+        public static Dictionary<BrickType, Image> brickImages = new Dictionary<BrickType, Image>()
         {
             { BrickType.Stone, Properties.Resources.stoneBlock },
             { BrickType.Grass, Properties.Resources.grassBlock },
@@ -66,7 +66,6 @@ namespace BrickBreaker
 
 
         List<Powers> powerUps = new List<Powers>();
-        public static List<Block> blocks = new List<Block>();
         List<Bricks> bricks = new List<Bricks>();
 
         // Brushes
@@ -76,11 +75,8 @@ namespace BrickBreaker
 
         List<MobBlock> mobs = new List<MobBlock>();
 
-        Image brickImage = Properties.Resources.Cobblestone;
-
         List<Projectile> projectiles = new List<Projectile>();
 
-        List<MobBlock> mobs = new List<MobBlock>();
 
         int levelMobCount = 3;
 
@@ -169,7 +165,7 @@ namespace BrickBreaker
                     if (gameTimer.Enabled == true) gameTimer.Enabled = false;
                     else if (gameTimer.Enabled == false) gameTimer.Enabled = true;
                     break;
-                 default:
+                default:
                     break;
             }
         }
@@ -214,7 +210,7 @@ namespace BrickBreaker
             // Move ball
             ball.Move();
 
-            foreach (Block m in blocks)
+            foreach (Bricks m in bricks)
             {
 
                 if (randGen.Next(0, 1000) < 1)
@@ -338,11 +334,11 @@ namespace BrickBreaker
 
         private void CheckBallBlockCollision()
         {
-            for (int i = 0; i < blocks.Count; i++)
+            for (int i = 0; i < bricks.Count; i++)
             {
                 direction = randGen.Next(1, 3);
 
-                if (ball.Collision(blocks[i].Rect))
+                if (ball.Collision(bricks[i].Rect))
                 {
                     if (ball.xSpeed == 0)
                     {
@@ -373,7 +369,7 @@ namespace BrickBreaker
                     }
 
                     break; // Exit loop after hitting one brick
-                }                                   
+                }
             }
         }
 
@@ -391,7 +387,7 @@ namespace BrickBreaker
 
         public void LoadLevel(string levelNum)
         {
-            blocks = levelLoader.LoadLevel(levelNum);
+            bricks = levelLoader.LoadLevel(levelNum);
         }
 
         public void ApplyPowerUps(string type)
@@ -413,15 +409,15 @@ namespace BrickBreaker
             for (int i = 0; i < levelMobCount; i++)
             {
                 //select a random index within the list of blocks
-                int index = randGen.Next(0, blocks.Count);
+                int index = randGen.Next(0, bricks.Count);
 
 
-                while (mobs.Any(s => s.x == blocks[index].x && s.y == blocks[index].y))
+                while (mobs.Any(s => s.x == bricks[index].x && s.y == bricks[index].y))
                 {
-                    index = randGen.Next(0, blocks.Count);
+                    index = randGen.Next(0, bricks.Count);
                 }
 
-                m = new MobBlock(blocks[index].x, blocks[index].y);
+                m = new MobBlock(bricks[index].x, bricks[index].y);
 
                 int mob = randGen.Next(0, MobBlock.mobTypes.Length);
 
@@ -429,17 +425,17 @@ namespace BrickBreaker
                 {
                     case "skeleton":
                         m = new Skeleton(m.x, m.y);
-                        blocks[index] = m;
+                        bricks[index] = m;
                         break;
 
                     case "zombie":
                         m = new Zombie(m.x, m.y);
-                        blocks[index] = m;
+                        bricks[index] = m;
                         break;
 
                     default:
                         m = new Skeleton(m.x, m.y);
-                        blocks[index] = m;
+                        bricks[index] = m;
                         break;
                 }
 
@@ -472,6 +468,7 @@ namespace BrickBreaker
                     // Fallback to a white rectangle if no image found
                     e.Graphics.FillRectangle(Brushes.White, b.Rect);
                 }
+            }
 
             // Draw projectiles launched at player
             foreach (Projectile proj in projectiles)

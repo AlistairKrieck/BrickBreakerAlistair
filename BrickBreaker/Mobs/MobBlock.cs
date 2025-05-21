@@ -7,39 +7,14 @@ using System.Drawing;
 
 namespace BrickBreaker
 {
-    public class MobBlock : Block
+    public class MobBlock : Bricks
     {
         public string mobType;
-        public int xSpeed = 5;
-        public int ySpeed = 5;
-        public Brush mobBrush;
 
         public static string[] mobTypes = { "skeleton", "zombie" };
 
         public MobBlock(int _x, int _y) : base(_x, _y)
         {
-
-        }
-
-        public void Move(string direction)
-        {
-            if (direction == "left")
-            {
-                x -= xSpeed;
-            }
-            if (direction == "right")
-            {
-                x += xSpeed;
-            }
-
-            if (direction == "up")
-            {
-                y -= ySpeed;
-            }
-            if (direction == "down")
-            {
-                y += ySpeed;
-            }
 
         }
     }

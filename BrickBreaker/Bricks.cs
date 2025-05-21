@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BrickBreaker
 {
-    internal class Bricks
+    public class Bricks
     {
         // Static properties for all Bricks
         public static int width = 80;
@@ -15,6 +15,8 @@ namespace BrickBreaker
         public static int numRows = 5;
         public static int numCols = 10;
         public static int spacing = 5;
+
+        public int x, y;
 
         // Instance properties
         public int hp { get; set; }
@@ -24,6 +26,9 @@ namespace BrickBreaker
 
         public Bricks(int _x, int _y, GameScreen.BrickType _type, Image _image)
         {
+            x = _x;
+            y = _y;
+
             Rect = new Rectangle(_x, _y, width, height);
             BrickType = _type;
             Image = _image;
@@ -52,6 +57,17 @@ namespace BrickBreaker
                     hp = 1;
                     break;
             }
+        }
+
+        public Bricks(int _x, int _y)
+        {
+            x = _x;
+            y = _y;
+        }
+
+        public Bricks()
+        {
+
         }
 
         // Reduce health and return if destroyed

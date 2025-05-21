@@ -16,7 +16,7 @@ namespace BrickBreaker
         string textureValue;
         int button = 1;
         string type;
-        List<Block> blocks = new List<Block>();
+        List<Bricks> bricks = new List<Bricks>();
         bool canContinue = true;
 
         private void saveLabel_Click(object sender, EventArgs e)
@@ -34,37 +34,6 @@ namespace BrickBreaker
             SaveLevel();
         }
 
-        //private void Saving()
-        //{
-        //    Text.Text = "e";
-        //    button = 1;
-        //    string test = $"block" + button;
-        //    test = $"{test}.Location.X";
-
-
-        //    while (canContinue == true)
-        //    {
-        //        try
-        //        {
-        //            x = block1.Location.X;
-        //            y = block1.Location.Y;
-        //            textureValue = block1.Text;
-        //            width = block1.Width;
-        //            height = block1.Height;
-
-        //            BlockSave newBlockSave = new BlockSave(x, y, textureValue, width, height);
-        //            blocks.Add(newBlockSave);
-        //        }
-
-        //        catch
-        //        {
-        //            canContinue = false;
-        //        }
-        //    }
-
-        //    this.Refresh();
-        //}
-
         private void SaveLevel()
         {
             levelNum = Text.Text;
@@ -75,15 +44,16 @@ namespace BrickBreaker
                 {
                     x = c.Location.X;
                     y = c.Location.Y;
-                    type = c.Text;
 
-                    Block newBlock = new Block(x, y, type);
-                    blocks.Add(newBlock);
+                    GameScreen.BrickType type = Form1.ConvertStringToBlockType(c.Text);
+
+                    Bricks newBlock = new Bricks(x, y, type, GameScreen.brickImages[type]);
+                    bricks.Add(newBlock);
                 }
             }
 
             Level level = new Level();
-            level.SaveLevel(levelNum, blocks);
+            level.SaveLevel(levelNum, bricks);
         }
     }
 }

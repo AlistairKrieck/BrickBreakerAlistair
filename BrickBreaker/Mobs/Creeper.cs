@@ -11,7 +11,7 @@ namespace BrickBreaker
     {
         public Creeper(int _x, int _y) : base(_x, _y)
         {
-            mobBrush = new SolidBrush(System.Drawing.Color.DarkOliveGreen);
+            //mobBrush = new SolidBrush(System.Drawing.Color.DarkOliveGreen);
             mobType = "creeper";
         }
 

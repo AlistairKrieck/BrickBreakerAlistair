@@ -10,14 +10,14 @@ namespace BrickBreaker
 {
     public class Level
     {
-        List<Block> blocks;
+        List<Bricks> bricks;
 
         public Level()
         {
-            blocks = new List<Block>();
+            bricks = new List<Bricks>();
         }
 
-        public void SaveLevel(string levelNum, List<Block> _blocks)
+        public void SaveLevel(string levelNum, List<Bricks> _bricks)
         {
             //Open the XML file and place it in writer 
             XmlWriter writer = XmlWriter.Create($"Resources/{levelNum}.xml");
@@ -27,7 +27,7 @@ namespace BrickBreaker
             writer.WriteStartElement("Level");
 
 
-            foreach (Block b in _blocks)
+            foreach (Bricks b in _bricks)
             {
                 //Start an element 
                 writer.WriteStartElement("Block");
@@ -42,7 +42,7 @@ namespace BrickBreaker
 
                 writer.WriteElementString("height", $"{Block.height}");
 
-                writer.WriteElementString("type", $"{b.blockType}");
+                writer.WriteElementString("type", $"{b.BrickType}");
 
 
                 // end the element 
@@ -59,9 +59,9 @@ namespace BrickBreaker
         }
 
 
-        public List<Block> LoadLevel(string levelNum)
+        public List<Bricks> LoadLevel(string levelNum)
         {
-            blocks.Clear();
+            bricks.Clear();
 
             //Open the XML file and place it in writer 
             XmlReader reader = XmlReader.Create($"Resources/{levelNum}.xml");
@@ -77,7 +77,7 @@ namespace BrickBreaker
                 if (reader.NodeType == XmlNodeType.Element)
                 {
                     //create a block
-                    Block b = new Block();
+                    Bricks b = new Bricks();
 
                     reader.ReadToFollowing("x");
                     x = reader.ReadString();
@@ -86,22 +86,26 @@ namespace BrickBreaker
                     y = reader.ReadString();
 
                     reader.ReadToFollowing("type");
-                    b.blockType = reader.ReadString();
+                    type = reader.ReadString();
+
+                    b.BrickType = Form1.ConvertStringToBlockType(type);
 
                     b.x = Convert.ToInt16(x);
                     b.y = Convert.ToInt16(y);
 
                     b.Rect = new Rectangle(b.x, b.y, Block.width, Block.height);
 
+                    b.Image = GameScreen.brickImages[b.BrickType];
+
                     //add day to list of blocks
-                    blocks.Add(b);
+                    bricks.Add(b);
                 }
             }
 
             //Write the XML to file and close the writer 
             reader.Close();
 
-            return blocks;
+            return bricks;
         }
     }
 }
