@@ -19,6 +19,11 @@ namespace BrickBreaker
         List<Block> blocks = new List<Block>();
         bool canContinue = true;
 
+        private void saveLabel_Click(object sender, EventArgs e)
+        {
+            SaveLevel();
+        }
+
         string levelNum;
 
         public LevelDesign()

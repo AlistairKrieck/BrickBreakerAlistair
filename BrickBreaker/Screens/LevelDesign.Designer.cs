@@ -69,6 +69,7 @@
             this.button36 = new System.Windows.Forms.Button();
             this.button37 = new System.Windows.Forms.Button();
             this.button38 = new System.Windows.Forms.Button();
+            this.saveLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // block1
@@ -440,11 +441,23 @@
             this.button38.Text = "grass";
             this.button38.UseVisualStyleBackColor = true;
             // 
+            // saveLabel
+            // 
+            this.saveLabel.AutoSize = true;
+            this.saveLabel.ForeColor = System.Drawing.Color.White;
+            this.saveLabel.Location = new System.Drawing.Point(759, 116);
+            this.saveLabel.Name = "saveLabel";
+            this.saveLabel.Size = new System.Drawing.Size(121, 16);
+            this.saveLabel.TabIndex = 40;
+            this.saveLabel.Text = "Click to Save Level";
+            this.saveLabel.Click += new System.EventHandler(this.saveLabel_Click);
+            // 
             // LevelDesign
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Controls.Add(this.saveLabel);
             this.Controls.Add(this.button31);
             this.Controls.Add(this.button32);
             this.Controls.Add(this.button33);
@@ -491,6 +504,7 @@
             this.Name = "LevelDesign";
             this.Size = new System.Drawing.Size(1068, 678);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -537,5 +551,6 @@
         private System.Windows.Forms.Button button36;
         private System.Windows.Forms.Button button37;
         private System.Windows.Forms.Button button38;
+        private System.Windows.Forms.Label saveLabel;
     }
 }
