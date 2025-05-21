@@ -25,8 +25,9 @@ namespace BrickBreaker
          * UI design
          * Powerups come from ores
          * Level switching
-         * (High)score tracking
+         * (High)score tracking and saving
          * Blaze mob
+         * Damage indicator on blocks
          * 
          */
         #region global values
