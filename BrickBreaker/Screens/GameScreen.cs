@@ -29,6 +29,7 @@ namespace BrickBreaker
         public static int screenWidth;
 
         Random randGen = new Random();
+        public int direction;
 
         bool bounce = true;
         int BulletBallTimer = 0;
@@ -36,8 +37,7 @@ namespace BrickBreaker
         public static int points = 0;
         public static int level;
         public static int layerCount;
-        int xSpeed = 0;
-        int ySpeed = 3;
+
 
 
         // Paddle and Ball objects
@@ -115,13 +115,10 @@ namespace BrickBreaker
             int ballY = paddle.height + 20;
 
             // Creates a new ball
-            int xSpeed = 6;
-            int ySpeed = 6;
+            int xSpeed = 0;
+            int ySpeed = 3;
             int ballSize = 20;
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
-
-            // start the game engine loop
-            gameTimer.Enabled = true;
         }
 
         private void GameScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
@@ -175,7 +172,6 @@ namespace BrickBreaker
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
-
             // Move the paddle
             if (leftArrowDown && paddle.x > 0)
             {
@@ -191,6 +187,7 @@ namespace BrickBreaker
 
             foreach (Block m in blocks)
             {
+
                 if (randGen.Next(0, 1000) < 1)
                 {
                     if (m is Skeleton)
@@ -216,22 +213,21 @@ namespace BrickBreaker
                     // Update position and break the loop so the arrow is not deleted until one of those conditions is true
                     p.Move();
                 }
-
                 else if (p.PaddleCollision(paddle))
                 {
                     //Remove a life from the player if a projectile hits them
                     lives--;
+                    projectiles.Remove(p);
 
                     projectiles.Remove(p);
 
                     if (lives == 0)
                     {
+                        gameTimer.Enabled = false;
                         OnEnd();
                     }
 
-                    break;
                 }
-
                 else
                 {
                     // Remove the projectile if it has reached its target
@@ -239,7 +235,6 @@ namespace BrickBreaker
                     break;
                 }
             }
-
 
             // Check for collision with top and side walls
             ball.WallCollision(this);
@@ -257,6 +252,7 @@ namespace BrickBreaker
 
                 if (lives == 0)
                 {
+                    gameTimer.Enabled = false;
                     OnEnd();
                 }
 
@@ -315,16 +311,25 @@ namespace BrickBreaker
         {
             for (int i = 0; i < blocks.Count; i++)
             {
+                direction = randGen.Next(1, 3);
+
                 if (ball.Collision(blocks[i].Rect))
                 {
                     if (ball.xSpeed == 0)
                     {
-                        ball.xSpeed = 3;
+                        if (direction == 1)
+                        {
+                            ball.xSpeed = 2;
+                        }
+                        else
+                        {
+                            ball.xSpeed = -2;
+                        }
                     }
 
-                    if (ball.x < 202 || ball.x > 652)
+                    if (ball.x + ball.size < bricks[i].Rect.X + 5 || ball.x > bricks[i].Rect.X + 35)
                     {
-                        ball.xSpeed = ball.xSpeed * -1;
+                        ball.xSpeed *= -1;
                     }
 
                     blocks.RemoveAt(i);
@@ -373,6 +378,7 @@ namespace BrickBreaker
             {
                 //select a random index within the list of blocks
                 int index = randGen.Next(0, blocks.Count);
+
 
                 while (mobs.Any(s => s.x == blocks[index].x && s.y == blocks[index].y))
                 {
