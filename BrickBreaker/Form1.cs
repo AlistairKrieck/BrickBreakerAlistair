@@ -27,7 +27,7 @@ namespace BrickBreaker
             MenuScreen ms = new MenuScreen();
 
             //Fill usercontrol to entire screen
-            ms.Dock = DockStyle.Fill;
+            //ms.Dock = DockStyle.Fill;
             this.Controls.Add(ms);
 
             ms.Location = new Point((this.Width - ms.Width) / 2, (this.Height - ms.Height) / 2);

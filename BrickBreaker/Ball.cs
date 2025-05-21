@@ -76,20 +76,8 @@ namespace BrickBreaker
             {
                 xSpeed--;
             }
-            xSpeed*= -1;
-        }
-
-        public void OverallSpeedLimit()
-        {
-            if (xSpeed == 10 || ySpeed == 10 || ySpeed == -10)
-            {
-                ySpeed = 6;
-                xSpeed = 6;
-            }
-            else if (xSpeed == -10)
-            {
-                xSpeed = -6;
-            }
+          
+            xSpeed *= -1;
         }
 
         public void WallCollision(UserControl UC)

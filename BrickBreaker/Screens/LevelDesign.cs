@@ -15,43 +15,75 @@ namespace BrickBreaker
         int x, y, width, height;
         string textureValue;
         int button = 1;
-        List<BlockSave> blocks = new List<BlockSave>();
-
+        string type;
+        List<Block> blocks = new List<Block>();
         bool canContinue = true;
+
+        private void saveLabel_Click(object sender, EventArgs e)
+        {
+            SaveLevel();
+        }
+
+        string levelNum;
+
         public LevelDesign()
         {
             InitializeComponent();
-            Saving();
+            //Saving();
+
+            SaveLevel();
         }
 
-        private void Saving() 
+        //private void Saving()
+        //{
+        //    Text.Text = "e";
+        //    button = 1;
+        //    string test = $"block" + button;
+        //    test = $"{test}.Location.X";
+
+
+        //    while (canContinue == true)
+        //    {
+        //        try
+        //        {
+        //            x = block1.Location.X;
+        //            y = block1.Location.Y;
+        //            textureValue = block1.Text;
+        //            width = block1.Width;
+        //            height = block1.Height;
+
+        //            BlockSave newBlockSave = new BlockSave(x, y, textureValue, width, height);
+        //            blocks.Add(newBlockSave);
+        //        }
+
+        //        catch
+        //        {
+        //            canContinue = false;
+        //        }
+        //    }
+
+        //    this.Refresh();
+        //}
+
+        private void SaveLevel()
         {
-            Text.Text = "e";
-            button = 1;
-            string test = $"block" + button;
-            test = $"{test}.Location.X";
+            levelNum = Text.Text;
 
-
-            while (canContinue == true)
+            foreach (Control c in this.Controls)
             {
-                try
+                if (c is Button)
                 {
-                    x = block1.Location.X;
-                    y = block1.Location.Y;
-                    textureValue = block1.Text;
-                    width = block1.Width;
-                    height = block1.Height;
+                    x = c.Location.X;
+                    y = c.Location.Y;
+                    type = c.Text;
 
-                    BlockSave newBlockSave = new BlockSave(x, y, textureValue, width, height);
-                    blocks.Add(newBlockSave);
-                }
-
-                catch { 
-                    canContinue = false;
+                    Block newBlock = new Block(x, y, type);
+                    blocks.Add(newBlock);
                 }
             }
 
-            this.Refresh();
+            Level level = new Level();
+            level.SaveLevel(levelNum, blocks);
         }
     }
 }

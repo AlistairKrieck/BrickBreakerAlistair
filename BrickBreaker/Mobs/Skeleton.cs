@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ namespace BrickBreaker
     {
         public Skeleton(int _x, int _y) : base(_x, _y)
         {
-            mobColor = System.Drawing.Color.White;
+            mobBrush = new SolidBrush(System.Drawing.Color.White);
             mobType = "skeleton";
         }
 

@@ -10,13 +10,22 @@ namespace BrickBreaker
     public class Block
     {
         public int x, y;
-        public static int width = 40;
+        public static int width = 120;
         public static int height = 40;
-        public static int numRows = 5;
-        public static int numCols = 10;
-        public static int spacing = 5;
+
+        public string blockType;
+
         public Rectangle Rect { get; set; }
         public Brush Color { get; set; }
+
+        public Block(int _x, int _y, string _blockType)
+        {
+            x = _x;
+            y = _y;
+            blockType = _blockType;
+
+            Rect = new Rectangle(x, y, width, height);
+        }
 
         public Block(int _x, int _y)
         {
@@ -24,6 +33,11 @@ namespace BrickBreaker
             y = _y;
 
             Rect = new Rectangle(x, y, width, height);
+        }
+
+        public Block()
+        {
+
         }
     }
 }

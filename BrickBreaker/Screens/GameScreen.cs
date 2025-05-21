@@ -64,6 +64,7 @@ namespace BrickBreaker
 
         };
 
+
         List<Powers> powerUps = new List<Powers>();
         public static List<Block> blocks = new List<Block>();
         List<Bricks> bricks = new List<Bricks>();
@@ -72,33 +73,35 @@ namespace BrickBreaker
         SolidBrush paddleBrush = new SolidBrush(Color.White);
         SolidBrush ballBrush = new SolidBrush(Color.White);
 
-        readonly List<Projectile> projectiles = new List<Projectile>();
-       readonly List<Arrow> arrows = new List<Arrow>();
-        readonly List<ZombieSpit> spits = new List<ZombieSpit>();
 
-       readonly List<MobBlock> mobs = new List<MobBlock>();
-        //List<Skeleton> skeletons = new List<Skeleton>();
-        //List<Zombie> zombies = new List<Zombie>();
-        List<Creeper> creepers = new List<Creeper>();
+        List<MobBlock> mobs = new List<MobBlock>();
 
-       readonly int levelMobCount = 3;
+        Image brickImage = Properties.Resources.Cobblestone;
+
+        List<Projectile> projectiles = new List<Projectile>();
+
+        List<MobBlock> mobs = new List<MobBlock>();
+
+        int levelMobCount = 3;
 
         public static int arrowHeight = 20;
         public static int arrowWidth = 5;
-        public static int arrowSpeed = 15;
+        public static int arrowSpeed = 8;
 
-        public static int spitSpeed = 15;
+        public static int spitSpeed = 7;
         public static int spitDiameter = 20;
+
+        Level levelLoader = new Level();
         #endregion
 
         public GameScreen()
         {
-           InitializeComponent();
+            InitializeComponent();
 
             screenHeight = this.Height;
             screenWidth = this.Width;
-            
-           OnStart();
+
+            OnStart();
         }
 
 
@@ -109,7 +112,9 @@ namespace BrickBreaker
             level = 1;
 
             //make bricks 
-            CreateBricks();
+            //CreateBricks();
+
+            LoadLevel("level1");
 
             // spawn mobs
             SpawnMobs();
@@ -213,23 +218,23 @@ namespace BrickBreaker
             // Move ball
             ball.Move();
 
-            //foreach (MobBlock m in mobs)
-            //{
-            //    if (randGen.Next(0, 100) < 1)
-            //    {
-            //        if (m.mobType == "skeleton")
-            //        {
-            //            Skeleton s = (Skeleton)m;
-            //            projectiles.Add(s.AttackPlayer());
-            //        }
+            foreach (Block m in blocks)
+            {
+                if (randGen.Next(0, 1000) < 1)
+                {
+                    if (m is Skeleton)
+                    {
+                        Skeleton s = (Skeleton)m;
+                        projectiles.Add(s.AttackPlayer());
+                    }
 
-            //        if (m.mobType == "zombie")
-            //        {
-            //            Zombie z = (Zombie)m;
-            //            projectiles.Add(z.AttackPlayer());
-            //        }
-            //    }
-          //  }
+                    if (m is Zombie)
+                    {
+                        Zombie z = (Zombie)m;
+                        projectiles.Add(z.AttackPlayer());
+                    }
+                }
+            }
 
             // Move all arrows and delete them on collision with player or top wall
             foreach (Projectile p in projectiles)
@@ -239,23 +244,29 @@ namespace BrickBreaker
                 {
                     // Update position and break the loop so the arrow is not deleted until one of those conditions is true
                     p.Move();
-                    break;
                 }
 
                 else if (p.PaddleCollision(paddle))
                 {
-                    //Remove a life from the player if an arrow hits them
+                    //Remove a life from the player if a projectile hits them
                     lives--;
+
+                    projectiles.Remove(p);
 
                     if (lives == 0)
                     {
                         OnEnd();
                     }
+
+                    break;
                 }
 
-                // Remove the arrow if it has reached its target
-                projectiles.Remove(p);
-                return;
+                else
+                {
+                    // Remove the projectile if it has reached its target
+                    projectiles.Remove(p);
+                    break;
+                }
             }
 
 
@@ -285,10 +296,7 @@ namespace BrickBreaker
             ball.PaddleCollision(paddle);
 
             //ball brick collision
-            CheckBallBrickCollision();
-
-            // Check if ball collides with a mob and kill it if so
-            KillMobs();
+            CheckBallBlockCollision();
 
             //move powers 
             foreach (Powers p in powerUps)
@@ -332,11 +340,11 @@ namespace BrickBreaker
             form.Controls.Remove(this);
         }
 
-        private void CheckBallBrickCollision()
+        private void CheckBallBlockCollision()
         {
-            for (int i = 0; i < bricks.Count; i++)
+            for (int i = 0; i < blocks.Count; i++)
             {
-                if (ball.Collision(bricks[i].Rect))
+                if (ball.Collision(blocks[i].Rect))
                 {
                     if (ball.xSpeed == 0)
                     {
@@ -364,20 +372,6 @@ namespace BrickBreaker
             }
         }
 
-        private void KillMobs()
-        {
-            for (int i = 0; i < mobs.Count; i++)
-            {
-                if (ball.Collision(mobs[i].Rect))
-                {
-                    mobs.RemoveAt(i);
-                    if (bounce == true)
-                    {
-                        ball.ySpeed = ball.ySpeed * -1;
-                    }
-                }
-            }
-        }
 
         public void BricksDestroyed(int i)
         {
@@ -390,28 +384,9 @@ namespace BrickBreaker
             }
         }
 
-        public void CreateBricks()
+        public void LoadLevel(string levelNum)
         {
-            bricks.Clear(); // Clear existing bricks to prevent duplication
-            int totalHeight = Bricks.numRows * (Bricks.height + Bricks.spacing);
-
-            for (int row = 0; row < Bricks.numRows; row++)
-            {
-                for (int col = 0; col < Bricks.numCols; col++)
-                {
-                    int x = col * (Bricks.width + Bricks.spacing) + 101;
-                    int y = this.Height - totalHeight + row * (Bricks.height + Bricks.spacing) - 10;
-
-                    // Cycle through BrickTypes using the enum
-                    BrickType brickType = (BrickType)(row % Enum.GetValues(typeof(BrickType)).Length);
-
-                    // Create the brick with the proper type and image
-                    Bricks brick = new Bricks(x, y, brickType, brickImages[brickType]);
-
-                    // Add it to the list of bricks
-                    bricks.Add(brick);
-                }
-            }
+            blocks = levelLoader.LoadLevel(levelNum);
         }
 
         public void ApplyPowerUps(string type)
@@ -430,34 +405,35 @@ namespace BrickBreaker
         {
             MobBlock m;
 
-            int totalHeight = Bricks.numRows * (Bricks.height + Bricks.spacing);
-
             for (int i = 0; i < levelMobCount; i++)
             {
-                int x = randGen.Next(0, Bricks.numCols) * (Bricks.width + Bricks.spacing) + 2;
-                int y = this.Height - totalHeight + randGen.Next(0, Bricks.numRows) * (Bricks.height + Bricks.spacing) - 10;
+                //select a random index within the list of blocks
+                int index = randGen.Next(0, blocks.Count);
 
-                while (mobs.Any(s => s.x == x && s.y == y))
+                while (mobs.Any(s => s.x == blocks[index].x && s.y == blocks[index].y))
                 {
-                    x = randGen.Next(0, Bricks.numCols) * (Bricks.width + Bricks.spacing) + 2;
-                    y = this.Height - totalHeight + randGen.Next(0, Bricks.numRows) * (Bricks.height + Bricks.spacing) - 10;
+                    index = randGen.Next(0, blocks.Count);
                 }
 
+                m = new MobBlock(blocks[index].x, blocks[index].y);
 
                 int mob = randGen.Next(0, MobBlock.mobTypes.Length);
 
                 switch (MobBlock.mobTypes[mob])
                 {
                     case "skeleton":
-                        m = new Skeleton(x, y);
+                        m = new Skeleton(m.x, m.y);
+                        blocks[index] = m;
                         break;
 
                     case "zombie":
-                        m = new Zombie(x, y);
+                        m = new Zombie(m.x, m.y);
+                        blocks[index] = m;
                         break;
 
                     default:
-                        m = new Skeleton(x, y);
+                        m = new Skeleton(m.x, m.y);
+                        blocks[index] = m;
                         break;
                 }
 
@@ -490,7 +466,6 @@ namespace BrickBreaker
                     // Fallback to a white rectangle if no image found
                     e.Graphics.FillRectangle(Brushes.White, b.Rect);
                 }
-            }
 
             // Draw projectiles launched at player
             foreach (Projectile proj in projectiles)
@@ -499,20 +474,15 @@ namespace BrickBreaker
                 {
                     Arrow a = (Arrow)proj;
                     a.GetArrowBody();
-                    e.Graphics.FillPolygon(new SolidBrush(proj.color), a.points);
+
+                    e.Graphics.FillPolygon(a.projBrush, a.points);
                 }
 
                 if (proj.image == "slimeball")
                 {
                     ZombieSpit s = (ZombieSpit)proj;
-                    e.Graphics.FillEllipse(new SolidBrush(s.color), s.x, s.y, s.diameter, s.diameter);
+                    e.Graphics.FillEllipse(s.projBrush, s.x, s.y, s.diameter, s.diameter);
                 }
-            }
-
-            // Draw mobs over their blocks
-            foreach (MobBlock m in mobs)
-            {
-                e.Graphics.FillRectangle(new SolidBrush(m.mobColor), m.Rect);
             }
 
             // Draws ball
