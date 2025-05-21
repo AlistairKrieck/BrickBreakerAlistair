@@ -19,6 +19,16 @@ namespace BrickBreaker
 {
     public partial class GameScreen : UserControl
     {
+        //TODO
+        /*
+         * New block images
+         * UI design
+         * Powerups come from ores
+         * Level switching
+         * (High)score tracking
+         * Blaze mob
+         * 
+         */
         #region global values
 
         //player1 button control keys - DO NOT CHANGE
