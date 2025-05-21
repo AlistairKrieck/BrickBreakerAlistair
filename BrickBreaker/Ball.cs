@@ -78,7 +78,7 @@ namespace BrickBreaker
             {
                 xSpeed--;
             }
-
+          
             xSpeed *= -1;
         }
 

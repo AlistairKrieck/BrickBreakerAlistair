@@ -22,7 +22,7 @@ namespace BrickBreaker
         #region global values
 
         //player1 button control keys - DO NOT CHANGE
-        Boolean leftArrowDown, rightArrowDown, escapeKeyDown, spaceKeyDown;
+        Boolean leftArrowDown, rightArrowDown, escapeKeyDown, spaceKeyDown, tabKeyDowm;
 
         // Game values
         public static int screenHeight;
@@ -44,7 +44,26 @@ namespace BrickBreaker
         public static Paddle paddle;
         public static Ball ball;
 
-        // list of all blocks for current level
+        // Enum for Brick Types
+        public enum BrickType
+        {      
+            Grass,
+            Dirt,
+            Stone,
+            Deepslate,
+            Bedrock,
+        }
+
+        Dictionary<BrickType, Image> brickImages = new Dictionary<BrickType, Image>()
+        {
+            { BrickType.Stone, Properties.Resources.stoneBlock },
+            { BrickType.Grass, Properties.Resources.grassBlock },
+            { BrickType.Dirt, Properties.Resources.dirtBlock },
+            { BrickType.Deepslate, Properties.Resources.deepslate },
+            { BrickType.Bedrock, Properties.Resources.bedrockpng },
+
+        };
+
 
         List<Powers> powerUps = new List<Powers>();
         public static List<Block> blocks = new List<Block>();
@@ -54,12 +73,14 @@ namespace BrickBreaker
         SolidBrush paddleBrush = new SolidBrush(Color.White);
         SolidBrush ballBrush = new SolidBrush(Color.White);
 
+
+        List<MobBlock> mobs = new List<MobBlock>();
+
         Image brickImage = Properties.Resources.Cobblestone;
 
         List<Projectile> projectiles = new List<Projectile>();
 
         List<MobBlock> mobs = new List<MobBlock>();
-
 
         int levelMobCount = 3;
 
@@ -100,7 +121,7 @@ namespace BrickBreaker
 
 
             //set all button presses to false.
-            leftArrowDown = rightArrowDown = escapeKeyDown = spaceKeyDown = false;
+            leftArrowDown = rightArrowDown = escapeKeyDown = spaceKeyDown = tabKeyDowm = false;
 
             // setup starting paddle values and create paddle object
             int paddleWidth = 60;
@@ -143,7 +164,12 @@ namespace BrickBreaker
                         gameTimer.Enabled = true;
                     }
                     break;
-                default:
+                case Keys.Tab:
+                    tabKeyDowm = true;
+                    if (gameTimer.Enabled == true) gameTimer.Enabled = false;
+                    else if (gameTimer.Enabled == false) gameTimer.Enabled = true;
+                    break;
+                 default:
                     break;
             }
         }
@@ -164,6 +190,9 @@ namespace BrickBreaker
                     break;
                 case Keys.Space:
                     spaceKeyDown = false;
+                    break;
+                case Keys.Tab:
+                    tabKeyDowm = false;
                     break;
                 default:
                     break;
@@ -301,7 +330,7 @@ namespace BrickBreaker
             Form form = this.FindForm();
             MenuScreen ps = new MenuScreen();
 
-            ps.Location = new Point((form.Width - ps.Width) / 2, (form.Height - ps.Height) / 2);
+            ps.Dock = DockStyle.Fill;
 
             form.Controls.Add(ps);
             form.Controls.Remove(this);
@@ -331,16 +360,23 @@ namespace BrickBreaker
                     {
                         ball.xSpeed *= -1;
                     }
+                    bool destroyed = bricks[i].TakeDamage();
 
-                    blocks.RemoveAt(i);
-
+                    if (destroyed)
+                    {
+                        BricksDestroyed(i);
+                        bricks.RemoveAt(i);
+                    }
                     if (bounce == true)
                     {
                         ball.ySpeed = ball.ySpeed * -1;
                     }
-                }
+
+                    break; // Exit loop after hitting one brick
+                }                                   
             }
         }
+
 
         public void BricksDestroyed(int i)
         {
@@ -418,25 +454,24 @@ namespace BrickBreaker
             paddleBrush.Color = paddle.colour;
             e.Graphics.FillRectangle(paddleBrush, paddle.x, paddle.y, paddle.width, paddle.height);
 
-            // draws power ups
+            // Draws power-ups
             foreach (Powers p in powerUps)
             {
                 e.Graphics.FillEllipse(p.color, p.x, p.y, p.size, p.size);
             }
 
-            // Draws Blocks
-            foreach (Block b in blocks)
+            // Draws Bricks with appropriate images
+            foreach (Bricks b in bricks)
             {
-                if (b is MobBlock)
+                if (b.Image != null)
                 {
-                    MobBlock m = (MobBlock)b;
-                    e.Graphics.FillRectangle(m.mobBrush, m.Rect);
+                    e.Graphics.DrawImage(b.Image, b.Rect);
                 }
                 else
                 {
-                    e.Graphics.DrawImage(Properties.Resources.Cobblestone, b.x, b.y, Block.width, Block.height);
+                    // Fallback to a white rectangle if no image found
+                    e.Graphics.FillRectangle(Brushes.White, b.Rect);
                 }
-            }
 
             // Draw projectiles launched at player
             foreach (Projectile proj in projectiles)
