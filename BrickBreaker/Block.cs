@@ -10,7 +10,7 @@ namespace BrickBreaker
     public class Block
     {
         public int x, y;
-        public static int width = 40;
+        public static int width = 120;
         public static int height = 40;
 
         public string blockType;

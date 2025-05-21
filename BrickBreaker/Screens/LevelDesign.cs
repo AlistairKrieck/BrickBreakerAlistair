@@ -25,9 +25,8 @@ namespace BrickBreaker
         {
             InitializeComponent();
             //Saving();
-            //SaveLevel();
 
-            LoadLevel();
+            SaveLevel();
         }
 
         //private void Saving()
@@ -80,13 +79,6 @@ namespace BrickBreaker
 
             Level level = new Level();
             level.SaveLevel(levelNum, blocks);
-        }
-
-        public void LoadLevel()
-        {
-            levelNum = Text.Text;
-            Level level = new Level();
-            List<Block> blah = level.LoadLevel(levelNum);
         }
     }
 }

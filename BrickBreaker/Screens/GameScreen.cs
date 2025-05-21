@@ -69,6 +69,8 @@ namespace BrickBreaker
 
         public static int spitSpeed = 7;
         public static int spitDiameter = 20;
+
+        Level levelLoader = new Level();
         #endregion
 
         public GameScreen()
@@ -89,7 +91,9 @@ namespace BrickBreaker
             level = 1;
 
             //make bricks 
-            CreateBricks();
+            //CreateBricks();
+
+            LoadLevel("level1");
 
             // spawn mobs
             SpawnMobs();
@@ -185,17 +189,17 @@ namespace BrickBreaker
             // Move ball
             ball.Move();
 
-            foreach (MobBlock m in mobs)
+            foreach (Block m in blocks)
             {
-                if (randGen.Next(0, 100) < 1)
+                if (randGen.Next(0, 1000) < 1)
                 {
-                    if (m.mobType == "skeleton")
+                    if (m is Skeleton)
                     {
                         Skeleton s = (Skeleton)m;
                         projectiles.Add(s.AttackPlayer());
                     }
 
-                    if (m.mobType == "zombie")
+                    if (m is Zombie)
                     {
                         Zombie z = (Zombie)m;
                         projectiles.Add(z.AttackPlayer());
@@ -263,10 +267,7 @@ namespace BrickBreaker
             ball.PaddleCollision(paddle);
 
             //ball brick collision
-            CheckBallBrickCollision();
-
-            // Check if ball collides with a mob and kill it if so
-            KillMobs();
+            CheckBallBlockCollision();
 
             //move powers 
             foreach (Powers p in powerUps)
@@ -310,11 +311,11 @@ namespace BrickBreaker
             form.Controls.Remove(this);
         }
 
-        private void CheckBallBrickCollision()
+        private void CheckBallBlockCollision()
         {
-            for (int i = 0; i < bricks.Count; i++)
+            for (int i = 0; i < blocks.Count; i++)
             {
-                if (ball.Collision(bricks[i].Rect))
+                if (ball.Collision(blocks[i].Rect))
                 {
                     if (ball.xSpeed == 0)
                     {
@@ -326,25 +327,12 @@ namespace BrickBreaker
                         ball.xSpeed = ball.xSpeed * -1;
                     }
 
-                    BricksDestroyed(i);
-                    bricks.RemoveAt(i);
+                    blocks.RemoveAt(i);
 
                     if (bounce == true)
                     {
                         ball.ySpeed = ball.ySpeed * -1;
                     }
-                }
-            }
-        }
-
-        private void KillMobs()
-        {
-            foreach (MobBlock m in mobs)
-            {
-                if (ball.Collision(m.Rect))
-                {
-                    mobs.Remove(m);
-                    break;
                 }
             }
         }
@@ -360,21 +348,9 @@ namespace BrickBreaker
             }
         }
 
-        public void CreateBricks()
+        public void LoadLevel(string levelNum)
         {
-            bricks.Clear(); // Clear existing bricks to prevent duplication
-            int totalHeight = Bricks.numRows * (Bricks.height + Bricks.spacing);
-
-            for (int row = 0; row < Bricks.numRows; row++)
-            {
-                for (int col = 0; col < Bricks.numCols; col++)
-                {
-                    int x = col * (Bricks.width + Bricks.spacing) + 202;// Offset from side
-                    int y = this.Height - totalHeight + row * (Bricks.height + Bricks.spacing) - 10; // Offset from top
-
-                    bricks.Add(new Bricks(x, y, 1));
-                }
-            }
+            blocks = levelLoader.LoadLevel(levelNum);
         }
 
         public void ApplyPowerUps(string type)
@@ -393,34 +369,35 @@ namespace BrickBreaker
         {
             MobBlock m;
 
-            int totalHeight = Bricks.numRows * (Bricks.height + Bricks.spacing);
-
             for (int i = 0; i < levelMobCount; i++)
             {
-                int x = randGen.Next(0, Bricks.numCols) * (Bricks.width + Bricks.spacing) + 202;
-                int y = this.Height - totalHeight + randGen.Next(0, Bricks.numRows) * (Bricks.height + Bricks.spacing) - 10;
+                //select a random index within the list of blocks
+                int index = randGen.Next(0, blocks.Count);
 
-                while (mobs.Any(s => s.x == x && s.y == y))
+                while (mobs.Any(s => s.x == blocks[index].x && s.y == blocks[index].y))
                 {
-                    x = randGen.Next(0, Bricks.numCols) * (Bricks.width + Bricks.spacing) + 202;
-                    y = this.Height - totalHeight + randGen.Next(0, Bricks.numRows) * (Bricks.height + Bricks.spacing) - 10;
+                    index = randGen.Next(0, blocks.Count);
                 }
 
+                m = new MobBlock(blocks[index].x, blocks[index].y);
 
                 int mob = randGen.Next(0, MobBlock.mobTypes.Length);
 
                 switch (MobBlock.mobTypes[mob])
                 {
                     case "skeleton":
-                        m = new Skeleton(x, y);
+                        m = new Skeleton(m.x, m.y);
+                        blocks[index] = m;
                         break;
 
                     case "zombie":
-                        m = new Zombie(x, y);
+                        m = new Zombie(m.x, m.y);
+                        blocks[index] = m;
                         break;
 
                     default:
-                        m = new Skeleton(x, y);
+                        m = new Skeleton(m.x, m.y);
+                        blocks[index] = m;
                         break;
                 }
 
@@ -442,9 +419,17 @@ namespace BrickBreaker
             }
 
             // Draws Blocks
-            foreach (Bricks b in bricks)
+            foreach (Block b in blocks)
             {
-                e.Graphics.DrawImage(Properties.Resources.Cobblestone, b.Rect);
+                if (b is MobBlock)
+                {
+                    MobBlock m = (MobBlock)b;
+                    e.Graphics.FillRectangle(m.mobBrush, m.Rect);
+                }
+                else
+                {
+                    e.Graphics.DrawImage(Properties.Resources.Cobblestone, b.x, b.y, Block.width, Block.height);
+                }
             }
 
             // Draw projectiles launched at player
@@ -463,12 +448,6 @@ namespace BrickBreaker
                     ZombieSpit s = (ZombieSpit)proj;
                     e.Graphics.FillEllipse(s.projBrush, s.x, s.y, s.diameter, s.diameter);
                 }
-            }
-
-            // Draw mobs over their blocks
-            foreach (MobBlock m in mobs)
-            {
-                e.Graphics.FillRectangle(m.mobBrush, m.Rect);
             }
 
             // Draws ball

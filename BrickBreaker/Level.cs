@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -73,18 +74,28 @@ namespace BrickBreaker
 
             while (reader.Read())
             {
-                //create a block
-                Block b = new Block();
+                if (reader.NodeType == XmlNodeType.Element)
+                {
+                    //create a block
+                    Block b = new Block();
 
-                reader.ReadToFollowing("Block");
-                x = reader.GetAttribute("x");
+                    reader.ReadToFollowing("x");
+                    x = reader.ReadString();
 
-                //b.y = Convert.ToInt32(reader.GetAttribute("y"));
-                //b.blockType = reader.GetAttribute("type");
+                    reader.ReadToFollowing("y");
+                    y = reader.ReadString();
 
+                    reader.ReadToFollowing("type");
+                    b.blockType = reader.ReadString();
 
-                //add day to list of days
-                blocks.Add(b);
+                    b.x = Convert.ToInt16(x);
+                    b.y = Convert.ToInt16(y);
+
+                    b.Rect = new Rectangle(b.x, b.y, Block.width, Block.height);
+
+                    //add day to list of blocks
+                    blocks.Add(b);
+                }
             }
 
             //Write the XML to file and close the writer 

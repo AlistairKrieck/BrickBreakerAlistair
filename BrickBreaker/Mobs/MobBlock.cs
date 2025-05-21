@@ -14,11 +14,11 @@ namespace BrickBreaker
         public int ySpeed = 5;
         public Brush mobBrush;
 
-        public static string[] mobTypes = { "skeleton", "zombie", "creeper" };
+        public static string[] mobTypes = { "skeleton", "zombie" };
 
         public MobBlock(int _x, int _y) : base(_x, _y)
         {
-            
+
         }
 
         public void Move(string direction)
