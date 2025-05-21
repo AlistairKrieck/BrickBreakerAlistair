@@ -17,8 +17,6 @@ namespace BrickBreaker
             textureValue = _textureValue;
             width = _width;
             height = _height;
-
-
         }
     }
 }

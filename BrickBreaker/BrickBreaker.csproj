@@ -64,7 +64,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Creeper.cs" />
+    <Compile Include="Level.cs" />
+    <Compile Include="Mobs\Creeper.cs" />
     <Compile Include="Projectiles\Projectile.cs" />
     <Compile Include="Projectiles\ZombieSpit.cs" />
     <Compile Include="Projectiles\Arrow.cs" />
@@ -162,7 +163,11 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\level1.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
