@@ -10,71 +10,73 @@ namespace BrickBreaker
     public class Bricks
     {
         // Static properties for all Bricks
-        public static int width = 80;
+        public static int width = 120;
         public static int height = 40;
-        public static int numRows = 5;
-        public static int numCols = 10;
-        public static int spacing = 5;
 
-        public int x, y;
+        // Types that are "ore"
+        public static string[] ores = new string[] { "coal", "iron", "copper", "deepslateCoal", "deepslateIron", "deepslateLapis", "deepslateRedstone", "deepslateDiamond" };
 
         // Instance properties
-        public int hp { get; set; }
-        public Rectangle Rect { get; set; }
-        public GameScreen.BrickType BrickType { get; set; }
-        public Image Image { get; set; }
+        public int x, y;
+        public int hp;
+        public int maxHp;
+        public Rectangle rect;
+        public string brickType;
+        public Image image;
 
-        public Bricks(int _x, int _y, GameScreen.BrickType _type, Image _image)
+        public Bricks(int _x, int _y, string _type, Image _image)
         {
             x = _x;
             y = _y;
 
-            Rect = new Rectangle(_x, _y, width, height);
-            BrickType = _type;
-            Image = _image;
+            rect = new Rectangle(_x, _y, width, height);
+            brickType = _type;
+            image = _image;
 
             // Set health points based on the type of brick
             switch (_type)
             {
-                case GameScreen.BrickType.Grass:
-                    hp = 1;
-                    break;
-                case GameScreen.BrickType.Dirt:
-                    hp = 2;
-                    break;
-                case GameScreen.BrickType.Stone:
-                    hp = 3;
+                case "dirt":
+                case "grass":
+                    maxHp = hp = 1;
                     break;
 
-                case GameScreen.BrickType.Deepslate:
-                    hp = 2;
+                case "stone":
+                    maxHp = hp = 2;
                     break;
-                case GameScreen.BrickType.Bedrock:
-                    hp = 3;
+
+                case "coal":
+                case "iron":
+                case "copper":
+                    maxHp = hp = 3;
+                    break;
+
+                case "deepslate":
+                    maxHp = hp = 3;
+                    break;
+
+                case "deepslateCoal":
+                case "deepslateIron":
+                case "deepslateLapis":
+                case "deepslateRedstone":
+                case "deepslateDiamond":
+                    maxHp = hp = 4;
+                    break;
+
+                case "bedrock":
+                    maxHp = hp = 5;
                     break;
 
                 default:
-                    hp = 1;
+                    maxHp = hp = 1;
                     break;
             }
         }
 
-        public Bricks(int _x, int _y)
-        {
-            x = _x;
-            y = _y;
-        }
-
-        public Bricks()
-        {
-
-        }
-
-        // Reduce health and return if destroyed
-        public bool TakeDamage()
+        // Reduce health
+        public void TakeDamage()
         {
             hp--;
-            return hp <= 0;
         }
     }
 }

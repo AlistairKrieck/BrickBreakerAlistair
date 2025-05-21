@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 
 namespace BrickBreaker
 {
-    public class Zombie : MobBlock
+    public class Zombie : Bricks
     {
-        public Zombie(int _x, int _y) : base(_x, _y)
+        public Zombie(int _x, int _y) : base(_x, _y, "zombie", GameScreen.brickImages["zombie"])
         {
-            //mobBrush = new SolidBrush(System.Drawing.Color.Green);
-            mobType = "zombie";
+            maxHp = hp = 1;
         }
 
         public ZombieSpit AttackPlayer()

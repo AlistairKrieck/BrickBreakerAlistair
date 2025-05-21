@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 
 namespace BrickBreaker
 {
-    public class Skeleton : MobBlock
+    public class Skeleton : Bricks
     {
-        public Skeleton(int _x, int _y) : base(_x, _y)
+        public Skeleton(int _x, int _y) : base(_x, _y, "skeleton", GameScreen.brickImages["skeleton"])
         {
-            //Image 
-            mobType = "skeleton";
+            maxHp = hp = 1;
         }
 
         public Arrow AttackPlayer()

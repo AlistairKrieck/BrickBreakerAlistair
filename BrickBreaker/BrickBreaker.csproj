@@ -64,8 +64,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Level.cs" />
-    <Compile Include="Mobs\Creeper.cs" />
+    <Compile Include="Screens\GameOverScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\GameOverScreen.Designer.cs">
+      <DependentUpon>GameOverScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LevelLoader.cs" />
     <Compile Include="Projectiles\Projectile.cs" />
     <Compile Include="Projectiles\ZombieSpit.cs" />
     <Compile Include="Projectiles\Arrow.cs" />
@@ -79,14 +84,17 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Mobs\MobBlock.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Screens\LevelDesign.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Screens\LevelDesign.Designer.cs">
       <DependentUpon>LevelDesign.cs</DependentUpon>
     </Compile>
-    <Compile Include="LevelLoader.cs" />
     <Compile Include="Paddle.cs" />
     <Compile Include="Powers.cs" />
     <Compile Include="Program.cs" />
@@ -105,27 +113,34 @@
     </Compile>
     <Compile Include="Mobs\Skeleton.cs" />
     <Compile Include="Mobs\Zombie.cs" />
+    <Compile Include="Screens\WinScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\WinScreen.Designer.cs">
+      <DependentUpon>WinScreen.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\GameOverScreen.resx">
+      <DependentUpon>GameOverScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\LevelDesign.resx">
       <DependentUpon>LevelDesign.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Screens\MenuScreen.resx">
       <DependentUpon>MenuScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\GameScreen.resx">
       <DependentUpon>GameScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\WinScreen.resx">
+      <DependentUpon>WinScreen.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -154,34 +169,70 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Cobblestone.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\skeletonEnemyImage.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\1.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\zombieEnemyImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghastPlayer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level3Background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deepslateRedstoneOreBlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deepslateIronOreBlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deepslateLapisOreBlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deepslateBlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deepslateCoalOreBlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deepslateGoldOreBlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deepslateEmraldOreBlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deepslateDiamondOreBlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level1Background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level2Background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\graniteBlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ironOreBlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\andesiteBlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coalOreBlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copperOreBlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grassBlock-2.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\stoneBlock.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\grassBlock.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\dirtBlock.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\bedrockpng.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\deepslate.png" />
-
-    <Content Include="Resources\level1.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

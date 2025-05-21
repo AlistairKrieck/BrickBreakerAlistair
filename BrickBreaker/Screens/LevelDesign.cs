@@ -22,6 +22,7 @@ namespace BrickBreaker
         private void saveLabel_Click(object sender, EventArgs e)
         {
             SaveLevel();
+            Application.Exit();
         }
 
         string levelNum;
@@ -29,9 +30,6 @@ namespace BrickBreaker
         public LevelDesign()
         {
             InitializeComponent();
-            //Saving();
-
-            SaveLevel();
         }
 
         private void SaveLevel()
@@ -45,14 +43,14 @@ namespace BrickBreaker
                     x = c.Location.X;
                     y = c.Location.Y;
 
-                    GameScreen.BrickType type = Form1.ConvertStringToBlockType(c.Text);
+                    string type = c.Text;
 
                     Bricks newBlock = new Bricks(x, y, type, GameScreen.brickImages[type]);
                     bricks.Add(newBlock);
                 }
             }
 
-            Level level = new Level();
+            LevelLoader level = new LevelLoader();
             level.SaveLevel(levelNum, bricks);
         }
     }

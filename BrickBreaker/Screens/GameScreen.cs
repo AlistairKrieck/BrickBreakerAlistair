@@ -28,12 +28,13 @@ namespace BrickBreaker
          * (High)score tracking and saving
          * Blaze mob
          * Damage indicator on blocks
+         * Sound effects and bg music
          * 
          */
         #region global values
 
         //player1 button control keys - DO NOT CHANGE
-        Boolean leftArrowDown, rightArrowDown, escapeKeyDown, spaceKeyDown, tabKeyDowm;
+        Boolean leftArrowDown, rightArrowDown, escapeKeyDown, spaceKeyDown, tabKeyDown;
 
         // Game values
         public static int screenHeight;
@@ -46,45 +47,46 @@ namespace BrickBreaker
         int BulletBallTimer = 0;
         public static int lives = 3;
         public static int points = 0;
-        public static int level;
-        public static int layerCount;
 
+        public static string[] levels = new string[3] { "level1", "level2", "level3" };
+        int level;
 
 
         // Paddle and Ball objects
         public static Paddle paddle;
         public static Ball ball;
 
-        // Enum for Brick Types
-        public enum BrickType
+        public static Dictionary<string, Image> brickImages = new Dictionary<string, Image>()
         {
-            Grass,
-            Dirt,
-            Stone,
-            Deepslate,
-            Bedrock,
-        }
-
-        public static Dictionary<BrickType, Image> brickImages = new Dictionary<BrickType, Image>()
-        {
-            { BrickType.Stone, Properties.Resources.stoneBlock },
-            { BrickType.Grass, Properties.Resources.grassBlock },
-            { BrickType.Dirt, Properties.Resources.dirtBlock },
-            { BrickType.Deepslate, Properties.Resources.deepslate },
-            { BrickType.Bedrock, Properties.Resources.bedrockpng },
-
+             { "grass", Properties.Resources.grassBlock },
+             { "dirt", Properties.Resources.dirtBlock },
+             { "stone", Properties.Resources.stoneBlock },
+             { "andesite", Properties.Resources.andesiteBlock },
+             { "granite", Properties.Resources.graniteBlock },
+             { "coal", Properties.Resources.coalOreBlock },
+             { "iron", Properties.Resources.ironOreBlock },
+             { "copper", Properties.Resources.copperOreBlock },
+             { "deepslate", Properties.Resources.deepslateBlock },
+             { "deepslateCoal", Properties.Resources.deepslateCoalOreBlock },
+             { "deepslateDiamond", Properties.Resources.deepslateDiamondOreBlock },
+             { "deepslateEmerald", Properties.Resources.deepslateEmeraldOreBlock },
+             { "deepslateGold", Properties.Resources.deepslateGoldOreBlock },
+             { "deepslateIron", Properties.Resources.deepslateIronOreBlock },
+             { "deepslateLapis", Properties.Resources.deepslateLapisOreBlock },
+             { "deepslateRedstone", Properties.Resources.deepslateRedstoneOreBlock },
+             { "skeleton", Properties.Resources.skeletonEnemyImage },
+             { "zombie", Properties.Resources.zombieEnemyImage },
+             { "ghastPlayer", Properties.Resources.ghastPlayer }
         };
 
-
         List<Powers> powerUps = new List<Powers>();
+
         List<Bricks> bricks = new List<Bricks>();
 
         // Brushes
         SolidBrush paddleBrush = new SolidBrush(Color.White);
         SolidBrush ballBrush = new SolidBrush(Color.White);
 
-
-        List<MobBlock> mobs = new List<MobBlock>();
 
         List<Projectile> projectiles = new List<Projectile>();
 
@@ -93,12 +95,12 @@ namespace BrickBreaker
 
         public static int arrowHeight = 20;
         public static int arrowWidth = 5;
-        public static int arrowSpeed = 8;
+        public static int arrowSpeed = 5;
 
-        public static int spitSpeed = 7;
+        public static int spitSpeed = 4;
         public static int spitDiameter = 20;
 
-        Level levelLoader = new Level();
+        LevelLoader levelLoader = new LevelLoader();
         #endregion
 
         public GameScreen()
@@ -109,6 +111,10 @@ namespace BrickBreaker
             screenWidth = this.Width;
 
             OnStart();
+
+            // Load level 0
+            level = 1;
+            LoadLevel(level);
         }
 
 
@@ -116,26 +122,16 @@ namespace BrickBreaker
         {
             //set life counter
             lives = 3;
-            level = 1;
-
-            //make bricks 
-            //CreateBricks();
-
-            LoadLevel("level1");
-
-            // spawn mobs
-            SpawnMobs();
-
 
             //set all button presses to false.
-            leftArrowDown = rightArrowDown = escapeKeyDown = spaceKeyDown = tabKeyDowm = false;
+            leftArrowDown = rightArrowDown = escapeKeyDown = spaceKeyDown = tabKeyDown = false;
 
             // setup starting paddle values and create paddle object
             int paddleWidth = 60;
             int paddleHeight = 10;
             int paddleX = ((this.Width / 2) - (paddleWidth / 2));
             int paddleY = 10 + paddleHeight;
-            int paddleSpeed = 16; //TODO CHANGE BACK TO 8
+            int paddleSpeed = 8;
             paddle = new Paddle(paddleX, paddleY, paddleWidth, paddleHeight, paddleSpeed, Color.White);
 
             // setup starting ball values
@@ -147,6 +143,10 @@ namespace BrickBreaker
             int ySpeed = 3;
             int ballSize = 20;
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
+
+            bricks.Clear();
+            powerUps.Clear();
+            projectiles.Clear();
         }
 
         private void GameScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
@@ -172,7 +172,7 @@ namespace BrickBreaker
                     }
                     break;
                 case Keys.Tab:
-                    tabKeyDowm = true;
+                    tabKeyDown = true;
                     if (gameTimer.Enabled == true) gameTimer.Enabled = false;
                     else if (gameTimer.Enabled == false) gameTimer.Enabled = true;
                     break;
@@ -199,7 +199,7 @@ namespace BrickBreaker
                     spaceKeyDown = false;
                     break;
                 case Keys.Tab:
-                    tabKeyDowm = false;
+                    tabKeyDown = false;
                     break;
                 default:
                     break;
@@ -208,6 +208,8 @@ namespace BrickBreaker
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
+            #region Run Game
+
             // Move the paddle
             if (leftArrowDown && paddle.x > 0)
             {
@@ -224,7 +226,7 @@ namespace BrickBreaker
             foreach (Bricks m in bricks)
             {
 
-                if (randGen.Next(0, 1000) < 1)
+                if (randGen.Next(0, 600) < 1)
                 {
                     if (m is Skeleton)
                     {
@@ -255,14 +257,13 @@ namespace BrickBreaker
                     lives--;
                     projectiles.Remove(p);
 
-                    projectiles.Remove(p);
-
                     if (lives == 0)
                     {
                         gameTimer.Enabled = false;
                         OnEnd();
                     }
 
+                    break;
                 }
                 else
                 {
@@ -328,19 +329,38 @@ namespace BrickBreaker
 
             //redraw the screen
             liveslabel.Text = $"{lives}";
+
+            #endregion
+
+            #region Load Next Level
+
+            // If all five levels are won, open win screen
+            if (level > 4)
+            {
+                Form1.ChangeScreen(this, new WinScreen());
+            }
+
+            // If level has been cleared, load next level
+            else if (bricks.Count == 0)
+            {
+                gameTimer.Enabled = false;
+
+                OnStart();
+
+                level++;
+
+                LoadLevel(level);
+            }
+
+            #endregion
+
             Refresh();
         }
 
         public void OnEnd()
         {
             // Goes to the game over screen
-            Form form = this.FindForm();
-            MenuScreen ps = new MenuScreen();
-
-            ps.Dock = DockStyle.Fill;
-
-            form.Controls.Add(ps);
-            form.Controls.Remove(this);
+            Form1.ChangeScreen(this, new MenuScreen());
         }
 
         private void CheckBallBlockCollision()
@@ -349,7 +369,7 @@ namespace BrickBreaker
             {
                 direction = randGen.Next(1, 3);
 
-                if (ball.Collision(bricks[i].Rect))
+                if (ball.Collision(bricks[i].rect))
                 {
                     if (ball.xSpeed == 0)
                     {
@@ -363,43 +383,78 @@ namespace BrickBreaker
                         }
                     }
 
-                    if (ball.x + ball.size < bricks[i].Rect.X + 5 || ball.x > bricks[i].Rect.X + 35)
+                    if (ball.x + ball.size < bricks[i].rect.X + 5 || ball.x > bricks[i].rect.X + 35)
                     {
                         ball.xSpeed *= -1;
                     }
-                    bool destroyed = bricks[i].TakeDamage();
 
-                    if (destroyed)
+                    // Remove 1 hp from a brick whenever it is hit
+                    bricks[i].TakeDamage();
+
+                    // If brick health is 0, destroy the brick
+                    if (bricks[i].hp == 0)
                     {
-                        BricksDestroyed(i);
+                        // Spawn a random powerup whenever an ore block is broken
+                        if (Bricks.ores.Contains(bricks[i].brickType))
+                        {
+                            SpawnPowerUp(i);
+                        }
+
+                        // Remove brick from list
                         bricks.RemoveAt(i);
                     }
+
                     if (bounce == true)
                     {
                         ball.ySpeed = ball.ySpeed * -1;
                     }
 
-                    break; // Exit loop after hitting one brick
+                    // Exit loop after hitting one brick
+                    break;
                 }
             }
         }
 
 
-        public void BricksDestroyed(int i)
+        public void SpawnPowerUp(int i)
         {
-            if (randGen.Next(100) < 30)
-            {
-                string[] powerUpTypes = { "ExtraLife", "SpeedBoost", "BigPaddle", "Bullet" };
-                string selectedPowerUp = powerUpTypes[randGen.Next(powerUpTypes.Length)];
+            string[] powerUpTypes = { "ExtraLife", "SpeedBoost", "BigPaddle", "Bullet" };
+            string selectedPowerUp = powerUpTypes[randGen.Next(powerUpTypes.Length)];
 
-                powerUps.Add(new Powers(bricks[i].Rect.X + Bricks.width / 2, bricks[i].Rect.Y, selectedPowerUp));
+            powerUps.Add(new Powers(bricks[i].rect.X + Bricks.width / 2, bricks[i].rect.Y, selectedPowerUp));
+        }
+
+
+        public void LoadLevel(int levelNum)
+        {
+            // Get the list of bricks from the relevant XML file
+            bricks = levelLoader.LoadLevel(levelNum);
+
+            // Change screen background to level background
+            switch (levelNum)
+            {
+                case 0:
+                    this.BackgroundImage = Properties.Resources.level0Background;
+                    break;
+
+                case 1:
+                    this.BackgroundImage = Properties.Resources.level1Background;
+                    break;
+
+                case 2:
+                    this.BackgroundImage = Properties.Resources.level2Background;
+                    break;
+
+                    //case 3:
+                    //    this.BackgroundImage = Properties.Resources.level3Background;
+                    //    break;
+
+                    //case 4:
+                    //    this.BackgroundImage = Properties.Resources.level4Background;
+                    //    break;
             }
         }
 
-        public void LoadLevel(string levelNum)
-        {
-            bricks = levelLoader.LoadLevel(levelNum);
-        }
 
         public void ApplyPowerUps(string type)
         {
@@ -410,47 +465,6 @@ namespace BrickBreaker
             {
                 bounce = false;
                 BulletBallTimer = 200;
-            }
-        }
-
-        public void SpawnMobs()
-        {
-            MobBlock m;
-
-            for (int i = 0; i < levelMobCount; i++)
-            {
-                //select a random index within the list of blocks
-                int index = randGen.Next(0, bricks.Count);
-
-
-                while (mobs.Any(s => s.x == bricks[index].x && s.y == bricks[index].y))
-                {
-                    index = randGen.Next(0, bricks.Count);
-                }
-
-                m = new MobBlock(bricks[index].x, bricks[index].y);
-
-                int mob = randGen.Next(0, MobBlock.mobTypes.Length);
-
-                switch (MobBlock.mobTypes[mob])
-                {
-                    case "skeleton":
-                        m = new Skeleton(m.x, m.y);
-                        bricks[index] = m;
-                        break;
-
-                    case "zombie":
-                        m = new Zombie(m.x, m.y);
-                        bricks[index] = m;
-                        break;
-
-                    default:
-                        m = new Skeleton(m.x, m.y);
-                        bricks[index] = m;
-                        break;
-                }
-
-                mobs.Add(m);
             }
         }
 
@@ -470,14 +484,14 @@ namespace BrickBreaker
             // Draws Bricks with appropriate images
             foreach (Bricks b in bricks)
             {
-                if (b.Image != null)
+                if (b.image != null)
                 {
-                    e.Graphics.DrawImage(b.Image, b.Rect);
+                    e.Graphics.DrawImage(b.image, b.rect);
                 }
                 else
                 {
                     // Fallback to a white rectangle if no image found
-                    e.Graphics.FillRectangle(Brushes.White, b.Rect);
+                    e.Graphics.FillRectangle(Brushes.White, b.rect);
                 }
             }
 

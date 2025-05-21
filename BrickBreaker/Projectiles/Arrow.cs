@@ -55,7 +55,7 @@ namespace BrickBreaker
             points[3] = new PointF(x - xDif2, y + yDif2);
         }
 
-        public void Move()
+        new public void Move()
         {
             x += xSpeed;
             y += ySpeed;
