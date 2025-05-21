@@ -41,11 +41,13 @@ namespace BrickBreaker
             {
                 ySpeedLimit();
 
-                if (ballRec.X < paddleRec.X + p.width / 2 && xSpeed > 0)
+                if (ballRec.Y < paddleRec.Y)
                 {
-                    xSpeed *= -1;
+                    xSpeedLimit();
+                    y = y + size;
                 }
-                if (ballRec.X > paddleRec.X + p.width / 2 && xSpeed < 0)
+
+                if (ballRec.X < paddleRec.X + p.width / 2 && xSpeed > 0 || ballRec.X > paddleRec.X + p.width / 2 && xSpeed < 0)
                 {
                     xSpeed *= -1;
                 }
@@ -76,19 +78,8 @@ namespace BrickBreaker
             {
                 xSpeed--;
             }
-        }
 
-        public void OverallSpeedLimit()
-        {
-            if (xSpeed == 10 || ySpeed == 10 || ySpeed == -10)
-            {
-                ySpeed = 6;
-                xSpeed = 6;
-            }
-            else if (xSpeed == -10)
-            {
-                xSpeed = -6;
-            }
+            xSpeed *= -1;
         }
 
         public void WallCollision(UserControl UC)
@@ -97,21 +88,34 @@ namespace BrickBreaker
             if (x <= 0)
             {
                 xSpeedLimit();
+                y = y + 1;
             }
             // Collision with right wall
             if (x >= (UC.Width - size))
             {
                 xSpeedLimit();
+                y = y - 1;
             }
             // Collision with bottom wall
-            if (y >= UC.Height)
+            if (y >= UC.Height - size)
             {
+                int direction = rand.Next(1, 3);
+
                 ySpeed *= -1;
 
                 if (xSpeed == 0)
                 {
-                    xSpeed = 3;
+                    if (direction == 1)
+                    {
+                        xSpeed = 2;
+                    }
+                    else
+                    {
+                        xSpeed = -2;
+                    }
                 }
+
+                y = y - 1;
             }
         }
 
