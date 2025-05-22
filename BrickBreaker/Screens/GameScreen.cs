@@ -42,7 +42,7 @@ namespace BrickBreaker
         bool bounce = true;
         int BulletBallTimer = 0;
 
-        public static int lives = 3;
+        public static int lives = 5;
         public static int points = 0;
 
         // Set of all levels
@@ -122,17 +122,17 @@ namespace BrickBreaker
         public void OnStart()
         {
             //set life counter
-            lives = 3;
+            lives = 5;
 
             //set all button presses to false.
             leftArrowDown = rightArrowDown = escapeKeyDown = spaceKeyDown = tabKeyDown = false;
 
             // setup starting paddle values and create paddle object
-            int paddleWidth = 60;
+            int paddleWidth = 80;
             int paddleHeight = 10;
             int paddleX = ((this.Width / 2) - (paddleWidth / 2));
             int paddleY = 10 + paddleHeight;
-            int paddleSpeed = 8;
+            int paddleSpeed = 10;
             paddle = new Paddle(paddleX, paddleY, paddleWidth, paddleHeight, paddleSpeed, Color.White);
 
             // setup starting ball values
@@ -362,6 +362,7 @@ namespace BrickBreaker
 
             // Update life counter
             liveslabel.Text = $"{lives}";
+            scoreLabel.Text = $"{points}";
 
             #endregion
 
@@ -446,8 +447,17 @@ namespace BrickBreaker
                         {
                             SpawnPowerUp(b);
 
-                            // Add 3 points for breaking an ore block (3 plus the 2 below)
+                            // Add 5 points for breaking an ore block (3 plus the 2 below)
                             points += 3;
+                        }
+                        if (Bricks.mobs.Contains(b.brickType))
+                        {
+                            SpawnPowerUp(b);
+                            SpawnPowerUp(b);
+                            SpawnPowerUp(b);
+
+                            // Add 5 points for breaking an ore block (3 plus the 2 below)
+                            points += 5;
                         }
 
                         // Add 2 points for breaking a block

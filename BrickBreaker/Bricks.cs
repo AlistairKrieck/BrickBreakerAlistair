@@ -15,6 +15,7 @@ namespace BrickBreaker
 
         // Types that are "ore"
         public static string[] ores = new string[] { "coal", "iron", "copper", "deepslateCoal", "deepslateIron", "deepslateLapis", "deepslateRedstone", "deepslateDiamond" };
+        public static string[] mobs = new string[] { "zombie", "skeleton" };
 
         // Instance properties
         public int x, y;

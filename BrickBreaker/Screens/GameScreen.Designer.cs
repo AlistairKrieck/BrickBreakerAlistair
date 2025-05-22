@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.liveslabel = new System.Windows.Forms.Label();
+            this.scoreLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // gameTimer
@@ -49,11 +50,23 @@
             this.liveslabel.TabIndex = 0;
             this.liveslabel.Text = "2";
             // 
+            // scoreLabel
+            // 
+            this.scoreLabel.AutoSize = true;
+            this.scoreLabel.BackColor = System.Drawing.Color.Black;
+            this.scoreLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.scoreLabel.Location = new System.Drawing.Point(738, 53);
+            this.scoreLabel.Name = "scoreLabel";
+            this.scoreLabel.Size = new System.Drawing.Size(13, 13);
+            this.scoreLabel.TabIndex = 1;
+            this.scoreLabel.Text = "2";
+            // 
             // GameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Controls.Add(this.scoreLabel);
             this.Controls.Add(this.liveslabel);
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -71,5 +84,6 @@
 
         private System.Windows.Forms.Timer gameTimer;
         private System.Windows.Forms.Label liveslabel;
+        private System.Windows.Forms.Label scoreLabel;
     }
 }

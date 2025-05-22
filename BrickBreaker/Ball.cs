@@ -56,11 +56,11 @@ namespace BrickBreaker
 
         public void ySpeedLimit()
         {
-            if (ySpeed >= 0 && ySpeed >= 8)
+            if (ySpeed >= 0 && ySpeed >= 7)
             {
                 ySpeed++;
             }
-            if (ySpeed < 0 && ySpeed >= -8)
+            if (ySpeed < 0 && ySpeed >= -7)
             {
                 ySpeed--;
             }
@@ -70,11 +70,11 @@ namespace BrickBreaker
 
         public void xSpeedLimit()
         {
-            if (xSpeed >= 0 && xSpeed >= 8)
+            if (xSpeed >= 0 && xSpeed >= 7)
             {
                 xSpeed++;
             }
-            if (xSpeed < 0 && xSpeed >= -8)
+            if (xSpeed < 0 && xSpeed >= -7)
             {
                 xSpeed--;
             }
@@ -88,13 +88,13 @@ namespace BrickBreaker
             if (x <= 0)
             {
                 xSpeedLimit();
-                y = y + 1;
+                y = y + 5;
             }
             // Collision with right wall
             if (x >= (UC.Width - size))
             {
                 xSpeedLimit();
-                y = y - 1;
+                y = y - 5;
             }
             // Collision with bottom wall
             if (y >= UC.Height - size)
@@ -115,7 +115,7 @@ namespace BrickBreaker
                     }
                 }
 
-                y = y - 1;
+                y = y - 5;
             }
         }
 
@@ -123,7 +123,7 @@ namespace BrickBreaker
         {
             Boolean didCollide = false;
 
-            if (y <= 0)
+            if (y + size <= 0)
             {
                 didCollide = true;
             }
