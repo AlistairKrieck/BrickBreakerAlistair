@@ -25,7 +25,7 @@ namespace BrickBreaker
         private void Form1_Load(object sender, EventArgs e)
         {
             // Start the program centred on the Menu Screen
-            ChangeScreen(this, new CreateAccountScreen());
+            ChangeScreen(this, new MenuScreen());
         }
 
         public static void ChangeScreen(object sender, UserControl next)

@@ -64,10 +64,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreateAccountScreen.cs">
+    <Compile Include="Screens\CreateAccountScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CreateAccountScreen.Designer.cs">
+    <Compile Include="Screens\CreateAccountScreen.Designer.cs">
       <DependentUpon>CreateAccountScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="LogInScreen.cs">
@@ -132,7 +132,7 @@
     <Compile Include="Screens\WinScreen.Designer.cs">
       <DependentUpon>WinScreen.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CreateAccountScreen.resx">
+    <EmbeddedResource Include="Screens\CreateAccountScreen.resx">
       <DependentUpon>CreateAccountScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">

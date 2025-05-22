@@ -36,10 +36,10 @@ namespace BrickBreaker
                     submitButton.Text = "Passwords Do Not Match";
                 }
 
-                if (list.Contains(p => p.username == username))
-                {
+                //if (list.Contains(p => p.username == username))
+                //{
 
-                }
+                //}
             }
 
             catch
