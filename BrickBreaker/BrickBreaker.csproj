@@ -64,6 +64,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mobs\Blaze.cs" />
+    <Compile Include="Projectiles\FireBall.cs" />
     <Compile Include="Screens\CreateAccountScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>

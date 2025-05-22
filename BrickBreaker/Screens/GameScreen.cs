@@ -101,6 +101,10 @@ namespace BrickBreaker
         public static int spitSpeed = 4;
         public static int spitDiameter = 20;
 
+        // Variables to define a fireball object
+        public static int fireBallSpeed = 6;
+        public static int fireBallDiameter = 15;
+
         // Object to load each new level from XML files
         LevelLoader levelLoader = new LevelLoader();
 
@@ -247,6 +251,15 @@ namespace BrickBreaker
 
                         // Create a new spit object and add it to the list of projectiles
                         projectiles.Add(z.AttackPlayer());
+                    }
+
+                    if (m is Blaze)
+                    {
+                        // Create new zomnie to allow attacking
+                        Blaze b = (Blaze)m;
+
+                        // Create a new spit object and add it to the list of projectiles
+                        projectiles.Add(b.AttackPlayer());
                     }
                 }
             }
