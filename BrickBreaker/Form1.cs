@@ -11,9 +11,10 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace BrickBreaker
 {
-
     public partial class Form1 : Form
     {
+        public static List<PlayerData> players = new List<PlayerData>();
+
         public Form1()
         {
             InitializeComponent();
@@ -24,7 +25,7 @@ namespace BrickBreaker
         private void Form1_Load(object sender, EventArgs e)
         {
             // Start the program centred on the Menu Screen
-            ChangeScreen(this, new MenuScreen());
+            ChangeScreen(this, new CreateAccountScreen());
         }
 
         public static void ChangeScreen(object sender, UserControl next)

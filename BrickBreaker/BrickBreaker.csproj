@@ -64,6 +64,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateAccountScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CreateAccountScreen.Designer.cs">
+      <DependentUpon>CreateAccountScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogInScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LogInScreen.Designer.cs">
+      <DependentUpon>LogInScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerData.cs" />
     <Compile Include="Screens\GameOverScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -119,8 +132,14 @@
     <Compile Include="Screens\WinScreen.Designer.cs">
       <DependentUpon>WinScreen.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CreateAccountScreen.resx">
+      <DependentUpon>CreateAccountScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogInScreen.resx">
+      <DependentUpon>LogInScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\GameOverScreen.resx">
       <DependentUpon>GameOverScreen.cs</DependentUpon>
