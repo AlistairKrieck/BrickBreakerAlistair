@@ -30,7 +30,7 @@
         {
             this.block1 = new System.Windows.Forms.Button();
             this.block2 = new System.Windows.Forms.Button();
-            this.Text = new System.Windows.Forms.Label();
+            this.levelNameLabel = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -75,7 +75,7 @@
             // block1
             // 
             this.block1.Location = new System.Drawing.Point(27, 393);
-            this.block1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.block1.Margin = new System.Windows.Forms.Padding(2);
             this.block1.Name = "block1";
             this.block1.Size = new System.Drawing.Size(96, 32);
             this.block1.TabIndex = 0;
@@ -85,27 +85,27 @@
             // block2
             // 
             this.block2.Location = new System.Drawing.Point(128, 393);
-            this.block2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.block2.Margin = new System.Windows.Forms.Padding(2);
             this.block2.Name = "block2";
             this.block2.Size = new System.Drawing.Size(96, 32);
             this.block2.TabIndex = 1;
             this.block2.Text = "skeleton";
             this.block2.UseVisualStyleBackColor = true;
             // 
-            // Text
+            // levelNameLabel
             // 
-            this.Text.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.Text.Location = new System.Drawing.Point(10, 14);
-            this.Text.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.Text.Name = "Text";
-            this.Text.Size = new System.Drawing.Size(333, 156);
-            this.Text.TabIndex = 2;
-            this.Text.Text = "level2";
+            this.levelNameLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.levelNameLabel.Location = new System.Drawing.Point(10, 14);
+            this.levelNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.levelNameLabel.Name = "levelNameLabel";
+            this.levelNameLabel.Size = new System.Drawing.Size(333, 156);
+            this.levelNameLabel.TabIndex = 2;
+            this.levelNameLabel.Text = "level2";
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(229, 393);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 32);
             this.button1.TabIndex = 3;
@@ -115,7 +115,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(330, 393);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(96, 32);
             this.button2.TabIndex = 4;
@@ -125,7 +125,7 @@
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(632, 393);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(96, 32);
             this.button3.TabIndex = 5;
@@ -135,7 +135,7 @@
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(430, 393);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(96, 32);
             this.button4.TabIndex = 5;
@@ -145,7 +145,7 @@
             // button5
             // 
             this.button5.Location = new System.Drawing.Point(531, 393);
-            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(96, 32);
             this.button5.TabIndex = 6;
@@ -155,7 +155,7 @@
             // button6
             // 
             this.button6.Location = new System.Drawing.Point(733, 393);
-            this.button6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button6.Margin = new System.Windows.Forms.Padding(2);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(96, 32);
             this.button6.TabIndex = 7;
@@ -165,7 +165,7 @@
             // button7
             // 
             this.button7.Location = new System.Drawing.Point(733, 430);
-            this.button7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button7.Margin = new System.Windows.Forms.Padding(2);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(96, 32);
             this.button7.TabIndex = 15;
@@ -175,7 +175,7 @@
             // button8
             // 
             this.button8.Location = new System.Drawing.Point(531, 430);
-            this.button8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button8.Margin = new System.Windows.Forms.Padding(2);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(96, 32);
             this.button8.TabIndex = 14;
@@ -185,7 +185,7 @@
             // button9
             // 
             this.button9.Location = new System.Drawing.Point(430, 430);
-            this.button9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button9.Margin = new System.Windows.Forms.Padding(2);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(96, 32);
             this.button9.TabIndex = 12;
@@ -195,7 +195,7 @@
             // button10
             // 
             this.button10.Location = new System.Drawing.Point(632, 430);
-            this.button10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button10.Margin = new System.Windows.Forms.Padding(2);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(96, 32);
             this.button10.TabIndex = 13;
@@ -205,7 +205,7 @@
             // button11
             // 
             this.button11.Location = new System.Drawing.Point(330, 430);
-            this.button11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button11.Margin = new System.Windows.Forms.Padding(2);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(96, 32);
             this.button11.TabIndex = 11;
@@ -215,7 +215,7 @@
             // button12
             // 
             this.button12.Location = new System.Drawing.Point(229, 430);
-            this.button12.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button12.Margin = new System.Windows.Forms.Padding(2);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(96, 32);
             this.button12.TabIndex = 10;
@@ -225,7 +225,7 @@
             // button13
             // 
             this.button13.Location = new System.Drawing.Point(128, 430);
-            this.button13.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button13.Margin = new System.Windows.Forms.Padding(2);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(96, 32);
             this.button13.TabIndex = 9;
@@ -235,7 +235,7 @@
             // button14
             // 
             this.button14.Location = new System.Drawing.Point(27, 430);
-            this.button14.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button14.Margin = new System.Windows.Forms.Padding(2);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(96, 32);
             this.button14.TabIndex = 8;
@@ -245,7 +245,7 @@
             // button15
             // 
             this.button15.Location = new System.Drawing.Point(733, 466);
-            this.button15.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button15.Margin = new System.Windows.Forms.Padding(2);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(96, 32);
             this.button15.TabIndex = 23;
@@ -255,7 +255,7 @@
             // button16
             // 
             this.button16.Location = new System.Drawing.Point(531, 466);
-            this.button16.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button16.Margin = new System.Windows.Forms.Padding(2);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(96, 32);
             this.button16.TabIndex = 22;
@@ -265,7 +265,7 @@
             // button17
             // 
             this.button17.Location = new System.Drawing.Point(430, 466);
-            this.button17.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button17.Margin = new System.Windows.Forms.Padding(2);
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(96, 32);
             this.button17.TabIndex = 20;
@@ -275,7 +275,7 @@
             // button18
             // 
             this.button18.Location = new System.Drawing.Point(632, 466);
-            this.button18.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button18.Margin = new System.Windows.Forms.Padding(2);
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(96, 32);
             this.button18.TabIndex = 21;
@@ -285,7 +285,7 @@
             // button19
             // 
             this.button19.Location = new System.Drawing.Point(330, 466);
-            this.button19.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button19.Margin = new System.Windows.Forms.Padding(2);
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(96, 32);
             this.button19.TabIndex = 19;
@@ -295,7 +295,7 @@
             // button20
             // 
             this.button20.Location = new System.Drawing.Point(229, 466);
-            this.button20.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button20.Margin = new System.Windows.Forms.Padding(2);
             this.button20.Name = "button20";
             this.button20.Size = new System.Drawing.Size(96, 32);
             this.button20.TabIndex = 18;
@@ -305,7 +305,7 @@
             // button21
             // 
             this.button21.Location = new System.Drawing.Point(128, 466);
-            this.button21.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button21.Margin = new System.Windows.Forms.Padding(2);
             this.button21.Name = "button21";
             this.button21.Size = new System.Drawing.Size(96, 32);
             this.button21.TabIndex = 17;
@@ -315,7 +315,7 @@
             // button22
             // 
             this.button22.Location = new System.Drawing.Point(27, 466);
-            this.button22.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button22.Margin = new System.Windows.Forms.Padding(2);
             this.button22.Name = "button22";
             this.button22.Size = new System.Drawing.Size(96, 32);
             this.button22.TabIndex = 16;
@@ -325,7 +325,7 @@
             // button23
             // 
             this.button23.Location = new System.Drawing.Point(733, 503);
-            this.button23.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button23.Margin = new System.Windows.Forms.Padding(2);
             this.button23.Name = "button23";
             this.button23.Size = new System.Drawing.Size(96, 32);
             this.button23.TabIndex = 31;
@@ -335,7 +335,7 @@
             // button24
             // 
             this.button24.Location = new System.Drawing.Point(531, 503);
-            this.button24.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button24.Margin = new System.Windows.Forms.Padding(2);
             this.button24.Name = "button24";
             this.button24.Size = new System.Drawing.Size(96, 32);
             this.button24.TabIndex = 30;
@@ -345,7 +345,7 @@
             // button25
             // 
             this.button25.Location = new System.Drawing.Point(430, 503);
-            this.button25.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button25.Margin = new System.Windows.Forms.Padding(2);
             this.button25.Name = "button25";
             this.button25.Size = new System.Drawing.Size(96, 32);
             this.button25.TabIndex = 28;
@@ -355,7 +355,7 @@
             // button26
             // 
             this.button26.Location = new System.Drawing.Point(632, 503);
-            this.button26.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button26.Margin = new System.Windows.Forms.Padding(2);
             this.button26.Name = "button26";
             this.button26.Size = new System.Drawing.Size(96, 32);
             this.button26.TabIndex = 29;
@@ -365,7 +365,7 @@
             // button27
             // 
             this.button27.Location = new System.Drawing.Point(330, 503);
-            this.button27.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button27.Margin = new System.Windows.Forms.Padding(2);
             this.button27.Name = "button27";
             this.button27.Size = new System.Drawing.Size(96, 32);
             this.button27.TabIndex = 27;
@@ -375,7 +375,7 @@
             // button28
             // 
             this.button28.Location = new System.Drawing.Point(229, 503);
-            this.button28.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button28.Margin = new System.Windows.Forms.Padding(2);
             this.button28.Name = "button28";
             this.button28.Size = new System.Drawing.Size(96, 32);
             this.button28.TabIndex = 26;
@@ -385,7 +385,7 @@
             // button29
             // 
             this.button29.Location = new System.Drawing.Point(128, 503);
-            this.button29.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button29.Margin = new System.Windows.Forms.Padding(2);
             this.button29.Name = "button29";
             this.button29.Size = new System.Drawing.Size(96, 32);
             this.button29.TabIndex = 25;
@@ -395,7 +395,7 @@
             // button30
             // 
             this.button30.Location = new System.Drawing.Point(27, 503);
-            this.button30.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button30.Margin = new System.Windows.Forms.Padding(2);
             this.button30.Name = "button30";
             this.button30.Size = new System.Drawing.Size(96, 32);
             this.button30.TabIndex = 24;
@@ -405,7 +405,7 @@
             // button31
             // 
             this.button31.Location = new System.Drawing.Point(733, 356);
-            this.button31.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button31.Margin = new System.Windows.Forms.Padding(2);
             this.button31.Name = "button31";
             this.button31.Size = new System.Drawing.Size(96, 32);
             this.button31.TabIndex = 39;
@@ -415,7 +415,7 @@
             // button32
             // 
             this.button32.Location = new System.Drawing.Point(531, 356);
-            this.button32.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button32.Margin = new System.Windows.Forms.Padding(2);
             this.button32.Name = "button32";
             this.button32.Size = new System.Drawing.Size(96, 32);
             this.button32.TabIndex = 38;
@@ -425,7 +425,7 @@
             // button33
             // 
             this.button33.Location = new System.Drawing.Point(430, 356);
-            this.button33.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button33.Margin = new System.Windows.Forms.Padding(2);
             this.button33.Name = "button33";
             this.button33.Size = new System.Drawing.Size(96, 32);
             this.button33.TabIndex = 36;
@@ -435,7 +435,7 @@
             // button34
             // 
             this.button34.Location = new System.Drawing.Point(632, 356);
-            this.button34.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button34.Margin = new System.Windows.Forms.Padding(2);
             this.button34.Name = "button34";
             this.button34.Size = new System.Drawing.Size(96, 32);
             this.button34.TabIndex = 37;
@@ -445,7 +445,7 @@
             // button35
             // 
             this.button35.Location = new System.Drawing.Point(330, 356);
-            this.button35.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button35.Margin = new System.Windows.Forms.Padding(2);
             this.button35.Name = "button35";
             this.button35.Size = new System.Drawing.Size(96, 32);
             this.button35.TabIndex = 35;
@@ -455,7 +455,7 @@
             // button36
             // 
             this.button36.Location = new System.Drawing.Point(229, 356);
-            this.button36.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button36.Margin = new System.Windows.Forms.Padding(2);
             this.button36.Name = "button36";
             this.button36.Size = new System.Drawing.Size(96, 32);
             this.button36.TabIndex = 34;
@@ -465,7 +465,7 @@
             // button37
             // 
             this.button37.Location = new System.Drawing.Point(128, 356);
-            this.button37.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button37.Margin = new System.Windows.Forms.Padding(2);
             this.button37.Name = "button37";
             this.button37.Size = new System.Drawing.Size(96, 32);
             this.button37.TabIndex = 33;
@@ -475,7 +475,7 @@
             // button38
             // 
             this.button38.Location = new System.Drawing.Point(27, 356);
-            this.button38.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button38.Margin = new System.Windows.Forms.Padding(2);
             this.button38.Name = "button38";
             this.button38.Size = new System.Drawing.Size(96, 32);
             this.button38.TabIndex = 32;
@@ -538,7 +538,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.Text);
+            this.Controls.Add(this.levelNameLabel);
             this.Controls.Add(this.block2);
             this.Controls.Add(this.block1);
             this.DoubleBuffered = true;
@@ -553,7 +553,7 @@
 
         private System.Windows.Forms.Button block1;
         private System.Windows.Forms.Button block2;
-        private System.Windows.Forms.Label Text;
+        private System.Windows.Forms.Label levelNameLabel;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;

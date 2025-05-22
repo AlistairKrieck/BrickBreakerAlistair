@@ -10,6 +10,7 @@ namespace BrickBreaker
 {
     public class Arrow : Projectile
     {
+        // Array to store the corners of the arrow object
         public PointF[] points = new PointF[4];
 
         public Arrow(int _x, int _y, int _speed)
@@ -21,18 +22,16 @@ namespace BrickBreaker
             height = GameScreen.arrowHeight;
             width = GameScreen.arrowWidth;
 
-            image = "arrow";
             projBrush = new SolidBrush(Color.Brown);
 
-            GetTarget(GameScreen.paddle);
-            GetAngle();
+            // Set all constant variables
+            InitProjectile();
 
+            // Sets the corners of the arrow based on the angle between the arrow and target
             GetArrowBody();
-
-            xSpeed = (float)(Math.Cos(angle) * speed);
-            ySpeed = -(float)(Math.Sin(angle) * speed);
         }
 
+        // Set the arrow's corners' x and y values according to the angle between it and the target
         public void GetArrowBody()
         {
             float alpha = (float)(Math.PI / 2 - angle);
@@ -55,12 +54,15 @@ namespace BrickBreaker
             points[3] = new PointF(x - xDif2, y + yDif2);
         }
 
-        new public void Move()
-        {
-            x += xSpeed;
-            y += ySpeed;
+        //Updates the arrows position according to its x and y speeds
+        // public void Move()
+        //{
+        //    // Update arrow position
+        //    x += xSpeed;
+        //    y += ySpeed;
 
-            GetArrowBody();
-        }
+        //    // Update corner postions
+        //    GetArrowBody();
+        //}
     }
 }

@@ -12,20 +12,12 @@ namespace BrickBreaker
 {
     public partial class LevelDesign : UserControl
     {
-        int x, y, width, height;
-        string textureValue;
-        int button = 1;
-        string type;
-        List<Bricks> bricks = new List<Bricks>();
-        bool canContinue = true;
-
         private void saveLabel_Click(object sender, EventArgs e)
         {
+            // Save the level to an XML file and shut down the program for ease of designing
             SaveLevel();
             Application.Exit();
         }
-
-        string levelNum;
 
         public LevelDesign()
         {
@@ -34,23 +26,31 @@ namespace BrickBreaker
 
         private void SaveLevel()
         {
-            levelNum = Text.Text;
+            List<Bricks> bricks = new List<Bricks>();
 
+            // Get level number (format level[n]) from level name label
+            string levelNum = levelNameLabel.Text;
+
+            // Create new brick objects for each button placed in the designer and add them to a list
             foreach (Control c in this.Controls)
             {
                 if (c is Button)
                 {
-                    x = c.Location.X;
-                    y = c.Location.Y;
-
+                    // Get brick info from each button
+                    int x = c.Location.X;
+                    int y = c.Location.Y;
                     string type = c.Text;
 
-                    Bricks newBlock = new Bricks(x, y, type, GameScreen.brickImages[type]);
-                    bricks.Add(newBlock);
+                    //Create a new brick object with the button info and add it to a list
+                    Bricks newBrick = new Bricks(x, y, type, GameScreen.brickImages[type]);
+                    bricks.Add(newBrick);
                 }
             }
 
+            // Create a new level loader object
             LevelLoader level = new LevelLoader();
+
+            // Save the list of bricks into an XML file named after the level number
             level.SaveLevel(levelNum, bricks);
         }
     }

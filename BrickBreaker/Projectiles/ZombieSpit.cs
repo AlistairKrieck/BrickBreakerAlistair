@@ -10,6 +10,7 @@ namespace BrickBreaker
 {
     public class ZombieSpit : Projectile
     {
+        // Gets the diameter of the spit object from GameScreen
         public int diameter = GameScreen.spitDiameter;
 
         public ZombieSpit(int _x, int _y, int _speed)
@@ -18,14 +19,11 @@ namespace BrickBreaker
             y = _y;
             speed = _speed;
 
-            image = "slimeball";
+            // Set colour of the spit to a gross yellow-green
             projBrush = new SolidBrush(Color.GreenYellow);
 
-            GetTarget(GameScreen.paddle);
-            GetAngle();
-
-            xSpeed = (float)(Math.Cos(angle) * speed);
-            ySpeed = -(float)(Math.Sin(angle) * speed);
+            // Set all constant variables
+            InitProjectile();
         }
     }
 }

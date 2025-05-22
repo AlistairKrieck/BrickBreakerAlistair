@@ -73,7 +73,7 @@ namespace BrickBreaker
             }
         }
 
-        // Reduce health
+        // Reduce health by 1
         public void TakeDamage()
         {
             hp--;
