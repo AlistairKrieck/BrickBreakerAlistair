@@ -255,7 +255,11 @@
   <ItemGroup>
     <None Include="Resources\dirtBlock.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\playerData.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\level1.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
