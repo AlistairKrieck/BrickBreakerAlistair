@@ -255,6 +255,19 @@
   <ItemGroup>
     <None Include="Resources\dirtBlock.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level1.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level2.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

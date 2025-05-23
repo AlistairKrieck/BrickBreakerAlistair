@@ -231,12 +231,30 @@ namespace BrickBreaker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;Level&gt;&lt;Block&gt;&lt;x&gt;916&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;stone&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;664&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;dirt&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;538&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;andesite&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;790&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;zombie&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;412&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;andesite&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;286&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;stone&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;160&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;dirt&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;34&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;stone&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;916&lt;/x&gt;&lt;y&gt;629&lt;/y&gt;&lt;type&gt;stone&lt; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string level1 {
+            get {
+                return ResourceManager.GetString("level1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap level1Background {
             get {
                 object obj = ResourceManager.GetObject("level1Background", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;Level&gt;&lt;Block&gt;&lt;x&gt;916&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;stone&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;664&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;dirt&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;538&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;andesite&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;790&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;zombie&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;412&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;andesite&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;286&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;stone&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;160&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;dirt&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;34&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;stone&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;916&lt;/x&gt;&lt;y&gt;629&lt;/y&gt;&lt;type&gt;stone&lt; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string level2 {
+            get {
+                return ResourceManager.GetString("level2", resourceCulture);
             }
         }
         
