@@ -13,19 +13,30 @@ namespace BrickBreaker
 {
     public partial class Form1 : Form
     {
+        // List to store all player objects saved in the playerData XML file
         public static List<PlayerData> players = new List<PlayerData>();
+
+        // Player object to store currently signed in player
+        public static PlayerData player = new PlayerData();
 
         public Form1()
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
+
+
+            // If playerData XML file doesn't exist, create a new, empty one
+            PlayerData.CreateEmptyFile();
+
+            // Load all saved players into a list
+            players = PlayerData.LoadPlayerData();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             // Start the program centred on the Menu Screen
-            ChangeScreen(this, new MenuScreen());
+            ChangeScreen(this, new LogInScreen());
         }
 
         public static void ChangeScreen(object sender, UserControl next)

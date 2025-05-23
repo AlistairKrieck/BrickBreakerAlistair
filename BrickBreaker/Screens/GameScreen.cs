@@ -23,7 +23,6 @@ namespace BrickBreaker
         /*
          * UI design
          * (High)score tracking and saving
-         * Blaze mob
          * Damage indicator on blocks
          * Sound effects and bg music
          * 
@@ -42,14 +41,17 @@ namespace BrickBreaker
         bool bounce = true;
         int BulletBallTimer = 0;
 
-        public static int lives = 3;
+        // Stores the remaining lives the player has
+        public static int lives = 5;
+
+        // Stores the players score
         public static int points = 0;
 
         // Set of all levels
         public static string[] levels = new string[3] { "level0", "level1", "level2" };
+
         // Current level as a position in the levels array
         int level;
-
 
         // Paddle and Ball objects
         public static Paddle paddle;
@@ -101,6 +103,10 @@ namespace BrickBreaker
         public static int spitSpeed = 4;
         public static int spitDiameter = 20;
 
+        // Variables to define a fireball object
+        public static int fireBallSpeed = 6;
+        public static int fireBallDiameter = 15;
+
         // Object to load each new level from XML files
         LevelLoader levelLoader = new LevelLoader();
 
@@ -112,6 +118,7 @@ namespace BrickBreaker
 
             // Set all variables to their starting values and objects to starting positions
             OnStart();
+            points = 0;
 
             // Load level 0
             level = 1;
@@ -122,17 +129,17 @@ namespace BrickBreaker
         public void OnStart()
         {
             //set life counter
-            lives = 3;
+            lives = 5;
 
             //set all button presses to false.
             leftArrowDown = rightArrowDown = escapeKeyDown = spaceKeyDown = tabKeyDown = false;
 
             // setup starting paddle values and create paddle object
-            int paddleWidth = 60;
+            int paddleWidth = 80;
             int paddleHeight = 10;
             int paddleX = ((this.Width / 2) - (paddleWidth / 2));
             int paddleY = 10 + paddleHeight;
-            int paddleSpeed = 8;
+            int paddleSpeed = 10;
             paddle = new Paddle(paddleX, paddleY, paddleWidth, paddleHeight, paddleSpeed, Color.White);
 
             // setup starting ball values
@@ -248,6 +255,15 @@ namespace BrickBreaker
                         // Create a new spit object and add it to the list of projectiles
                         projectiles.Add(z.AttackPlayer());
                     }
+
+                    if (m is Blaze)
+                    {
+                        // Create new zomnie to allow attacking
+                        Blaze b = (Blaze)m;
+
+                        // Create a new spit object and add it to the list of projectiles
+                        projectiles.Add(b.AttackPlayer());
+                    }
                 }
             }
 
@@ -362,6 +378,7 @@ namespace BrickBreaker
 
             // Update life counter
             liveslabel.Text = $"{lives}";
+            scoreLabel.Text = $"{points}";
 
             #endregion
 
@@ -372,6 +389,9 @@ namespace BrickBreaker
             {
                 // Add 500 point for winning
                 points += 500;
+
+                // Update high score on win
+                CheckHighScore();
 
                 Form1.ChangeScreen(this, new WinScreen());
             }
@@ -391,6 +411,9 @@ namespace BrickBreaker
                 // Add 100 points for clearing a level
                 points += 100;
 
+                // Update high score on level clear
+                CheckHighScore();
+
                 // Load next level
                 LoadLevel(level);
             }
@@ -401,8 +424,21 @@ namespace BrickBreaker
             Refresh();
         }
 
+        // If current points are greater than this player's high score, update high score to new value
+        private static void CheckHighScore()
+        {
+            if (points > Form1.player.score)
+            {
+                Form1.player.score = points;
+                Form1.player.UpdatePlayerScore();
+            }
+        }
+
         public void OnEnd()
         {
+            // Update high score on death
+            CheckHighScore();
+
             // Goes to the game over screen
             Form1.ChangeScreen(this, new MenuScreen());
         }
@@ -415,6 +451,9 @@ namespace BrickBreaker
 
                 if (ball.Collision(b.rect))
                 {
+                    SoundPlayer player = new SoundPlayer(Properties.Resources.brickCollision);
+                    player.Play();
+
                     if (ball.xSpeed == 0)
                     {
                         if (direction == 1)
@@ -446,8 +485,15 @@ namespace BrickBreaker
                         {
                             SpawnPowerUp(b);
 
-                            // Add 3 points for breaking an ore block (3 plus the 2 below)
+                            // Add 5 points for breaking an ore block (3 plus the 2 below)
                             points += 3;
+                        }
+                        if (Bricks.mobs.Contains(b.brickType))
+                        {
+                            SpawnPowerUp(b);
+
+                            // Add 5 points for breaking an ore block (3 plus the 2 below)
+                            points += 5;
                         }
 
                         // Add 2 points for breaking a block
