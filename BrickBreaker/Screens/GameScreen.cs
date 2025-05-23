@@ -451,8 +451,8 @@ namespace BrickBreaker
 
                 if (ball.Collision(b.rect))
                 {
-                    //SoundPlayer player = new SoundPlayer(Properties.Resources.audiomass_output);
-                    //player.Play();
+                    SoundPlayer player = new SoundPlayer(Properties.Resources.brickCollision);
+                    player.Play();
 
                     if (ball.xSpeed == 0)
                     {

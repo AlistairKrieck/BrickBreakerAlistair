@@ -71,12 +71,20 @@ namespace BrickBreaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static byte[] audiomass_output {
+        internal static System.IO.UnmanagedMemoryStream audiomass_output {
             get {
-                object obj = ResourceManager.GetObject("audiomass-output", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetStream("audiomass_output", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream brickCollision {
+            get {
+                return ResourceManager.GetStream("brickCollision", resourceCulture);
             }
         }
         

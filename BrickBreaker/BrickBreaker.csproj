@@ -256,6 +256,12 @@
     <None Include="Resources\dirtBlock.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\audiomass-output.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brickCollision.wav" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\playerData.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
