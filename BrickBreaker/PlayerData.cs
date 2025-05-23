@@ -48,6 +48,7 @@ namespace BrickBreaker
 
 
         // Update score of this player object
+        // Updated on win or level cleared
         public void UpdatePlayerScore()
         {
             // Open the playerData XML
@@ -74,6 +75,9 @@ namespace BrickBreaker
 
             // Create a new reader object
             XmlReader reader = XmlReader.Create("Resources/playerData.xml");
+
+            // Read to the start element
+            reader.ReadStartElement();
 
             // Read from each player in the file
             while (reader.Read())

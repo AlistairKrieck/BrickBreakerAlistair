@@ -33,7 +33,7 @@
             this.confirmPasswordInput = new System.Windows.Forms.TextBox();
             this.submitButton = new System.Windows.Forms.Button();
             this.titleLabel = new System.Windows.Forms.Label();
-            this.createAccountButton = new System.Windows.Forms.Button();
+            this.logInButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // usernameInput
@@ -106,28 +106,28 @@
             this.titleLabel.Text = "Create New Account";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // createAccountButton
+            // logInButton
             // 
-            this.createAccountButton.BackColor = System.Drawing.Color.White;
-            this.createAccountButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.createAccountButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.createAccountButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.createAccountButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.createAccountButton.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.createAccountButton.Location = new System.Drawing.Point(309, 423);
-            this.createAccountButton.Name = "createAccountButton";
-            this.createAccountButton.Size = new System.Drawing.Size(259, 42);
-            this.createAccountButton.TabIndex = 12;
-            this.createAccountButton.Text = "Already Have an Account?";
-            this.createAccountButton.UseVisualStyleBackColor = false;
-            this.createAccountButton.Click += new System.EventHandler(this.createAccountButton_Click);
+            this.logInButton.BackColor = System.Drawing.Color.White;
+            this.logInButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.logInButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.logInButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.logInButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logInButton.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.logInButton.Location = new System.Drawing.Point(309, 423);
+            this.logInButton.Name = "logInButton";
+            this.logInButton.Size = new System.Drawing.Size(259, 42);
+            this.logInButton.TabIndex = 12;
+            this.logInButton.Text = "Already Have an Account?";
+            this.logInButton.UseVisualStyleBackColor = false;
+            this.logInButton.Click += new System.EventHandler(this.logInButton_Click);
             // 
             // CreateAccountScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Controls.Add(this.createAccountButton);
+            this.Controls.Add(this.logInButton);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.confirmPasswordInput);
@@ -148,6 +148,6 @@
         private System.Windows.Forms.TextBox confirmPasswordInput;
         private System.Windows.Forms.Button submitButton;
         private System.Windows.Forms.Label titleLabel;
-        private System.Windows.Forms.Button createAccountButton;
+        private System.Windows.Forms.Button logInButton;
     }
 }

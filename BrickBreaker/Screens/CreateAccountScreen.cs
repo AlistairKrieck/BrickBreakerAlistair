@@ -61,14 +61,18 @@ namespace BrickBreaker
                 // If no errors are met, save new player account to the playerData XML and set them as the signed in player
                 else
                 {
-                    // Create new player object
-                    Form1.player = new PlayerData(username, password);
+                    // Store inputs in a new player object
+                    PlayerData player = new PlayerData(username, password);
 
-                    // Save new player to the XML file storing previous players
-                    Form1.player.SavePlayerData();
+                    // Save new player to the XML file storing all players
+                    player.SavePlayerData();
 
                     // Update list of players to include new account
                     Form1.players = PlayerData.LoadPlayerData();
+
+                    // Set signed in player to a new player object with the created accounts data
+                    // Doing it this way instead of Form1.player = player fixes a bug in the main menu, where the player will be displayed on the leaderboard twice
+                    Form1.player = Form1.players.Find(p => p.username == username && p.password == password);
 
                     // Go to main menu on valid character creation
                     Form1.ChangeScreen(this, new MenuScreen());
@@ -141,7 +145,7 @@ namespace BrickBreaker
         }
 
         // Go to log in screen
-        private void createAccountButton_Click(object sender, EventArgs e)
+        private void logInButton_Click(object sender, EventArgs e)
         {
             Form1.ChangeScreen(this, new LogInScreen());
         }

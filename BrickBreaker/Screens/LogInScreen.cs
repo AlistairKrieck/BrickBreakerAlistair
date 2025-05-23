@@ -130,7 +130,5 @@ namespace BrickBreaker
         {
             Form1.ChangeScreen(this, new CreateAccountScreen());
         }
-
-
     }
 }
