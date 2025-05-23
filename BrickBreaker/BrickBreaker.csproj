@@ -64,16 +64,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mobs\Blaze.cs" />
+    <Compile Include="Projectiles\FireBall.cs" />
     <Compile Include="Screens\CreateAccountScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Screens\CreateAccountScreen.Designer.cs">
       <DependentUpon>CreateAccountScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="LogInScreen.cs">
+    <Compile Include="Screens\LogInScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="LogInScreen.Designer.cs">
+    <Compile Include="Screens\LogInScreen.Designer.cs">
       <DependentUpon>LogInScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="PlayerData.cs" />
@@ -138,7 +140,7 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LogInScreen.resx">
+    <EmbeddedResource Include="Screens\LogInScreen.resx">
       <DependentUpon>LogInScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\GameOverScreen.resx">
@@ -258,6 +260,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\brickCollision.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playerData.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level1.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level2.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Resources\playerData.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

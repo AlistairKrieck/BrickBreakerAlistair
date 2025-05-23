@@ -60,6 +60,9 @@ namespace BrickBreaker
             // Open the XML file and place it in reader 
             XmlReader reader = XmlReader.Create($"Resources/level{levelNum}.xml");
 
+            // Read to the start element
+            reader.ReadStartElement();
+
             while (reader.Read())
             {
                 if (reader.NodeType == XmlNodeType.Element)
