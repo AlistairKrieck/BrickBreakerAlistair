@@ -416,6 +416,9 @@ namespace BrickBreaker
 
                 if (ball.Collision(b.rect))
                 {
+                    //SoundPlayer player = new SoundPlayer(Properties.Resources.audiomass_output);
+                    //player.Play();
+
                     if (ball.xSpeed == 0)
                     {
                         if (direction == 1)
@@ -452,8 +455,6 @@ namespace BrickBreaker
                         }
                         if (Bricks.mobs.Contains(b.brickType))
                         {
-                            SpawnPowerUp(b);
-                            SpawnPowerUp(b);
                             SpawnPowerUp(b);
 
                             // Add 5 points for breaking an ore block (3 plus the 2 below)
