@@ -281,7 +281,11 @@ namespace BrickBreaker.Properties {
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
         ///&lt;Players&gt;
-        ///
+        ///  &lt;Player&gt;
+        ///    &lt;Username&gt;a&lt;/Username&gt;
+        ///    &lt;Password&gt;a&lt;/Password&gt;
+        ///    &lt;Score&gt;0&lt;/Score&gt;
+        ///  &lt;/Player&gt;
         ///&lt;/Players&gt;.
         /// </summary>
         internal static string playerData {
