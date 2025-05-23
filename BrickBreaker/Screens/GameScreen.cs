@@ -116,9 +116,10 @@ namespace BrickBreaker
 
             // Set all variables to their starting values and objects to starting positions
             OnStart();
+            points = 0;
 
             // Load level 0
-            level = 1;
+            level = 0;
             LoadLevel(level);
         }
 

@@ -72,10 +72,10 @@
     <Compile Include="Screens\CreateAccountScreen.Designer.cs">
       <DependentUpon>CreateAccountScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="LogInScreen.cs">
+    <Compile Include="Screens\LogInScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="LogInScreen.Designer.cs">
+    <Compile Include="Screens\LogInScreen.Designer.cs">
       <DependentUpon>LogInScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="PlayerData.cs" />
@@ -140,7 +140,7 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LogInScreen.resx">
+    <EmbeddedResource Include="Screens\LogInScreen.resx">
       <DependentUpon>LogInScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\GameOverScreen.resx">
