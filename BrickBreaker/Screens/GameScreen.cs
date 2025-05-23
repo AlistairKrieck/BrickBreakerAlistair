@@ -592,7 +592,6 @@ namespace BrickBreaker
                     e.Graphics.FillRectangle(Brushes.White, b.rect);
                 }
             }
-            //hi gang
 
             // Draw projectiles launched at player
             foreach (Projectile proj in projectiles)
