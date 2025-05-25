@@ -64,7 +64,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Heart.cs" />
     <Compile Include="Mobs\Blaze.cs" />
     <Compile Include="Projectiles\FireBall.cs" />
     <Compile Include="Screens\CreateAccountScreen.cs">
@@ -284,6 +283,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Debug\Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minecraftHeartImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\goldenHeartImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\emptyHeartImage.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

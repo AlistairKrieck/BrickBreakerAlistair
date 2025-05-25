@@ -160,8 +160,14 @@
   <data name="dirtBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dirtBlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="emptyHeartImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\emptyHeartImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ghastPlayer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ghastPlayer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="goldenHeartImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\goldenHeartImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="graniteBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\graniteBlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -189,6 +195,9 @@
   </data>
   <data name="level2Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\level3Background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="minecraftHeartImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\minecraftHeartImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="playerData" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\playerData.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>

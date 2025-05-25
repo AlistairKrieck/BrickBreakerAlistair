@@ -14,6 +14,7 @@ using System.Windows.Forms;
 using System.Media;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 using System.Reflection;
+using System.Runtime.InteropServices;
 
 namespace BrickBreaker
 {
@@ -41,7 +42,13 @@ namespace BrickBreaker
         int BulletBallTimer = 0;
 
         // Stores the remaining lives the player has
+        public static int maxLives = 5;
+
+        // Stores the remaining lives the player has
         public static int lives = 5;
+
+        // Stores the extra lives the player has
+        public static int extraLives = 0;
 
         // Stores the players score
         public static int points = 0;
@@ -56,7 +63,7 @@ namespace BrickBreaker
         public static Paddle paddle;
         public static Ball ball;
 
-        // Relates block type to relevant image 
+        // Relates brick type to relevant image for convenience 
         public static Dictionary<string, Image> brickImages = new Dictionary<string, Image>()
         {
              { "grass", Properties.Resources.grassBlock },
@@ -77,10 +84,8 @@ namespace BrickBreaker
              { "deepslateRedstone", Properties.Resources.deepslateRedstoneOreBlock },
              { "skeleton", Properties.Resources.skeletonEnemyImage },
              { "zombie", Properties.Resources.zombieEnemyImage },
-             { "ghastPlayer", Properties.Resources.ghastPlayer }
+             { "ghastPlayer", Properties.Resources.ghastPlayer },
         };
-
-
 
         // List of power ups to be moved
         List<Powers> powerUps = new List<Powers>();
@@ -119,7 +124,6 @@ namespace BrickBreaker
 
             // Update labels to show default values
             scoreLabel.Text = $"{points}";
-            livesLabel.Text = $"{lives}";
 
             // Set all variables to their starting values and objects to starting positions
             OnStart();
@@ -134,7 +138,7 @@ namespace BrickBreaker
         public void OnStart()
         {
             //set life counter
-            lives = 1;
+            lives = maxLives;
 
             //set all button presses to false.
             leftArrowDown = rightArrowDown = escapeKeyDown = spaceKeyDown = tabKeyDown = false;
@@ -287,7 +291,8 @@ namespace BrickBreaker
                 else if (p.PaddleCollision(paddle))
                 {
                     // Remove a life and 10 points from the player if a projectile hits them
-                    lives--;
+                    TakeDamage();
+
                     points -= 10;
 
                     // Remove projectile to prevent it from taking multiple lives at once
@@ -315,7 +320,8 @@ namespace BrickBreaker
                 gameTimer.Enabled = false;
 
                 // Remove a life and 10 points if the player misses the ball
-                lives--;
+                TakeDamage();
+
                 points -= 10;
 
                 // Moves the ball back to origin
@@ -323,13 +329,6 @@ namespace BrickBreaker
                 ball.y = paddle.y + ball.size;
                 ball.xSpeed = 0;
                 ball.ySpeed = 3;
-            }
-
-            // If the player dies, end the game
-            if (lives == 0)
-            {
-                gameTimer.Enabled = false;
-                OnEnd();
             }
 
 
@@ -381,8 +380,7 @@ namespace BrickBreaker
                 if (BulletBallTimer <= 0) bounce = true;
             }
 
-            // Update life counter
-            livesLabel.Text = $"{lives}";
+            // Update score counter
             scoreLabel.Text = $"{points}";
 
             #endregion
@@ -436,6 +434,60 @@ namespace BrickBreaker
             {
                 Form1.player.score = points;
                 Form1.player.UpdatePlayerScore();
+            }
+        }
+
+        private void UpdateHearts(PaintEventArgs e)
+        {
+            // Horizontal distance between hearts
+            int heartSpacing = 10;
+
+            // Distance between the left of the screen and the leftmost heart
+            int horizSpacing = 50;
+
+            // Distance between the top of the screen and the hearts
+            int vertSpacing = 30;
+
+            int heartSize = 40;
+
+            // Draw maxLives worth of hearts
+            for (int i = 0; i < maxLives; i++)
+            {
+                int x = horizSpacing + i * (heartSize + heartSpacing);
+                int y = vertSpacing;
+
+                Image image = i < lives ? Properties.Resources.minecraftHeartImage : Properties.Resources.emptyHeartImage;
+
+                e.Graphics.DrawImage(image, x, y, heartSize, heartSize);
+            }
+
+            // Draw extra (gold) hearts
+            for (int i = 0; i < extraLives; i++)
+            {
+                int x = (lives + i) * (heartSize + horizSpacing);
+                int y = vertSpacing;
+
+                Image image = Properties.Resources.goldenHeartImage;
+
+                e.Graphics.DrawImage(image, x, y, heartSize, heartSize);
+            }
+        }
+
+        public void TakeDamage()
+        {
+            if (extraLives > 0)
+            {
+                extraLives--;
+            }
+            else if (lives > 0)
+            {
+                lives--;
+            }
+
+            if (lives == 0)
+            {
+                gameTimer.Enabled = false;
+                OnEnd();
             }
         }
 
@@ -562,7 +614,11 @@ namespace BrickBreaker
 
         public void ApplyPowerUps(string type)
         {
-            if (type == "ExtraLife") lives++;
+            if (type == "ExtraLife")
+            {
+                if (lives < maxLives) lives++;
+                else extraLives++;
+            }
             else if (type == "SpeedBoost") paddle.speed += 2;
             else if (type == "BigPaddle") paddle.width += 20;
             else if (type == "Bullet")
@@ -575,6 +631,8 @@ namespace BrickBreaker
 
         public void GameScreen_Paint(object sender, PaintEventArgs e)
         {
+            UpdateHearts(e);
+
             // Draws paddle
             paddleBrush.Color = paddle.colour;
             e.Graphics.FillRectangle(paddleBrush, paddle.x, paddle.y, paddle.width, paddle.height);
