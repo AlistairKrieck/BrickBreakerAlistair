@@ -100,7 +100,7 @@
             this.levelNameLabel.Name = "levelNameLabel";
             this.levelNameLabel.Size = new System.Drawing.Size(416, 195);
             this.levelNameLabel.TabIndex = 2;
-            this.levelNameLabel.Text = "level1";
+            this.levelNameLabel.Text = "level19";
             // 
             // button1
             // 
@@ -489,7 +489,7 @@
             this.saveLabel.Location = new System.Drawing.Point(759, 116);
             this.saveLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.saveLabel.Name = "saveLabel";
-            this.saveLabel.Size = new System.Drawing.Size(185, 16);
+            this.saveLabel.Size = new System.Drawing.Size(166, 15);
             this.saveLabel.TabIndex = 40;
             this.saveLabel.Text = "Click to Save Level and Close";
             this.saveLabel.Click += new System.EventHandler(this.saveLabel_Click);
@@ -542,7 +542,7 @@
             this.Controls.Add(this.block2);
             this.Controls.Add(this.block1);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LevelDesign";
             this.Size = new System.Drawing.Size(1068, 678);
             this.ResumeLayout(false);

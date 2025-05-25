@@ -64,6 +64,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Heart.cs" />
     <Compile Include="Mobs\Blaze.cs" />
     <Compile Include="Projectiles\FireBall.cs" />
     <Compile Include="Screens\CreateAccountScreen.cs">
@@ -277,7 +278,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\Resources\playerData.xml" />
+    <None Include="Resources\level0.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

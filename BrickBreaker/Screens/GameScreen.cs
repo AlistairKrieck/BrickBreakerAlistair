@@ -22,7 +22,6 @@ namespace BrickBreaker
         //TODO
         /*
          * UI design
-         * (High)score tracking and saving
          * Damage indicator on blocks
          * Sound effects and bg music
          * 
@@ -81,6 +80,8 @@ namespace BrickBreaker
              { "ghastPlayer", Properties.Resources.ghastPlayer }
         };
 
+
+
         // List of power ups to be moved
         List<Powers> powerUps = new List<Powers>();
 
@@ -116,12 +117,16 @@ namespace BrickBreaker
         {
             InitializeComponent();
 
+            // Update labels to show default values
+            scoreLabel.Text = $"{points}";
+            livesLabel.Text = $"{lives}";
+
             // Set all variables to their starting values and objects to starting positions
             OnStart();
             points = 0;
 
             // Load level 0
-            level = 1;
+            level = 0;
             LoadLevel(level);
         }
 
@@ -129,7 +134,7 @@ namespace BrickBreaker
         public void OnStart()
         {
             //set life counter
-            lives = 5;
+            lives = 1;
 
             //set all button presses to false.
             leftArrowDown = rightArrowDown = escapeKeyDown = spaceKeyDown = tabKeyDown = false;
@@ -377,7 +382,7 @@ namespace BrickBreaker
             }
 
             // Update life counter
-            liveslabel.Text = $"{lives}";
+            livesLabel.Text = $"{lives}";
             scoreLabel.Text = $"{points}";
 
             #endregion

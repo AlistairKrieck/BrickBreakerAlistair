@@ -63,13 +63,14 @@ namespace BrickBreaker
             lbOutputs.OrderBy(l => l.Name);
 
             // Fix ordering (lb1Output, lb2Output...)
+            // This does what OrderByDescending should but doesn't
             lbOutputs.Reverse();
 
             // Add all saved players to a new list
             List<PlayerData> lb = Form1.players;
 
             // Order list of players by their score from highest to lowest
-            lb.OrderByDescending(p => p.score);
+            lb.Sort((a, b) => b.score.CompareTo(a.score));
 
             // Write player names and scores to their respective position on the leader board
             for (int i = 0; i < lbPositions; i++)

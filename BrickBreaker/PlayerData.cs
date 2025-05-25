@@ -14,12 +14,13 @@ namespace BrickBreaker
         public string username, password;
         public int score { get; set; }
 
+        // Create new string to hold path for the playerData Xml file
+        string pdXml = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "playerData.xml");
+
         public PlayerData(string _username, string _password)
         {
             username = _username;
             password = _password;
-
-            CreateEmptyFile();
         }
 
 
@@ -31,7 +32,7 @@ namespace BrickBreaker
         public void SavePlayerData()
         {
             // Load existing playerData XML file
-            XDocument doc = XDocument.Load("Resources/playerData.xml");
+            XDocument doc = XDocument.Load(pdXml);
 
             // Select the start element
             XElement players = doc.Element("Players");
@@ -43,7 +44,7 @@ namespace BrickBreaker
                 new XElement("Score", $"{score}")));
 
             // Save the updated file
-            doc.Save($"Resources/playerData.xml");
+            doc.Save(pdXml);
         }
 
 
@@ -52,50 +53,53 @@ namespace BrickBreaker
         public void UpdatePlayerScore()
         {
             // Open the playerData XML
-            XDocument doc = XDocument.Load($"Resources/playerData.xml");
+            XDocument doc = XDocument.Load(pdXml);
 
             // Find the player that is currently signed in
             XElement currentPlayer = doc.Element("Players").Elements("Player")
-                                .Where(player => player.Attribute("username").Value == username)
+                                .Where(player => player.Element("Username").Value == username)
                                 .FirstOrDefault();
 
             // Update the score saved in the file
-            currentPlayer.Attribute("score").SetValue($"{score}");
+            currentPlayer.Element("Score").SetValue($"{score}");
 
             // Save the updated file
-            doc.Save($"Resources/playerData.xml");
+            doc.Save(pdXml);
         }
 
-        #region Public static methods
         // Returns a list of all player objects stored in the playerData XML
-        public static List<PlayerData> LoadPlayerData()
+        public List<PlayerData> LoadAllPlayerData()
         {
             // Create a list of player objects
             List<PlayerData> players = new List<PlayerData>();
 
             // Create a new reader object
-            XmlReader reader = XmlReader.Create("Resources/playerData.xml");
+            XmlReader reader = XmlReader.Create(pdXml);
+
 
             // Read to the start element
-            reader.ReadStartElement();
+            //reader.ReadStartElement();
 
             // Read from each player in the file
             while (reader.Read())
             {
                 if (reader.NodeType == XmlNodeType.Element)
                 {
+                    // Create a new player object to store the read information
+                    PlayerData player = new PlayerData();
+
                     // Store subelements into new objects of their respective types
                     reader.ReadToFollowing("Username");
-                    string un = reader.ReadString();
+                    player.username = reader.ReadString();
 
                     reader.ReadToFollowing("Password");
-                    string pw = reader.ReadString();
+                    player.password = reader.ReadString();
 
                     reader.ReadToFollowing("Score");
-                    int sc = Convert.ToInt16(reader.ReadString());
+                    player.score = Convert.ToInt16(reader.ReadString());
 
                     // Add read player to the list of players
-                    players.Add(new PlayerData(un, pw));
+                    players.Add(player);
                 }
             }
 
@@ -105,29 +109,5 @@ namespace BrickBreaker
             // Return the list of all players in the file
             return players;
         }
-
-
-        // Creates a new empty playerData XML file if none exist
-        public static void CreateEmptyFile()
-        {
-            if (!File.Exists("Resources/playerData.xml"))
-            {
-                // Open the XML file and place it in writer 
-                XmlWriter writer = XmlWriter.Create($"Resources/playerData.xml");
-
-                // Write the root element 
-                writer.WriteStartElement("Players");
-
-
-                // End the root element 
-                writer.WriteEndElement();
-
-
-                // Write the XML to file and close the writer 
-                writer.Close();
-            }
-        }
-
-        #endregion
     }
 }

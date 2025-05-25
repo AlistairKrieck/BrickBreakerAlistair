@@ -239,6 +239,15 @@ namespace BrickBreaker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;Level&gt;&lt;Block&gt;&lt;x&gt;916&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;grass&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;664&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;grass&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;538&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;grass&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;790&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;grass&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;412&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;grass&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;286&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;grass&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;160&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;grass&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;34&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;grass&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;916&lt;/x&gt;&lt;y&gt;629&lt;/y&gt;&lt;type&gt;stone&lt;/type [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string level0 {
+            get {
+                return ResourceManager.GetString("level0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap level0Background {
