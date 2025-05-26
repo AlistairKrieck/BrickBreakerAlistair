@@ -253,6 +253,36 @@
   <ItemGroup>
     <None Include="Resources\dirtBlock.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level5Background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blazeEnemyImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magmaBlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\netherGoldBlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\netheriteOreBlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\quartzOreBlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\netherraackBlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deepslateBrickBlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\obsidianBlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level4Background.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

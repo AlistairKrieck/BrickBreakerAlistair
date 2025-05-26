@@ -76,7 +76,14 @@ namespace BrickBreaker
              { "deepslateRedstone", Properties.Resources.deepslateRedstoneOreBlock },
              { "skeleton", Properties.Resources.skeletonEnemyImage },
              { "zombie", Properties.Resources.zombieEnemyImage },
-             { "ghastPlayer", Properties.Resources.ghastPlayer }
+             { "ghastPlayer", Properties.Resources.ghastPlayer },
+             { "deepslateTile", Properties.Resources.deepslateBrickBlock},
+             { "obsidian", Properties.Resources.obsidianBlock},
+             { "netherack", Properties.Resources.netherraackBlock},
+             { "magma", Properties.Resources.magmaBlock},
+             { "netherGold", Properties.Resources.netherGoldBlock},
+             { "netherite", Properties.Resources.netheriteOreBlock},
+             { "quartz", Properties.Resources.quartzOreBlock}
         };
 
         // List of power ups to be moved
@@ -114,7 +121,7 @@ namespace BrickBreaker
             OnStart();
 
             // Load level 0
-            level = 1;
+            level = 3;
             LoadLevel(level);
         }
 
@@ -498,13 +505,13 @@ namespace BrickBreaker
                     this.BackgroundImage = Properties.Resources.level2Background;
                     break;
 
-                    //case 3:
-                    //    this.BackgroundImage = Properties.Resources.level3Background;
-                    //    break;
+                case 3:
+                     this.BackgroundImage = Properties.Resources.level4Background;
+                     break;
 
-                    //case 4:
-                    //    this.BackgroundImage = Properties.Resources.level4Background;
-                    //    break;
+                 case 4:
+                    this.BackgroundImage = Properties.Resources.level5Background;
+                    break;
             }
         }
 

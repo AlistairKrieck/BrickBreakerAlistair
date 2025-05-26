@@ -79,17 +79,17 @@
             this.block1.Name = "block1";
             this.block1.Size = new System.Drawing.Size(120, 40);
             this.block1.TabIndex = 0;
-            this.block1.Text = "stone";
+            this.block1.Text = "magma";
             this.block1.UseVisualStyleBackColor = true;
             // 
             // block2
             // 
-            this.block2.Location = new System.Drawing.Point(160, 491);
+            this.block2.Location = new System.Drawing.Point(161, 491);
             this.block2.Margin = new System.Windows.Forms.Padding(2);
             this.block2.Name = "block2";
             this.block2.Size = new System.Drawing.Size(120, 40);
             this.block2.TabIndex = 1;
-            this.block2.Text = "skeleton";
+            this.block2.Text = "netherack";
             this.block2.UseVisualStyleBackColor = true;
             // 
             // levelNameLabel
@@ -100,7 +100,7 @@
             this.levelNameLabel.Name = "levelNameLabel";
             this.levelNameLabel.Size = new System.Drawing.Size(416, 195);
             this.levelNameLabel.TabIndex = 2;
-            this.levelNameLabel.Text = "level1";
+            this.levelNameLabel.Text = "level4";
             // 
             // button1
             // 
@@ -109,7 +109,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(120, 40);
             this.button1.TabIndex = 3;
-            this.button1.Text = "stone";
+            this.button1.Text = "netherack";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // button2
@@ -119,7 +119,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(120, 40);
             this.button2.TabIndex = 4;
-            this.button2.Text = "stone";
+            this.button2.Text = "quartz";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button3
@@ -129,7 +129,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(120, 40);
             this.button3.TabIndex = 5;
-            this.button3.Text = "coal";
+            this.button3.Text = "netherack";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // button4
@@ -139,7 +139,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(120, 40);
             this.button4.TabIndex = 5;
-            this.button4.Text = "andesite";
+            this.button4.Text = "netherack";
             this.button4.UseVisualStyleBackColor = true;
             // 
             // button5
@@ -149,7 +149,7 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(120, 40);
             this.button5.TabIndex = 6;
-            this.button5.Text = "andesite";
+            this.button5.Text = "netherack";
             this.button5.UseVisualStyleBackColor = true;
             // 
             // button6
@@ -159,7 +159,7 @@
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(120, 40);
             this.button6.TabIndex = 7;
-            this.button6.Text = "stone";
+            this.button6.Text = "netherack";
             this.button6.UseVisualStyleBackColor = true;
             // 
             // button7
@@ -169,8 +169,9 @@
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(120, 40);
             this.button7.TabIndex = 15;
-            this.button7.Text = "stone";
+            this.button7.Text = "netherack";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button8
             // 
@@ -179,7 +180,7 @@
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(120, 40);
             this.button8.TabIndex = 14;
-            this.button8.Text = "stone";
+            this.button8.Text = "netherGold";
             this.button8.UseVisualStyleBackColor = true;
             // 
             // button9
@@ -189,7 +190,7 @@
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(120, 40);
             this.button9.TabIndex = 12;
-            this.button9.Text = "copper";
+            this.button9.Text = "netherGold";
             this.button9.UseVisualStyleBackColor = true;
             // 
             // button10
@@ -199,7 +200,7 @@
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(120, 40);
             this.button10.TabIndex = 13;
-            this.button10.Text = "stone";
+            this.button10.Text = "netherack";
             this.button10.UseVisualStyleBackColor = true;
             // 
             // button11
@@ -209,7 +210,7 @@
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(120, 40);
             this.button11.TabIndex = 11;
-            this.button11.Text = "stone";
+            this.button11.Text = "netherack";
             this.button11.UseVisualStyleBackColor = true;
             // 
             // button12
@@ -219,7 +220,7 @@
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(120, 40);
             this.button12.TabIndex = 10;
-            this.button12.Text = "coal";
+            this.button12.Text = "netherack";
             this.button12.UseVisualStyleBackColor = true;
             // 
             // button13
@@ -229,7 +230,7 @@
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(120, 40);
             this.button13.TabIndex = 9;
-            this.button13.Text = "andesite";
+            this.button13.Text = "netherack";
             this.button13.UseVisualStyleBackColor = true;
             // 
             // button14
@@ -239,7 +240,7 @@
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(120, 40);
             this.button14.TabIndex = 8;
-            this.button14.Text = "andesite";
+            this.button14.Text = "netherack";
             this.button14.UseVisualStyleBackColor = true;
             // 
             // button15
@@ -249,7 +250,7 @@
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(120, 40);
             this.button15.TabIndex = 23;
-            this.button15.Text = "stone";
+            this.button15.Text = "netherack";
             this.button15.UseVisualStyleBackColor = true;
             // 
             // button16
@@ -259,7 +260,7 @@
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(120, 40);
             this.button16.TabIndex = 22;
-            this.button16.Text = "iron";
+            this.button16.Text = "netherack";
             this.button16.UseVisualStyleBackColor = true;
             // 
             // button17
@@ -269,7 +270,7 @@
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(120, 40);
             this.button17.TabIndex = 20;
-            this.button17.Text = "granite";
+            this.button17.Text = "netherack";
             this.button17.UseVisualStyleBackColor = true;
             // 
             // button18
@@ -279,7 +280,7 @@
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(120, 40);
             this.button18.TabIndex = 21;
-            this.button18.Text = "stone";
+            this.button18.Text = "netherack";
             this.button18.UseVisualStyleBackColor = true;
             // 
             // button19
@@ -289,7 +290,7 @@
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(120, 40);
             this.button19.TabIndex = 19;
-            this.button19.Text = "granite";
+            this.button19.Text = "quartz";
             this.button19.UseVisualStyleBackColor = true;
             // 
             // button20
@@ -299,7 +300,7 @@
             this.button20.Name = "button20";
             this.button20.Size = new System.Drawing.Size(120, 40);
             this.button20.TabIndex = 18;
-            this.button20.Text = "stone";
+            this.button20.Text = "netherack";
             this.button20.UseVisualStyleBackColor = true;
             // 
             // button21
@@ -309,7 +310,7 @@
             this.button21.Name = "button21";
             this.button21.Size = new System.Drawing.Size(120, 40);
             this.button21.TabIndex = 17;
-            this.button21.Text = "andesite";
+            this.button21.Text = "netherite";
             this.button21.UseVisualStyleBackColor = true;
             // 
             // button22
@@ -319,7 +320,7 @@
             this.button22.Name = "button22";
             this.button22.Size = new System.Drawing.Size(120, 40);
             this.button22.TabIndex = 16;
-            this.button22.Text = "iron";
+            this.button22.Text = "netherack";
             this.button22.UseVisualStyleBackColor = true;
             // 
             // button23
@@ -329,7 +330,7 @@
             this.button23.Name = "button23";
             this.button23.Size = new System.Drawing.Size(120, 40);
             this.button23.TabIndex = 31;
-            this.button23.Text = "stone";
+            this.button23.Text = "netherite";
             this.button23.UseVisualStyleBackColor = true;
             // 
             // button24
@@ -339,7 +340,7 @@
             this.button24.Name = "button24";
             this.button24.Size = new System.Drawing.Size(120, 40);
             this.button24.TabIndex = 30;
-            this.button24.Text = "granite";
+            this.button24.Text = "netherGold";
             this.button24.UseVisualStyleBackColor = true;
             // 
             // button25
@@ -349,7 +350,7 @@
             this.button25.Name = "button25";
             this.button25.Size = new System.Drawing.Size(120, 40);
             this.button25.TabIndex = 28;
-            this.button25.Text = "granite";
+            this.button25.Text = "netherack";
             this.button25.UseVisualStyleBackColor = true;
             // 
             // button26
@@ -359,7 +360,7 @@
             this.button26.Name = "button26";
             this.button26.Size = new System.Drawing.Size(120, 40);
             this.button26.TabIndex = 29;
-            this.button26.Text = "granite";
+            this.button26.Text = "netherack";
             this.button26.UseVisualStyleBackColor = true;
             // 
             // button27
@@ -369,7 +370,7 @@
             this.button27.Name = "button27";
             this.button27.Size = new System.Drawing.Size(120, 40);
             this.button27.TabIndex = 27;
-            this.button27.Text = "stone";
+            this.button27.Text = "netherack";
             this.button27.UseVisualStyleBackColor = true;
             // 
             // button28
@@ -379,7 +380,7 @@
             this.button28.Name = "button28";
             this.button28.Size = new System.Drawing.Size(120, 40);
             this.button28.TabIndex = 26;
-            this.button28.Text = "stone";
+            this.button28.Text = "netherack";
             this.button28.UseVisualStyleBackColor = true;
             // 
             // button29
@@ -389,7 +390,7 @@
             this.button29.Name = "button29";
             this.button29.Size = new System.Drawing.Size(120, 40);
             this.button29.TabIndex = 25;
-            this.button29.Text = "stone";
+            this.button29.Text = "netherack";
             this.button29.UseVisualStyleBackColor = true;
             // 
             // button30
@@ -399,7 +400,7 @@
             this.button30.Name = "button30";
             this.button30.Size = new System.Drawing.Size(120, 40);
             this.button30.TabIndex = 24;
-            this.button30.Text = "stone";
+            this.button30.Text = "netherGold";
             this.button30.UseVisualStyleBackColor = true;
             // 
             // button31
@@ -409,7 +410,7 @@
             this.button31.Name = "button31";
             this.button31.Size = new System.Drawing.Size(120, 40);
             this.button31.TabIndex = 39;
-            this.button31.Text = "stone";
+            this.button31.Text = "netherack";
             this.button31.UseVisualStyleBackColor = true;
             // 
             // button32
@@ -419,7 +420,7 @@
             this.button32.Name = "button32";
             this.button32.Size = new System.Drawing.Size(120, 40);
             this.button32.TabIndex = 38;
-            this.button32.Text = "dirt";
+            this.button32.Text = "netherack";
             this.button32.UseVisualStyleBackColor = true;
             // 
             // button33
@@ -429,7 +430,7 @@
             this.button33.Name = "button33";
             this.button33.Size = new System.Drawing.Size(120, 40);
             this.button33.TabIndex = 36;
-            this.button33.Text = "andesite";
+            this.button33.Text = "netherack";
             this.button33.UseVisualStyleBackColor = true;
             // 
             // button34
@@ -439,7 +440,7 @@
             this.button34.Name = "button34";
             this.button34.Size = new System.Drawing.Size(120, 40);
             this.button34.TabIndex = 37;
-            this.button34.Text = "zombie";
+            this.button34.Text = "magma";
             this.button34.UseVisualStyleBackColor = true;
             // 
             // button35
@@ -449,7 +450,7 @@
             this.button35.Name = "button35";
             this.button35.Size = new System.Drawing.Size(120, 40);
             this.button35.TabIndex = 35;
-            this.button35.Text = "andesite";
+            this.button35.Text = "netherack";
             this.button35.UseVisualStyleBackColor = true;
             // 
             // button36
@@ -459,7 +460,7 @@
             this.button36.Name = "button36";
             this.button36.Size = new System.Drawing.Size(120, 40);
             this.button36.TabIndex = 34;
-            this.button36.Text = "stone";
+            this.button36.Text = "netherack";
             this.button36.UseVisualStyleBackColor = true;
             // 
             // button37
@@ -469,7 +470,7 @@
             this.button37.Name = "button37";
             this.button37.Size = new System.Drawing.Size(120, 40);
             this.button37.TabIndex = 33;
-            this.button37.Text = "dirt";
+            this.button37.Text = "netherack";
             this.button37.UseVisualStyleBackColor = true;
             // 
             // button38
@@ -479,7 +480,7 @@
             this.button38.Name = "button38";
             this.button38.Size = new System.Drawing.Size(120, 40);
             this.button38.TabIndex = 32;
-            this.button38.Text = "stone";
+            this.button38.Text = "netherack";
             this.button38.UseVisualStyleBackColor = true;
             // 
             // saveLabel
@@ -542,7 +543,7 @@
             this.Controls.Add(this.block2);
             this.Controls.Add(this.block1);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LevelDesign";
             this.Size = new System.Drawing.Size(1068, 678);
             this.ResumeLayout(false);

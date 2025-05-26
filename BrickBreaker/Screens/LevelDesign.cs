@@ -53,5 +53,10 @@ namespace BrickBreaker
             // Save the list of bricks into an XML file named after the level number
             level.SaveLevel(levelNum, bricks);
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

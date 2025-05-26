@@ -121,6 +121,9 @@
   <data name="andesiteBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\andesiteBlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="blazeEnemyImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blazeEnemyImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="coalOreBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\coalOreBlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -129,6 +132,9 @@
   </data>
   <data name="deepslateBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\deepslateBlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="deepslateBrickBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\deepslateBrickBlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="deepslateCoalOreBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\deepslateCoalOreBlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -174,6 +180,30 @@
   </data>
   <data name="level2Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\level3Background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="level4Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\level4Background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="level5Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\level5Background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="magmaBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\magmaBlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="netherGoldBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\netherGoldBlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="netheriteOreBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\netheriteOreBlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="netherraackBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\netherraackBlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="obsidianBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\obsidianBlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="quartzOreBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\quartzOreBlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="skeletonEnemyImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\skeletonEnemyImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
