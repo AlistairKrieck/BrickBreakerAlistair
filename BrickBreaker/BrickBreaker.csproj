@@ -282,7 +282,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="bin\Debug\Resources\" />
+    <Folder Include="bin\Debug\" />
+    <Folder Include="bin\Resources\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\minecraftHeartImage.png" />

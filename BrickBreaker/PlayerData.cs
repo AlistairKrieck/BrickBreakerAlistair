@@ -15,7 +15,7 @@ namespace BrickBreaker
         public int score { get; set; }
 
         // Create new string to hold path for the playerData Xml file
-        string pdXml = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "playerData.xml");
+        string pdXml = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources/playerData.xml");
 
         public PlayerData(string _username, string _password)
         {
