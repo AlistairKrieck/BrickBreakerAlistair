@@ -43,7 +43,7 @@ namespace BrickBreaker
                     break;
 
                 case "stone":
-                    maxHp = hp = 2;
+                    maxHp = hp = 5;
                     break;
 
                 case "coal":

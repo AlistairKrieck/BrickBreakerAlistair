@@ -567,6 +567,35 @@ namespace BrickBreaker
             }
         }
 
+        private Image GetBreakOverlay(int maxHp, int currentHp)
+        {
+            int stage = maxHp - currentHp;
+
+            if (maxHp == 5)
+            {
+                if (stage == 1) return Properties.Resources.Smallbreak;
+                if (stage == 2) return Properties.Resources.SmallmedBreak;
+                if (stage == 3) return Properties.Resources.Bigmedbreak;
+                if (stage == 4) return Properties.Resources.Bigbreak;
+            }
+            else if (maxHp == 4)
+            {
+                if (stage == 1) return Properties.Resources.Smallbreak;
+                if (stage == 2) return Properties.Resources.SmallmedBreak;
+                if (stage == 3) return Properties.Resources.Bigbreak;
+            }
+            else if (maxHp == 3)
+            {
+                if (stage == 1) return Properties.Resources.SmallmedBreak;
+                if (stage == 2) return Properties.Resources.Bigbreak;
+            }
+            else if (maxHp == 2)
+            {
+                if (stage == 1) return Properties.Resources.Bigbreak;
+            }
+
+            return null;
+        }
 
         public void GameScreen_Paint(object sender, PaintEventArgs e)
         {
@@ -585,11 +614,18 @@ namespace BrickBreaker
             {
                 if (b.image != null)
                 {
+                    // Draw base brick image
                     e.Graphics.DrawImage(b.image, b.rect);
+
+                    // Draw break overlay if needed
+                    Image breakOverlay = GetBreakOverlay(b.maxHp, b.hp);
+                    if (breakOverlay != null)
+                    {
+                        e.Graphics.DrawImage(breakOverlay, b.rect);
+                    }
                 }
                 else
                 {
-                    // Fallback to a white rectangle if no image found
                     e.Graphics.FillRectangle(Brushes.White, b.rect);
                 }
             }
