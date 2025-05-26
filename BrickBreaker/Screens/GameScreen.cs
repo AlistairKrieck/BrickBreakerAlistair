@@ -566,9 +566,11 @@ namespace BrickBreaker
                 BulletBallTimer = 200;
             }
         }
-
+       
+ 
         private Image GetBreakOverlay(int maxHp, int currentHp)
         {
+            // Detirmines Overlay based on max hp of brick
             int stage = maxHp - currentHp;
 
             if (maxHp == 5)
@@ -609,12 +611,12 @@ namespace BrickBreaker
                 e.Graphics.FillEllipse(p.color, p.x, p.y, p.size, p.size);
             }
 
-            // Draws Bricks with appropriate images
+            // Draws Bricks with the right images
             foreach (Bricks b in bricks)
             {
                 if (b.image != null)
                 {
-                    // Draw base brick image
+                    // Draw brick image
                     e.Graphics.DrawImage(b.image, b.rect);
 
                     // Draw break overlay if needed
