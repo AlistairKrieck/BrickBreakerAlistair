@@ -50,6 +50,7 @@
             this.mainMenuButton.TabIndex = 0;
             this.mainMenuButton.Text = "Main Menu";
             this.mainMenuButton.UseVisualStyleBackColor = false;
+            this.mainMenuButton.Click += new System.EventHandler(this.mainMenuButton_Click);
             // 
             // quitButton
             // 
@@ -65,6 +66,7 @@
             this.quitButton.TabIndex = 1;
             this.quitButton.Text = "Quit";
             this.quitButton.UseVisualStyleBackColor = false;
+            this.quitButton.Click += new System.EventHandler(this.quitButton_Click);
             // 
             // scoreLabel
             // 

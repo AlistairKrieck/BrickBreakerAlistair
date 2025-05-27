@@ -1,6 +1,6 @@
-﻿/*  Created by: 
- *  Project: Brick Breaker
- *  Date: May 2025
+﻿/*  Created by: Alistair, Naz, Spencer, Silas, and Jayden
+ *  Project: The Best Brick Breaker
+ *  Date: May 27 2025
  */
 using System;
 using System.Collections.Generic;
@@ -22,9 +22,11 @@ namespace BrickBreaker
     {
         //TODO
         /*
-         * UI design
-         * Damage indicator on blocks
-         * Sound effects and bg music
+         * Background music
+         * Fix breaking images sizing so they don't have to stretch
+         * Add health values in bricks for new blocks in levels 3 and 4
+         * Optimize for performance
+         * Comment everything
          * 
          */
 
@@ -54,7 +56,8 @@ namespace BrickBreaker
         public static int points = 0;
 
         // Set of all levels
-        public static string[] levels = new string[5] { "level0", "level1", "level2", "level3", "level4" };
+        // Temporarily only include first and final levels for demonstration
+        public static string[] levels = new string[2] { "level0", "level4" }; // "level1", "level2", "level3", 
 
         // Current level as a position in the levels array
         int level;
@@ -137,7 +140,7 @@ namespace BrickBreaker
             points = 0;
 
             // Load level 0
-            level = 4;
+            level = 0;
             LoadLevel(level);
         }
 
@@ -425,6 +428,9 @@ namespace BrickBreaker
                 // Update high score on level clear
                 CheckHighScore();
 
+                //TEMP
+                level = 4;
+
                 // Load next level
                 LoadLevel(level);
             }
@@ -656,6 +662,36 @@ namespace BrickBreaker
             }
         }
 
+        private Image GetBreakOverlay(int maxHp, int currentHp)
+        {
+            // Detirmines Overlay based on max hp of brick
+            int stage = maxHp - currentHp;
+
+            if (maxHp == 5)
+            {
+                if (stage == 1) return Properties.Resources.Smallbreak;
+                if (stage == 2) return Properties.Resources.SmallmedBreak;
+                if (stage == 3) return Properties.Resources.Bigmedbreak;
+                if (stage == 4) return Properties.Resources.Bigbreak;
+            }
+            else if (maxHp == 4)
+            {
+                if (stage == 1) return Properties.Resources.Smallbreak;
+                if (stage == 2) return Properties.Resources.SmallmedBreak;
+                if (stage == 3) return Properties.Resources.Bigbreak;
+            }
+            else if (maxHp == 3)
+            {
+                if (stage == 1) return Properties.Resources.SmallmedBreak;
+                if (stage == 2) return Properties.Resources.Bigbreak;
+            }
+            else if (maxHp == 2)
+            {
+                if (stage == 1) return Properties.Resources.Bigbreak;
+            }
+
+            return null;
+        }
 
         public void GameScreen_Paint(object sender, PaintEventArgs e)
         {
@@ -663,7 +699,7 @@ namespace BrickBreaker
 
             // Draws paddle
             paddleBrush.Color = paddle.colour;
-            e.Graphics.FillRectangle(paddleBrush, paddle.x, paddle.y, paddle.width, paddle.height);
+            e.Graphics.DrawImage(Properties.Resources.ghastPlayer, paddle.x, paddle.y, paddle.width, paddle.height);
 
             // Draws power-ups
             foreach (Powers p in powerUps)
@@ -676,7 +712,15 @@ namespace BrickBreaker
             {
                 if (b.image != null)
                 {
+                    // Draw brick image
                     e.Graphics.DrawImage(b.image, b.rect);
+
+                    // Draw break overlay if needed
+                    Image breakOverlay = GetBreakOverlay(b.maxHp, b.hp);
+                    if (breakOverlay != null)
+                    {
+                        e.Graphics.DrawImage(breakOverlay, b.rect);
+                    }
                 }
                 else
                 {

@@ -216,6 +216,7 @@
             this.mainMenuButton.TabIndex = 7;
             this.mainMenuButton.Text = "Main Menu";
             this.mainMenuButton.UseVisualStyleBackColor = false;
+            this.mainMenuButton.Click += new System.EventHandler(this.mainMenuButton_Click);
             // 
             // LeadboardScreen
             // 

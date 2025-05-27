@@ -145,6 +145,7 @@
             this.leaderboardButton.TabIndex = 13;
             this.leaderboardButton.Text = "Leaderboard";
             this.leaderboardButton.UseVisualStyleBackColor = false;
+            this.leaderboardButton.Click += new System.EventHandler(this.leaderboardButton_Click);
             // 
             // MenuScreen
             // 

@@ -50,6 +50,7 @@
             this.mainMenuButton.TabIndex = 8;
             this.mainMenuButton.Text = "Main Menu";
             this.mainMenuButton.UseVisualStyleBackColor = false;
+            this.mainMenuButton.Click += new System.EventHandler(this.mainMenuButton_Click);
             // 
             // quitButton
             // 
@@ -65,12 +66,13 @@
             this.quitButton.TabIndex = 9;
             this.quitButton.Text = "Quit";
             this.quitButton.UseVisualStyleBackColor = false;
+            this.quitButton.Click += new System.EventHandler(this.quitButton_Click);
             // 
             // playerScoreLabel
             // 
             this.playerScoreLabel.Font = new System.Drawing.Font("Courier New", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.playerScoreLabel.ForeColor = System.Drawing.Color.Yellow;
-            this.playerScoreLabel.Location = new System.Drawing.Point(911, 174);
+            this.playerScoreLabel.Location = new System.Drawing.Point(869, 235);
             this.playerScoreLabel.Name = "playerScoreLabel";
             this.playerScoreLabel.Size = new System.Drawing.Size(127, 42);
             this.playerScoreLabel.TabIndex = 11;
@@ -80,7 +82,7 @@
             // 
             this.scoreLabel.Font = new System.Drawing.Font("Courier New", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.scoreLabel.ForeColor = System.Drawing.Color.White;
-            this.scoreLabel.Location = new System.Drawing.Point(797, 174);
+            this.scoreLabel.Location = new System.Drawing.Point(755, 235);
             this.scoreLabel.Name = "scoreLabel";
             this.scoreLabel.Size = new System.Drawing.Size(127, 42);
             this.scoreLabel.TabIndex = 10;
@@ -90,7 +92,7 @@
             // 
             this.playNameLabel.Font = new System.Drawing.Font("Courier New", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.playNameLabel.ForeColor = System.Drawing.Color.Yellow;
-            this.playNameLabel.Location = new System.Drawing.Point(764, 132);
+            this.playNameLabel.Location = new System.Drawing.Point(722, 193);
             this.playNameLabel.Name = "playNameLabel";
             this.playNameLabel.Size = new System.Drawing.Size(221, 42);
             this.playNameLabel.TabIndex = 12;
@@ -102,7 +104,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::BrickBreaker.Properties.Resources.winScreens;
             this.Controls.Add(this.playNameLabel);
             this.Controls.Add(this.playerScoreLabel);
             this.Controls.Add(this.scoreLabel);
