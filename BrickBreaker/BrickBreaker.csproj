@@ -72,6 +72,12 @@
     <Compile Include="Screens\CreateAccountScreen.Designer.cs">
       <DependentUpon>CreateAccountScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\LeadboardScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\LeadboardScreen.Designer.cs">
+      <DependentUpon>LeadboardScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\LogInScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -139,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\LeadboardScreen.resx">
+      <DependentUpon>LeadboardScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\LogInScreen.resx">
       <DependentUpon>LogInScreen.cs</DependentUpon>

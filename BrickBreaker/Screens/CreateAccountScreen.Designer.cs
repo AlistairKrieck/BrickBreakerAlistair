@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateAccountScreen));
             this.usernameInput = new System.Windows.Forms.TextBox();
             this.passwordInput = new System.Windows.Forms.TextBox();
             this.confirmPasswordInput = new System.Windows.Forms.TextBox();
@@ -38,12 +39,13 @@
             // 
             // usernameInput
             // 
-            this.usernameInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.usernameInput.ForeColor = System.Drawing.Color.Silver;
-            this.usernameInput.Location = new System.Drawing.Point(304, 155);
+            this.usernameInput.Font = new System.Drawing.Font("Courier New", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameInput.ForeColor = System.Drawing.Color.Black;
+            this.usernameInput.Location = new System.Drawing.Point(405, 191);
+            this.usernameInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.usernameInput.MaxLength = 8;
             this.usernameInput.Name = "usernameInput";
-            this.usernameInput.Size = new System.Drawing.Size(273, 30);
+            this.usernameInput.Size = new System.Drawing.Size(363, 36);
             this.usernameInput.TabIndex = 5;
             this.usernameInput.Text = "Enter New Username...";
             this.usernameInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -52,12 +54,13 @@
             // 
             // passwordInput
             // 
-            this.passwordInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.passwordInput.ForeColor = System.Drawing.Color.Silver;
-            this.passwordInput.Location = new System.Drawing.Point(304, 212);
+            this.passwordInput.Font = new System.Drawing.Font("Courier New", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordInput.ForeColor = System.Drawing.Color.Black;
+            this.passwordInput.Location = new System.Drawing.Point(405, 261);
+            this.passwordInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.passwordInput.MaxLength = 8;
             this.passwordInput.Name = "passwordInput";
-            this.passwordInput.Size = new System.Drawing.Size(273, 30);
+            this.passwordInput.Size = new System.Drawing.Size(363, 36);
             this.passwordInput.TabIndex = 6;
             this.passwordInput.Text = "Enter New Password...";
             this.passwordInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -66,12 +69,13 @@
             // 
             // confirmPasswordInput
             // 
-            this.confirmPasswordInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.confirmPasswordInput.ForeColor = System.Drawing.Color.Silver;
-            this.confirmPasswordInput.Location = new System.Drawing.Point(304, 248);
+            this.confirmPasswordInput.Font = new System.Drawing.Font("Courier New", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirmPasswordInput.ForeColor = System.Drawing.Color.Black;
+            this.confirmPasswordInput.Location = new System.Drawing.Point(405, 305);
+            this.confirmPasswordInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.confirmPasswordInput.MaxLength = 8;
             this.confirmPasswordInput.Name = "confirmPasswordInput";
-            this.confirmPasswordInput.Size = new System.Drawing.Size(273, 30);
+            this.confirmPasswordInput.Size = new System.Drawing.Size(363, 36);
             this.confirmPasswordInput.TabIndex = 7;
             this.confirmPasswordInput.Text = "Confirm Password...";
             this.confirmPasswordInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -85,10 +89,11 @@
             this.submitButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.submitButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.submitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.submitButton.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold);
-            this.submitButton.Location = new System.Drawing.Point(284, 325);
+            this.submitButton.Font = new System.Drawing.Font("Courier New", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submitButton.Location = new System.Drawing.Point(379, 400);
+            this.submitButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.submitButton.Name = "submitButton";
-            this.submitButton.Size = new System.Drawing.Size(314, 78);
+            this.submitButton.Size = new System.Drawing.Size(419, 96);
             this.submitButton.TabIndex = 8;
             this.submitButton.Text = "Submit";
             this.submitButton.UseVisualStyleBackColor = false;
@@ -97,11 +102,12 @@
             // 
             // titleLabel
             // 
-            this.titleLabel.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold);
+            this.titleLabel.Font = new System.Drawing.Font("Courier New", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleLabel.ForeColor = System.Drawing.Color.White;
-            this.titleLabel.Location = new System.Drawing.Point(216, 36);
+            this.titleLabel.Location = new System.Drawing.Point(287, 54);
+            this.titleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(450, 116);
+            this.titleLabel.Size = new System.Drawing.Size(600, 143);
             this.titleLabel.TabIndex = 0;
             this.titleLabel.Text = "Create New Account";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -113,10 +119,12 @@
             this.logInButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.logInButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.logInButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.logInButton.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.logInButton.Location = new System.Drawing.Point(309, 423);
+            this.logInButton.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logInButton.ForeColor = System.Drawing.Color.Black;
+            this.logInButton.Location = new System.Drawing.Point(412, 521);
+            this.logInButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.logInButton.Name = "logInButton";
-            this.logInButton.Size = new System.Drawing.Size(259, 42);
+            this.logInButton.Size = new System.Drawing.Size(345, 52);
             this.logInButton.TabIndex = 12;
             this.logInButton.Text = "Already Have an Account?";
             this.logInButton.UseVisualStyleBackColor = false;
@@ -124,17 +132,19 @@
             // 
             // CreateAccountScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BackColor = System.Drawing.Color.Transparent;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.Controls.Add(this.logInButton);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.confirmPasswordInput);
             this.Controls.Add(this.passwordInput);
             this.Controls.Add(this.usernameInput);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "CreateAccountScreen";
-            this.Size = new System.Drawing.Size(854, 542);
+            this.Size = new System.Drawing.Size(1139, 667);
             this.Click += new System.EventHandler(this.CreateAccountScreen_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
