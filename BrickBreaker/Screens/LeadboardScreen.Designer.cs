@@ -225,6 +225,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.Controls.Add(this.mainMenuButton);
             this.Controls.Add(this.leaderBoardOutput);
+            this.DoubleBuffered = true;
             this.Name = "LeadboardScreen";
             this.Size = new System.Drawing.Size(1068, 678);
             this.leaderBoardOutput.ResumeLayout(false);

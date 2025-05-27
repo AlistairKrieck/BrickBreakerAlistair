@@ -108,6 +108,7 @@
             this.Controls.Add(this.scoreLabel);
             this.Controls.Add(this.quitButton);
             this.Controls.Add(this.mainMenuButton);
+            this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "WinScreen";
             this.Size = new System.Drawing.Size(1068, 678);

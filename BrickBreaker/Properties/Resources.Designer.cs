@@ -82,6 +82,26 @@ namespace BrickBreaker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Bigbreak {
+            get {
+                object obj = ResourceManager.GetObject("Bigbreak", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Bigmedbreak {
+            get {
+                object obj = ResourceManager.GetObject("Bigmedbreak", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap blazeEnemyImage {
             get {
                 object obj = ResourceManager.GetObject("blazeEnemyImage", resourceCulture);
@@ -601,6 +621,26 @@ namespace BrickBreaker.Properties {
         internal static System.Drawing.Bitmap skeletonEnemyImage {
             get {
                 object obj = ResourceManager.GetObject("skeletonEnemyImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Smallbreak {
+            get {
+                object obj = ResourceManager.GetObject("Smallbreak", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SmallmedBreak {
+            get {
+                object obj = ResourceManager.GetObject("SmallmedBreak", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

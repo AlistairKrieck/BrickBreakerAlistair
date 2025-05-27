@@ -158,10 +158,12 @@
             this.Controls.Add(this.saveLevel);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.playButton);
+            this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MenuScreen";
             this.Size = new System.Drawing.Size(1068, 678);
             this.ResumeLayout(false);
+
         }
 
         #endregion
