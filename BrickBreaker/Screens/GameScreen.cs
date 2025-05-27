@@ -130,7 +130,7 @@ namespace BrickBreaker
             points = 0;
 
             // Load level 0
-            level = 1;
+            level = 0;
             LoadLevel(level);
         }
 
