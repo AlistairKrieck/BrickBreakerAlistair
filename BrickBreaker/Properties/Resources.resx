@@ -124,6 +124,9 @@
   <data name="audiomass_output" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\audiomass-output.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="blazeEnemyImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blazeEnemyImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="brickCollision" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brickCollision.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -133,8 +136,14 @@
   <data name="copperOreBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\copperOreBlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="deathScreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\deathScreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="deepslateBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\deepslateBlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="deepslateBrickBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\deepslateBrickBlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="deepslateCoalOreBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\deepslateCoalOreBlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -156,6 +165,9 @@
   </data>
   <data name="deepslateRedstoneOreBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\deepslateRedstoneOreBlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dirtBackground2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dirtBackground2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="dirtBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dirtBlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -181,6 +193,12 @@
   <data name="ironOreBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ironOreBlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="leadboardButton__1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\leadboardButton (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="leaderboardBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\leaderboardBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="level0" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\level0.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
@@ -199,8 +217,32 @@
   <data name="level2Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\level3Background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="level4Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\level4Background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="level5Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\level5Background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="magmaBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\magmaBlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="minecraftHeartImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\minecraftHeartImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="minecraftMainMenuScreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\minecraftMainMenuScreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="netherGoldBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\netherGoldBlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="netheriteOreBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\netheriteOreBlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="netherraackBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\netherraackBlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="obsidianBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\obsidianBlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="paddleHit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\minecraft_hit_soundmp3converter.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -208,11 +250,17 @@
   <data name="playerData" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\playerData.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="quartzOreBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\quartzOreBlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="skeletonEnemyImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\skeletonEnemyImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="stoneBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\stoneBlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="winScreens" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\winScreens.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="zombieEnemyImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\zombieEnemyImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

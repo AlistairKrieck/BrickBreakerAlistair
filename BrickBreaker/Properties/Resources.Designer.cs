@@ -80,6 +80,16 @@ namespace BrickBreaker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap blazeEnemyImage {
+            get {
+                object obj = ResourceManager.GetObject("blazeEnemyImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         internal static System.IO.UnmanagedMemoryStream brickCollision {
@@ -111,9 +121,29 @@ namespace BrickBreaker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap deathScreen {
+            get {
+                object obj = ResourceManager.GetObject("deathScreen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap deepslateBlock {
             get {
                 object obj = ResourceManager.GetObject("deepslateBlock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap deepslateBrickBlock {
+            get {
+                object obj = ResourceManager.GetObject("deepslateBrickBlock", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -184,6 +214,16 @@ namespace BrickBreaker.Properties {
         internal static System.Drawing.Bitmap deepslateRedstoneOreBlock {
             get {
                 object obj = ResourceManager.GetObject("deepslateRedstoneOreBlock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dirtBackground2 {
+            get {
+                object obj = ResourceManager.GetObject("dirtBackground2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -268,41 +308,61 @@ namespace BrickBreaker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap leadboardButton__1_ {
+            get {
+                object obj = ResourceManager.GetObject("leadboardButton__1_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap leaderboardBackground {
+            get {
+                object obj = ResourceManager.GetObject("leaderboardBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
         ///&lt;Level&gt;
         ///	&lt;Block&gt;
         ///		&lt;x&gt;916&lt;/x&gt;
-        ///		&lt;y&gt;445&lt;/y&gt;
+        ///		&lt;y&gt;538&lt;/y&gt;
         ///		&lt;type&gt;grass&lt;/type&gt;
         ///	&lt;/Block&gt;
         ///	&lt;Block&gt;
         ///		&lt;x&gt;664&lt;/x&gt;
-        ///		&lt;y&gt;445&lt;/y&gt;
+        ///		&lt;y&gt;538&lt;/y&gt;
         ///		&lt;type&gt;grass&lt;/type&gt;
         ///	&lt;/Block&gt;
         ///	&lt;Block&gt;
         ///		&lt;x&gt;538&lt;/x&gt;
-        ///		&lt;y&gt;445&lt;/y&gt;
+        ///		&lt;y&gt;538&lt;/y&gt;
         ///		&lt;type&gt;grass&lt;/type&gt;
         ///	&lt;/Block&gt;
         ///	&lt;Block&gt;
         ///		&lt;x&gt;790&lt;/x&gt;
-        ///		&lt;y&gt;445&lt;/y&gt;
+        ///		&lt;y&gt;538&lt;/y&gt;
         ///		&lt;type&gt;grass&lt;/type&gt;
         ///	&lt;/Block&gt;
         ///	&lt;Block&gt;
         ///		&lt;x&gt;412&lt;/x&gt;
-        ///		&lt;y&gt;445&lt;/y&gt;
+        ///		&lt;y&gt;538&lt;/y&gt;
         ///		&lt;type&gt;grass&lt;/type&gt;
         ///	&lt;/Block&gt;
         ///	&lt;Block&gt;
         ///		&lt;x&gt;286&lt;/x&gt;
-        ///		&lt;y&gt;445&lt;/y&gt;
+        ///		&lt;y&gt;538&lt;/y&gt;
         ///		&lt;type&gt;grass&lt;/type&gt;
         ///	&lt;/Block&gt;
         ///	&lt;Block&gt;
         ///		&lt;x&gt;160&lt;/x&gt;
-        ///		&lt;y&gt;445&lt;/y&gt;        /// [rest of string was truncated]&quot;;.
+        ///		&lt;y&gt;538&lt;/y&gt;        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string level0 {
             get {
@@ -321,7 +381,41 @@ namespace BrickBreaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;Level&gt;&lt;Block&gt;&lt;x&gt;916&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;stone&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;664&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;dirt&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;538&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;andesite&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;790&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;zombie&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;412&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;andesite&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;286&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;stone&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;160&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;dirt&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;34&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;stone&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;916&lt;/x&gt;&lt;y&gt;629&lt;/y&gt;&lt;type&gt;stone&lt; [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;Level&gt;
+        ///	&lt;Block&gt;
+        ///		&lt;x&gt;916&lt;/x&gt;
+        ///		&lt;y&gt;629&lt;/y&gt;
+        ///		&lt;type&gt;stone&lt;/type&gt;
+        ///	&lt;/Block&gt;
+        ///	&lt;Block&gt;
+        ///		&lt;x&gt;664&lt;/x&gt;
+        ///		&lt;y&gt;629&lt;/y&gt;
+        ///		&lt;type&gt;granite&lt;/type&gt;
+        ///	&lt;/Block&gt;
+        ///	&lt;Block&gt;
+        ///		&lt;x&gt;538&lt;/x&gt;
+        ///		&lt;y&gt;629&lt;/y&gt;
+        ///		&lt;type&gt;granite&lt;/type&gt;
+        ///	&lt;/Block&gt;
+        ///	&lt;Block&gt;
+        ///		&lt;x&gt;790&lt;/x&gt;
+        ///		&lt;y&gt;629&lt;/y&gt;
+        ///		&lt;type&gt;granite&lt;/type&gt;
+        ///	&lt;/Block&gt;
+        ///	&lt;Block&gt;
+        ///		&lt;x&gt;412&lt;/x&gt;
+        ///		&lt;y&gt;629&lt;/y&gt;
+        ///		&lt;type&gt;stone&lt;/type&gt;
+        ///	&lt;/Block&gt;
+        ///	&lt;Block&gt;
+        ///		&lt;x&gt;286&lt;/x&gt;
+        ///		&lt;y&gt;629&lt;/y&gt;
+        ///		&lt;type&gt;stone&lt;/type&gt;
+        ///	&lt;/Block&gt;
+        ///	&lt;Block&gt;
+        ///		&lt;x&gt;160&lt;/x&gt;
+        ///		&lt;y&gt;62 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string level1 {
             get {
@@ -361,9 +455,89 @@ namespace BrickBreaker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap level4Background {
+            get {
+                object obj = ResourceManager.GetObject("level4Background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap level5Background {
+            get {
+                object obj = ResourceManager.GetObject("level5Background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap magmaBlock {
+            get {
+                object obj = ResourceManager.GetObject("magmaBlock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap minecraftHeartImage {
             get {
                 object obj = ResourceManager.GetObject("minecraftHeartImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap minecraftMainMenuScreen {
+            get {
+                object obj = ResourceManager.GetObject("minecraftMainMenuScreen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap netherGoldBlock {
+            get {
+                object obj = ResourceManager.GetObject("netherGoldBlock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap netheriteOreBlock {
+            get {
+                object obj = ResourceManager.GetObject("netheriteOreBlock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap netherraackBlock {
+            get {
+                object obj = ResourceManager.GetObject("netherraackBlock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap obsidianBlock {
+            get {
+                object obj = ResourceManager.GetObject("obsidianBlock", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -396,6 +570,16 @@ namespace BrickBreaker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap quartzOreBlock {
+            get {
+                object obj = ResourceManager.GetObject("quartzOreBlock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap skeletonEnemyImage {
             get {
                 object obj = ResourceManager.GetObject("skeletonEnemyImage", resourceCulture);
@@ -409,6 +593,16 @@ namespace BrickBreaker.Properties {
         internal static System.Drawing.Bitmap stoneBlock {
             get {
                 object obj = ResourceManager.GetObject("stoneBlock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap winScreens {
+            get {
+                object obj = ResourceManager.GetObject("winScreens", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
