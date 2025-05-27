@@ -46,7 +46,7 @@
             this.scoreLabel.Location = new System.Drawing.Point(922, 66);
             this.scoreLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.scoreLabel.Name = "scoreLabel";
-            this.scoreLabel.Size = new System.Drawing.Size(37, 15);
+            this.scoreLabel.Size = new System.Drawing.Size(41, 16);
             this.scoreLabel.TabIndex = 1;
             this.scoreLabel.Text = "score";
             // 
