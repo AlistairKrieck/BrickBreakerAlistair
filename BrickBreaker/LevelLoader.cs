@@ -92,6 +92,11 @@ namespace BrickBreaker
                         case "zombie":
                             b = new Zombie(x, y);
                             break;
+
+                        case "blaze":
+                            b = new Blaze(x, y);
+                            break;
+
                     }
 
                     b.rect = new Rectangle(x, y, Bricks.width, Bricks.height);

@@ -27,6 +27,8 @@ namespace BrickBreaker
          * Add health values in bricks for new blocks in levels 3 and 4
          * Optimize for performance
          * Comment everything
+         * Find out why the nether level is so slow compared to everything else
+         * Get the blaze enemy to attack
          * 
          */
 
@@ -87,6 +89,7 @@ namespace BrickBreaker
              { "deepslateRedstone", Properties.Resources.deepslateRedstoneOreBlock },
              { "skeleton", Properties.Resources.skeletonEnemyImage },
              { "zombie", Properties.Resources.zombieEnemyImage },
+             { "blaze", Properties.Resources.blazeEnemyImage},
              { "ghastPlayer", Properties.Resources.ghastPlayer },
              { "deepslateTile", Properties.Resources.deepslateBrickBlock},
              { "obsidian", Properties.Resources.obsidianBlock},
@@ -125,6 +128,9 @@ namespace BrickBreaker
 
         // Object to load each new level from XML files
         LevelLoader levelLoader = new LevelLoader();
+
+        // Starting y speed for ball
+        int ballStartSpeed = 12;
 
         #endregion
 
@@ -167,7 +173,7 @@ namespace BrickBreaker
 
             // Creates a new ball
             int xSpeed = 0;
-            int ySpeed = 3;
+            int ySpeed = ballStartSpeed;
             int ballSize = 20;
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
 
@@ -280,7 +286,7 @@ namespace BrickBreaker
                         // Create new zomnie to allow attacking
                         Blaze b = (Blaze)m;
 
-                        // Create a new spit object and add it to the list of projectiles
+                        // Create a new fireball object and add it to the list of projectiles
                         projectiles.Add(b.AttackPlayer());
                     }
                 }
@@ -338,7 +344,7 @@ namespace BrickBreaker
                 ball.x = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
                 ball.y = paddle.y + ball.size;
                 ball.xSpeed = 0;
-                ball.ySpeed = 3;
+                ball.ySpeed = ballStartSpeed;
             }
 
 
@@ -549,11 +555,11 @@ namespace BrickBreaker
                     {
                         if (direction == 1)
                         {
-                            ball.xSpeed = 2;
+                            ball.xSpeed = 7;
                         }
                         else
                         {
-                            ball.xSpeed = -2;
+                            ball.xSpeed = -7;
                         }
                     }
 
@@ -669,25 +675,25 @@ namespace BrickBreaker
 
             if (maxHp == 5)
             {
-                if (stage == 1) return Properties.Resources.Smallbreak;
+                if (stage == 1) return Properties.Resources.SmallBreak;
                 if (stage == 2) return Properties.Resources.SmallmedBreak;
-                if (stage == 3) return Properties.Resources.Bigmedbreak;
-                if (stage == 4) return Properties.Resources.Bigbreak;
+                if (stage == 3) return Properties.Resources.BigmedBreak;
+                if (stage == 4) return Properties.Resources.BigBreak;
             }
             else if (maxHp == 4)
             {
-                if (stage == 1) return Properties.Resources.Smallbreak;
+                if (stage == 1) return Properties.Resources.SmallBreak;
                 if (stage == 2) return Properties.Resources.SmallmedBreak;
-                if (stage == 3) return Properties.Resources.Bigbreak;
+                if (stage == 3) return Properties.Resources.BigBreak;
             }
             else if (maxHp == 3)
             {
                 if (stage == 1) return Properties.Resources.SmallmedBreak;
-                if (stage == 2) return Properties.Resources.Bigbreak;
+                if (stage == 2) return Properties.Resources.BigBreak;
             }
             else if (maxHp == 2)
             {
-                if (stage == 1) return Properties.Resources.Bigbreak;
+                if (stage == 1) return Properties.Resources.BigBreak;
             }
 
             return null;

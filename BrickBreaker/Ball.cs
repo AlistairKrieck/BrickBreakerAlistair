@@ -12,6 +12,8 @@ namespace BrickBreaker
 
         public static Random rand = new Random();
 
+        int speedLimit = 15;
+
         public Ball(int _x, int _y, int _xSpeed, int _ySpeed, int _ballSize)
         {
             x = _x;
@@ -60,11 +62,11 @@ namespace BrickBreaker
 
         public void ySpeedLimit()
         {
-            if (ySpeed >= 0 && ySpeed >= 7)
+            if (ySpeed >= 0 && ySpeed >= speedLimit)
             {
                 ySpeed++;
             }
-            if (ySpeed < 0 && ySpeed >= -7)
+            if (ySpeed < 0 && ySpeed >= -speedLimit)
             {
                 ySpeed--;
             }
@@ -74,11 +76,11 @@ namespace BrickBreaker
 
         public void xSpeedLimit()
         {
-            if (xSpeed >= 0 && xSpeed >= 7)
+            if (xSpeed >= 0 && xSpeed >= speedLimit)
             {
                 xSpeed++;
             }
-            if (xSpeed < 0 && xSpeed >= -7)
+            if (xSpeed < 0 && xSpeed >= -speedLimit)
             {
                 xSpeed--;
             }
@@ -118,11 +120,11 @@ namespace BrickBreaker
                 {
                     if (direction == 1)
                     {
-                        xSpeed = 2;
+                        xSpeed = 7;
                     }
                     else
                     {
-                        xSpeed = -2;
+                        xSpeed = -7;
                     }
                 }
 

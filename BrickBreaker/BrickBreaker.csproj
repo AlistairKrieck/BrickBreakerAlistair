@@ -377,10 +377,14 @@
     <None Include="Resources\deathScreen.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\level3.xml" />
+    <None Include="Resources\level3.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\level4.xml" />
+    <None Include="Resources\level4.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\SmallmedBreak.png" />
@@ -399,6 +403,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ghastPlayer-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Smallmedbreak-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bigmedbreak-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bigbreak-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Smallbreak-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\netherGoldBlock-2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

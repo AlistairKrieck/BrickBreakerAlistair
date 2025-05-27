@@ -14,10 +14,10 @@ namespace BrickBreaker
         public static int height = 40;
 
         // Types that are "ores"
-        public static string[] ores = new string[] { "coal", "iron", "copper", "deepslateCoal", "deepslateIron", "deepslateLapis", "deepslateRedstone", "deepslateDiamond" };
+        public static string[] ores = new string[] { "coal", "iron", "copper", "deepslateCoal", "deepslateIron", "deepslateLapis", "deepslateRedstone", "deepslateDiamond", "netherGold", "netherite", "quartz" };
 
         // Types that are "mobs"
-        public static string[] mobs = new string[] { "zombie", "skeleton" };
+        public static string[] mobs = new string[] { "zombie", "skeleton", "blaze" };
 
         // Instance properties
         public int x, y;

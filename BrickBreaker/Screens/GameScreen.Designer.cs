@@ -35,7 +35,7 @@
             // 
             // gameTimer
             // 
-            this.gameTimer.Interval = 1;
+            this.gameTimer.Interval = 20;
             this.gameTimer.Tick += new System.EventHandler(this.gameTimer_Tick);
             // 
             // scoreLabel
@@ -48,7 +48,6 @@
             this.scoreLabel.Name = "scoreLabel";
             this.scoreLabel.Size = new System.Drawing.Size(102, 39);
             this.scoreLabel.TabIndex = 1;
-            this.scoreLabel.Text = "score";
             this.scoreLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // GameScreen
