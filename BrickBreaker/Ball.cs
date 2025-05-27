@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Media;
 using System.Windows.Forms;
 
 namespace BrickBreaker
@@ -39,6 +40,9 @@ namespace BrickBreaker
 
             if (ballRec.IntersectsWith(paddleRec))
             {
+                SoundPlayer player = new SoundPlayer(Properties.Resources.impact2);
+                player.Play();
+
                 ySpeedLimit();
 
                 if (ballRec.Y < paddleRec.Y)
@@ -78,23 +82,30 @@ namespace BrickBreaker
             {
                 xSpeed--;
             }
-          
+
             xSpeed *= -1;
         }
 
         public void WallCollision(UserControl UC)
         {
+            // Bool to store if any collisions occured to play sound
+            bool collided = false;
+
             // Collision with left wall
             if (x <= 0)
             {
                 xSpeedLimit();
                 y = y + 5;
+
+                collided = true;
             }
             // Collision with right wall
             if (x >= (UC.Width - size))
             {
                 xSpeedLimit();
                 y = y - 5;
+
+                collided = true;
             }
             // Collision with bottom wall
             if (y >= UC.Height - size)
@@ -116,6 +127,15 @@ namespace BrickBreaker
                 }
 
                 y = y - 5;
+
+                collided = true;
+            }
+
+            // Play sound on collision
+            if (collided == true)
+            {
+                SoundPlayer player = new SoundPlayer(Properties.Resources.impact2);
+                player.Play();
             }
         }
 

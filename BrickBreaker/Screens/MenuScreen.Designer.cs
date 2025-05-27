@@ -162,7 +162,6 @@
             this.Name = "MenuScreen";
             this.Size = new System.Drawing.Size(1068, 678);
             this.ResumeLayout(false);
-
         }
 
         #endregion

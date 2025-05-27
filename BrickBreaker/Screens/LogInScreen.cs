@@ -76,12 +76,25 @@ namespace BrickBreaker
         // Removes watermark text from input boxes when the box is selected
         private void ClearWatermarkOnEnter(object sender, EventArgs e)
         {
-            System.Windows.Forms.TextBox tb = (System.Windows.Forms.TextBox)sender;
+            // Convert sender to a text box
+            TextBox tb = (TextBox)sender;
 
+            // If the text box has watermark text inside it
+            // Since the character limit is smaller than either watermarks,
+            // users manually typing out a watermark is not an issue
             if (watermarks.Contains(tb.Text))
             {
-                tb.ForeColor = Color.Black;
+                // Remove the watermark
                 tb.Text = "";
+
+                // Set colour to make inputs clear
+                tb.ForeColor = Color.Black;
+
+                // Hide password inputs to prevent account theft
+                if (tb.Name == "passwordInput")
+                {
+                    tb.PasswordChar = '*';
+                }
             }
         }
 
@@ -89,7 +102,7 @@ namespace BrickBreaker
         private void ShowWatermarkOnLeave(object sender, EventArgs e)
         {
             // Store entered textbox in an object
-            System.Windows.Forms.TextBox tb = (System.Windows.Forms.TextBox)sender;
+            TextBox tb = (TextBox)sender;
 
             // If the input is empty or null, re-display the watermark
             if (tb.Text == "" || tb.Text == null)
@@ -105,6 +118,8 @@ namespace BrickBreaker
                         break;
 
                     case "passwordInput":
+                        // Unhide text to show watermark
+                        tb.PasswordChar = '\0';
                         tb.Text = "Enter Password...";
                         break;
                 }

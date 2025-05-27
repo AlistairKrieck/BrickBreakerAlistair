@@ -25,12 +25,8 @@ namespace BrickBreaker
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
 
-
-            // If playerData XML file doesn't exist, create a new, empty one
-            PlayerData.CreateEmptyFile();
-
             // Load all saved players into a list
-            players = PlayerData.LoadPlayerData();
+            players = player.LoadAllPlayerData();
         }
 
         private void Form1_Load(object sender, EventArgs e)

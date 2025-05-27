@@ -14,6 +14,7 @@ using System.Windows.Forms;
 using System.Media;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 using System.Reflection;
+using System.Runtime.InteropServices;
 
 namespace BrickBreaker
 {
@@ -22,7 +23,6 @@ namespace BrickBreaker
         //TODO
         /*
          * UI design
-         * (High)score tracking and saving
          * Damage indicator on blocks
          * Sound effects and bg music
          * 
@@ -42,13 +42,19 @@ namespace BrickBreaker
         int BulletBallTimer = 0;
 
         // Stores the remaining lives the player has
+        public static int maxLives = 5;
+
+        // Stores the remaining lives the player has
         public static int lives = 5;
+
+        // Stores the extra lives the player has
+        public static int extraLives = 0;
 
         // Stores the players score
         public static int points = 0;
 
         // Set of all levels
-        public static string[] levels = new string[3] { "level0", "level1", "level2" };
+        public static string[] levels = new string[5] { "level0", "level1", "level2", "level3", "level4" };
 
         // Current level as a position in the levels array
         int level;
@@ -57,7 +63,7 @@ namespace BrickBreaker
         public static Paddle paddle;
         public static Ball ball;
 
-        // Relates block type to relevant image 
+        // Relates brick type to relevant image for convenience 
         public static Dictionary<string, Image> brickImages = new Dictionary<string, Image>()
         {
              { "grass", Properties.Resources.grassBlock },
@@ -78,7 +84,14 @@ namespace BrickBreaker
              { "deepslateRedstone", Properties.Resources.deepslateRedstoneOreBlock },
              { "skeleton", Properties.Resources.skeletonEnemyImage },
              { "zombie", Properties.Resources.zombieEnemyImage },
-             { "ghastPlayer", Properties.Resources.ghastPlayer }
+             { "ghastPlayer", Properties.Resources.ghastPlayer },
+             { "deepslateTile", Properties.Resources.deepslateBrickBlock},
+             { "obsidian", Properties.Resources.obsidianBlock},
+             { "netherack", Properties.Resources.netherraackBlock},
+             { "magma", Properties.Resources.magmaBlock},
+             { "netherGold", Properties.Resources.netherGoldBlock},
+             { "netherite", Properties.Resources.netheriteOreBlock},
+             { "quartz", Properties.Resources.quartzOreBlock}
         };
 
         // List of power ups to be moved
@@ -116,12 +129,15 @@ namespace BrickBreaker
         {
             InitializeComponent();
 
+            // Update labels to show default values
+            scoreLabel.Text = $"Score: {points}";
+
             // Set all variables to their starting values and objects to starting positions
             OnStart();
             points = 0;
 
             // Load level 0
-            level = 1;
+            level = 4;
             LoadLevel(level);
         }
 
@@ -129,7 +145,7 @@ namespace BrickBreaker
         public void OnStart()
         {
             //set life counter
-            lives = 5;
+            lives = maxLives;
 
             //set all button presses to false.
             leftArrowDown = rightArrowDown = escapeKeyDown = spaceKeyDown = tabKeyDown = false;
@@ -282,7 +298,8 @@ namespace BrickBreaker
                 else if (p.PaddleCollision(paddle))
                 {
                     // Remove a life and 10 points from the player if a projectile hits them
-                    lives--;
+                    TakeDamage();
+
                     points -= 10;
 
                     // Remove projectile to prevent it from taking multiple lives at once
@@ -310,7 +327,8 @@ namespace BrickBreaker
                 gameTimer.Enabled = false;
 
                 // Remove a life and 10 points if the player misses the ball
-                lives--;
+                TakeDamage();
+
                 points -= 10;
 
                 // Moves the ball back to origin
@@ -318,13 +336,6 @@ namespace BrickBreaker
                 ball.y = paddle.y + ball.size;
                 ball.xSpeed = 0;
                 ball.ySpeed = 3;
-            }
-
-            // If the player dies, end the game
-            if (lives == 0)
-            {
-                gameTimer.Enabled = false;
-                OnEnd();
             }
 
 
@@ -376,8 +387,7 @@ namespace BrickBreaker
                 if (BulletBallTimer <= 0) bounce = true;
             }
 
-            // Update life counter
-            liveslabel.Text = $"{lives}";
+            // Update score counter
             scoreLabel.Text = $"{points}";
 
             #endregion
@@ -393,6 +403,7 @@ namespace BrickBreaker
                 // Update high score on win
                 CheckHighScore();
 
+                // Go to the win screen
                 Form1.ChangeScreen(this, new WinScreen());
             }
 
@@ -434,13 +445,87 @@ namespace BrickBreaker
             }
         }
 
+        // Draws hearts to the screen based on the players remaining health
+        private void UpdateHearts(PaintEventArgs e)
+        {
+            // Horizontal distance between hearts
+            int heartSpacing = 10;
+
+            // Distance between the left of the screen and the leftmost heart
+            int horizSpacing = 50;
+
+            // Distance between the top of the screen and the hearts
+            int vertSpacing = 30;
+
+            int heartSize = 40;
+
+            // Draw maxLives worth of hearts
+            for (int i = 0; i < maxLives; i++)
+            {
+                // Position the hearts in the top left corner with some margin
+                int x = horizSpacing + i * (heartSize + heartSpacing);
+                int y = vertSpacing;
+
+                // Draw a red heart for each life the player has left, and a gray heart for each life the player has below max health
+                Image image = i < lives ? Properties.Resources.minecraftHeartImage : Properties.Resources.emptyHeartImage;
+
+                // Draw the heart to the screen
+                e.Graphics.DrawImage(image, x, y, heartSize, heartSize);
+            }
+
+            // Draw extra (gold) hearts
+            for (int i = 0; i < extraLives; i++)
+            {
+                // Position the extra hearts in the left of the red hearts
+                int x = (lives + i) * (heartSize + horizSpacing);
+                int y = vertSpacing;
+
+                // Draws a golden heart for each health above maxLives (gotten from power ups)
+                Image image = Properties.Resources.goldenHeartImage;
+
+                // Draw the heart to the screen
+                e.Graphics.DrawImage(image, x, y, heartSize, heartSize);
+            }
+        }
+
+        // Method to remove health, play damage sound, and check if the player has died
+        public void TakeDamage()
+        {
+            // Remove extra lives (lives above maxLives count from power ups) before removing regular lives
+            if (extraLives > 0)
+            {
+                extraLives--;
+            }
+
+            // Remove lives if there are no extra lives and the player is not dead
+            else if (lives > 0)
+            {
+                lives--;
+            }
+
+            // Play damage sound effect
+            SoundPlayer player = new SoundPlayer(Properties.Resources.paddleHit);
+            player.Play();
+
+            // End the game and go to death screen if the player has 0 or less lives
+            if (lives <= 0)
+            {
+                // Stop the game timer to prevent crashes when switching screens
+                gameTimer.Enabled = false;
+
+                // Run the OnEnd method
+                OnEnd();
+            }
+        }
+
+        // Saves the players high score and goes to the death screen
         public void OnEnd()
         {
             // Update high score on death
             CheckHighScore();
 
-            // Goes to the game over screen
-            Form1.ChangeScreen(this, new MenuScreen());
+            // Go to the game over screen
+            Form1.ChangeScreen(this, new GameOverScreen());
         }
 
         private void CheckBallBlockCollision()
@@ -544,20 +629,24 @@ namespace BrickBreaker
                     this.BackgroundImage = Properties.Resources.level2Background;
                     break;
 
-                    //case 3:
-                    //    this.BackgroundImage = Properties.Resources.level3Background;
-                    //    break;
+                case 3:
+                    this.BackgroundImage = Properties.Resources.level3Background;
+                    break;
 
-                    //case 4:
-                    //    this.BackgroundImage = Properties.Resources.level4Background;
-                    //    break;
+                case 4:
+                    this.BackgroundImage = Properties.Resources.level4Background;
+                    break;
             }
         }
 
 
         public void ApplyPowerUps(string type)
         {
-            if (type == "ExtraLife") lives++;
+            if (type == "ExtraLife")
+            {
+                if (lives < maxLives) lives++;
+                else extraLives++;
+            }
             else if (type == "SpeedBoost") paddle.speed += 2;
             else if (type == "BigPaddle") paddle.width += 20;
             else if (type == "Bullet")
@@ -570,6 +659,8 @@ namespace BrickBreaker
 
         public void GameScreen_Paint(object sender, PaintEventArgs e)
         {
+            UpdateHearts(e);
+
             // Draws paddle
             paddleBrush.Color = paddle.colour;
             e.Graphics.FillRectangle(paddleBrush, paddle.x, paddle.y, paddle.width, paddle.height);

@@ -13,8 +13,10 @@ namespace BrickBreaker
         public static int width = 120;
         public static int height = 40;
 
-        // Types that are "ore"
+        // Types that are "ores"
         public static string[] ores = new string[] { "coal", "iron", "copper", "deepslateCoal", "deepslateIron", "deepslateLapis", "deepslateRedstone", "deepslateDiamond" };
+
+        // Types that are "mobs"
         public static string[] mobs = new string[] { "zombie", "skeleton" };
 
         // Instance properties
@@ -43,6 +45,8 @@ namespace BrickBreaker
                     break;
 
                 case "stone":
+                case "andesite":
+                case "granite":
                     maxHp = hp = 2;
                     break;
 

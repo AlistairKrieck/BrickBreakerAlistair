@@ -36,7 +36,8 @@ namespace BrickBreaker
         private void saveLevel_Click(object sender, EventArgs e)
         {
             Form1.ChangeScreen(this, new LevelDesign());
-        }        
+        }
+
 
         // Reset signed in player to a blank and go to log in screen
         private void signOutButton_Click(object sender, EventArgs e)

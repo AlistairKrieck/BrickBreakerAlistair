@@ -68,7 +68,7 @@ namespace BrickBreaker
                     player.SavePlayerData();
 
                     // Update list of players to include new account
-                    Form1.players = PlayerData.LoadPlayerData();
+                    Form1.players = player.LoadAllPlayerData();
 
                     // Set signed in player to a new player object with the created accounts data
                     // Doing it this way instead of Form1.player = player fixes a bug in the main menu, where the player will be displayed on the leaderboard twice
@@ -105,6 +105,12 @@ namespace BrickBreaker
                 tb.ForeColor = Color.Black;
                 tb.Text = "";
             }
+
+            // Hide password inputs to prevent account theft
+            if (tb.Name == "passwordInput" || tb.Name == "confirmPasswordInput")
+            {
+                tb.PasswordChar = '*';
+            }
         }
 
         //Show watermark text if input is deselected and empty
@@ -127,10 +133,14 @@ namespace BrickBreaker
                         break;
 
                     case "passwordInput":
+                        // Unhide text to show watermark 
+                        tb.PasswordChar = '\0';
                         tb.Text = "Enter New Password...";
                         break;
 
                     case "confirmPasswordInput":
+                        // Unhide text to show watermark
+                        tb.PasswordChar = '\0';
                         tb.Text = "Confirm Password...";
                         break;
                 }
