@@ -54,7 +54,7 @@ namespace BrickBreaker
         public static int points = 0;
 
         // Set of all levels
-        public static string[] levels = new string[3] { "level0", "level1", "level2" };
+        public static string[] levels = new string[5] { "level0", "level1", "level2", "level3", "level4" };
 
         // Current level as a position in the levels array
         int level;
@@ -85,6 +85,13 @@ namespace BrickBreaker
              { "skeleton", Properties.Resources.skeletonEnemyImage },
              { "zombie", Properties.Resources.zombieEnemyImage },
              { "ghastPlayer", Properties.Resources.ghastPlayer },
+             { "deepslateTile", Properties.Resources.deepslateBrickBlock},
+             { "obsidian", Properties.Resources.obsidianBlock},
+             { "netherack", Properties.Resources.netherraackBlock},
+             { "magma", Properties.Resources.magmaBlock},
+             { "netherGold", Properties.Resources.netherGoldBlock},
+             { "netherite", Properties.Resources.netheriteOreBlock},
+             { "quartz", Properties.Resources.quartzOreBlock}
         };
 
         // List of power ups to be moved
@@ -130,7 +137,7 @@ namespace BrickBreaker
             points = 0;
 
             // Load level 0
-            level = 0;
+            level = 4;
             LoadLevel(level);
         }
 
@@ -622,13 +629,13 @@ namespace BrickBreaker
                     this.BackgroundImage = Properties.Resources.level2Background;
                     break;
 
-                    //case 3:
-                    //    this.BackgroundImage = Properties.Resources.level3Background;
-                    //    break;
+                case 3:
+                    this.BackgroundImage = Properties.Resources.level3Background;
+                    break;
 
-                    //case 4:
-                    //    this.BackgroundImage = Properties.Resources.level4Background;
-                    //    break;
+                case 4:
+                    this.BackgroundImage = Properties.Resources.level4Background;
+                    break;
             }
         }
 

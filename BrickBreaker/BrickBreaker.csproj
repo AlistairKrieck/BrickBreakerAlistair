@@ -367,6 +367,12 @@
   <ItemGroup>
     <None Include="Resources\deathScreen.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level3.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level4.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

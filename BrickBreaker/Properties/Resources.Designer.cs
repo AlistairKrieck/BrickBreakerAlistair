@@ -453,21 +453,39 @@ namespace BrickBreaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;Level&gt;&lt;Block&gt;&lt;x&gt;916&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;deepslate&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;664&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;deepslate&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;538&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;deepslateTile&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;790&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;deepslate&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;412&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;deepslate&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;286&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;deepslate&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;160&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;deepslateTile&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;34&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;deepslate&lt;/type&gt;&lt;/Block&gt;&lt;Blo [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static System.Drawing.Bitmap level4Background {
+        internal static string level3 {
             get {
-                object obj = ResourceManager.GetObject("level4Background", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("level3", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap level5Background {
+        internal static System.Drawing.Bitmap level3Background {
             get {
-                object obj = ResourceManager.GetObject("level5Background", resourceCulture);
+                object obj = ResourceManager.GetObject("level3Background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;Level&gt;&lt;Block&gt;&lt;x&gt;916&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;netherack&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;664&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;netherack&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;538&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;netherack&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;790&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;magma&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;412&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;netherack&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;286&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;netherack&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;160&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;netherack&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;34&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;netherack&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;916&lt;/x [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string level4 {
+            get {
+                return ResourceManager.GetString("level4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap level4Background {
+            get {
+                object obj = ResourceManager.GetObject("level4Background", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
