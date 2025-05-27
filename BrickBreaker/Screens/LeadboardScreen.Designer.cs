@@ -41,25 +41,26 @@
             this.lb5Output = new System.Windows.Forms.Label();
             this.lb4Output = new System.Windows.Forms.Label();
             this.lb1Output = new System.Windows.Forms.Label();
+            this.mainMenuButton = new System.Windows.Forms.Button();
             this.leaderBoardOutput.SuspendLayout();
             this.SuspendLayout();
             // 
             // lb7Output
             // 
             this.lb7Output.BackColor = System.Drawing.Color.Transparent;
-            this.lb7Output.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.lb7Output.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb7Output.ForeColor = System.Drawing.Color.White;
-            this.lb7Output.Location = new System.Drawing.Point(8, 298);
+            this.lb7Output.Location = new System.Drawing.Point(8, 327);
             this.lb7Output.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb7Output.Name = "lb7Output";
             this.lb7Output.Size = new System.Drawing.Size(285, 29);
             this.lb7Output.TabIndex = 12;
-            this.lb7Output.Text = "#1: ";
+            this.lb7Output.Text = "#7: ";
             // 
             // lb3Output
             // 
             this.lb3Output.BackColor = System.Drawing.Color.Transparent;
-            this.lb3Output.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Bold);
+            this.lb3Output.Font = new System.Drawing.Font("Courier New", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb3Output.ForeColor = System.Drawing.Color.White;
             this.lb3Output.Location = new System.Drawing.Point(8, 139);
             this.lb3Output.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -71,7 +72,7 @@
             // lb2Output
             // 
             this.lb2Output.BackColor = System.Drawing.Color.Transparent;
-            this.lb2Output.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold);
+            this.lb2Output.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb2Output.ForeColor = System.Drawing.Color.White;
             this.lb2Output.Location = new System.Drawing.Point(8, 91);
             this.lb2Output.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -93,7 +94,7 @@
             this.leaderBoardOutput.Controls.Add(this.lb3Output);
             this.leaderBoardOutput.Controls.Add(this.lb2Output);
             this.leaderBoardOutput.Controls.Add(this.lb1Output);
-            this.leaderBoardOutput.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold);
+            this.leaderBoardOutput.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.leaderBoardOutput.ForeColor = System.Drawing.Color.White;
             this.leaderBoardOutput.Location = new System.Drawing.Point(357, 52);
             this.leaderBoardOutput.Margin = new System.Windows.Forms.Padding(4);
@@ -108,90 +109,91 @@
             // 
             this.lbPlayerOutput.BackColor = System.Drawing.Color.Transparent;
             this.lbPlayerOutput.Enabled = false;
-            this.lbPlayerOutput.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.lbPlayerOutput.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPlayerOutput.ForeColor = System.Drawing.Color.White;
-            this.lbPlayerOutput.Location = new System.Drawing.Point(8, 480);
+            this.lbPlayerOutput.Location = new System.Drawing.Point(9, 520);
             this.lbPlayerOutput.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbPlayerOutput.Name = "lbPlayerOutput";
             this.lbPlayerOutput.Size = new System.Drawing.Size(285, 29);
             this.lbPlayerOutput.TabIndex = 16;
+            this.lbPlayerOutput.Text = "Your score";
             // 
             // lb10Output
             // 
             this.lb10Output.BackColor = System.Drawing.Color.Transparent;
-            this.lb10Output.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.lb10Output.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb10Output.ForeColor = System.Drawing.Color.White;
-            this.lb10Output.Location = new System.Drawing.Point(8, 412);
+            this.lb10Output.Location = new System.Drawing.Point(8, 457);
             this.lb10Output.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb10Output.Name = "lb10Output";
             this.lb10Output.Size = new System.Drawing.Size(285, 29);
             this.lb10Output.TabIndex = 15;
-            this.lb10Output.Text = "#1: ";
+            this.lb10Output.Text = "#10: ";
             // 
             // lb9Output
             // 
             this.lb9Output.BackColor = System.Drawing.Color.Transparent;
-            this.lb9Output.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.lb9Output.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb9Output.ForeColor = System.Drawing.Color.White;
-            this.lb9Output.Location = new System.Drawing.Point(8, 375);
+            this.lb9Output.Location = new System.Drawing.Point(9, 413);
             this.lb9Output.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb9Output.Name = "lb9Output";
             this.lb9Output.Size = new System.Drawing.Size(285, 29);
             this.lb9Output.TabIndex = 14;
-            this.lb9Output.Text = "#1: ";
+            this.lb9Output.Text = "#9: ";
             // 
             // lb8Output
             // 
             this.lb8Output.BackColor = System.Drawing.Color.Transparent;
-            this.lb8Output.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.lb8Output.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb8Output.ForeColor = System.Drawing.Color.White;
-            this.lb8Output.Location = new System.Drawing.Point(8, 335);
+            this.lb8Output.Location = new System.Drawing.Point(8, 370);
             this.lb8Output.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb8Output.Name = "lb8Output";
             this.lb8Output.Size = new System.Drawing.Size(285, 29);
             this.lb8Output.TabIndex = 13;
-            this.lb8Output.Text = "#1: ";
+            this.lb8Output.Text = "#8: ";
             // 
             // lb6Output
             // 
             this.lb6Output.BackColor = System.Drawing.Color.Transparent;
-            this.lb6Output.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.lb6Output.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb6Output.ForeColor = System.Drawing.Color.White;
-            this.lb6Output.Location = new System.Drawing.Point(8, 260);
+            this.lb6Output.Location = new System.Drawing.Point(8, 281);
             this.lb6Output.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb6Output.Name = "lb6Output";
             this.lb6Output.Size = new System.Drawing.Size(285, 29);
             this.lb6Output.TabIndex = 11;
-            this.lb6Output.Text = "#1: ";
+            this.lb6Output.Text = "#6: ";
             // 
             // lb5Output
             // 
             this.lb5Output.BackColor = System.Drawing.Color.Transparent;
-            this.lb5Output.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.lb5Output.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb5Output.ForeColor = System.Drawing.Color.White;
-            this.lb5Output.Location = new System.Drawing.Point(8, 222);
+            this.lb5Output.Location = new System.Drawing.Point(8, 240);
             this.lb5Output.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb5Output.Name = "lb5Output";
             this.lb5Output.Size = new System.Drawing.Size(285, 29);
             this.lb5Output.TabIndex = 10;
-            this.lb5Output.Text = "#1: ";
+            this.lb5Output.Text = "#5: ";
             // 
             // lb4Output
             // 
             this.lb4Output.BackColor = System.Drawing.Color.Transparent;
-            this.lb4Output.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.lb4Output.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb4Output.ForeColor = System.Drawing.Color.White;
-            this.lb4Output.Location = new System.Drawing.Point(8, 185);
+            this.lb4Output.Location = new System.Drawing.Point(9, 196);
             this.lb4Output.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb4Output.Name = "lb4Output";
             this.lb4Output.Size = new System.Drawing.Size(285, 29);
             this.lb4Output.TabIndex = 9;
-            this.lb4Output.Text = "#1: ";
+            this.lb4Output.Text = "#4: ";
             // 
             // lb1Output
             // 
             this.lb1Output.BackColor = System.Drawing.Color.Transparent;
-            this.lb1Output.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold);
+            this.lb1Output.Font = new System.Drawing.Font("Courier New", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb1Output.ForeColor = System.Drawing.Color.White;
             this.lb1Output.Location = new System.Drawing.Point(8, 44);
             this.lb1Output.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -200,12 +202,28 @@
             this.lb1Output.TabIndex = 6;
             this.lb1Output.Text = "#1: ";
             // 
+            // mainMenuButton
+            // 
+            this.mainMenuButton.BackColor = System.Drawing.Color.Transparent;
+            this.mainMenuButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("mainMenuButton.BackgroundImage")));
+            this.mainMenuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.mainMenuButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.mainMenuButton.Font = new System.Drawing.Font("Courier New", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mainMenuButton.ForeColor = System.Drawing.Color.Gainsboro;
+            this.mainMenuButton.Location = new System.Drawing.Point(888, 599);
+            this.mainMenuButton.Name = "mainMenuButton";
+            this.mainMenuButton.Size = new System.Drawing.Size(160, 60);
+            this.mainMenuButton.TabIndex = 7;
+            this.mainMenuButton.Text = "Main Menu";
+            this.mainMenuButton.UseVisualStyleBackColor = false;
+            // 
             // LeadboardScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.Controls.Add(this.mainMenuButton);
             this.Controls.Add(this.leaderBoardOutput);
             this.Name = "LeadboardScreen";
             this.Size = new System.Drawing.Size(1068, 678);
@@ -228,5 +246,6 @@
         private System.Windows.Forms.Label lb5Output;
         private System.Windows.Forms.Label lb4Output;
         private System.Windows.Forms.Label lb1Output;
+        private System.Windows.Forms.Button mainMenuButton;
     }
 }
