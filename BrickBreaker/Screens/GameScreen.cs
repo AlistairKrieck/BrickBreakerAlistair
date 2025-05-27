@@ -1,7 +1,12 @@
 ﻿/*  Created by: Alistair, Naz, Spencer, Silas, and Jayden
  *  Project: The Best Brick Breaker
  *  Date: May 27 2025
+ *  
+ *  To be played on 125% resolution
+ *  Any other will cause the bricks not to load properly!
+ *  
  */
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,12 +27,12 @@ namespace BrickBreaker
     {
         //TODO
         /*
+         * If we had extra time:
          * Background music
          * Add health values in bricks for new blocks in levels 3 and 4
          * Optimize for performance
          * Comment everything
          * Find out why the nether level is so slow compared to everything else
-         * Get the blaze enemy to attack
          * 
          */
 
@@ -58,10 +63,11 @@ namespace BrickBreaker
 
         // Set of all levels
         // Temporarily only include first and final levels for demonstration
+        // To fix readd commented levels between 0 and 4
         public static string[] levels = new string[2] { "level0", "level4" }; // "level1", "level2", "level3", 
 
         // Current level as a position in the levels array
-        int level;
+        int level = 0;
 
         // Paddle and Ball objects
         public static Paddle paddle;
@@ -145,7 +151,7 @@ namespace BrickBreaker
             points = 0;
 
             // Load level 0
-            level = 4;
+            level = 0;
             LoadLevel(level);
         }
 
@@ -396,7 +402,7 @@ namespace BrickBreaker
             }
 
             // Update score counter
-            scoreLabel.Text = $"{points}";
+            scoreLabel.Text = $"Score: {points}";
 
             #endregion
 
@@ -433,7 +439,8 @@ namespace BrickBreaker
                 // Update high score on level clear
                 CheckHighScore();
 
-                //TEMP
+                //TODO
+                //Remove this line, it is only there for demonstration purposes
                 level = 4;
 
                 // Load next level
@@ -630,22 +637,27 @@ namespace BrickBreaker
             {
                 case 0:
                     this.BackgroundImage = Properties.Resources.level0Background;
+                    // play background music player
                     break;
 
                 case 1:
                     this.BackgroundImage = Properties.Resources.level1Background;
+                    // play background music player
                     break;
 
                 case 2:
                     this.BackgroundImage = Properties.Resources.level2Background;
+                    // play background music player
                     break;
 
                 case 3:
                     this.BackgroundImage = Properties.Resources.level3Background;
+                    // play background music player
                     break;
 
                 case 4:
                     this.BackgroundImage = Properties.Resources.level4Background;
+                    // play background music player
                     break;
             }
         }
@@ -703,8 +715,7 @@ namespace BrickBreaker
             UpdateHearts(e);
 
             // Draws paddle
-            paddleBrush.Color = paddle.colour;
-            e.Graphics.DrawImage(Properties.Resources.ghastPlayer, paddle.x, paddle.y, paddle.width, paddle.height);
+            e.Graphics.DrawImage(brickImages["ghastPlayer"], paddle.x, paddle.y, paddle.width, paddle.height);
 
             // Draws power-ups
             foreach (Powers p in powerUps)
@@ -760,11 +771,11 @@ namespace BrickBreaker
 
                 if (proj is FireBall)
                 {
-                    // Create a new spit object
-                    FireBall s = (FireBall)proj;
+                    // Create a new fireball object
+                    FireBall f = (FireBall)proj;
 
-                    // Draw spit to the screen
-                    e.Graphics.FillEllipse(s.projBrush, s.x, s.y, s.diameter, s.diameter);
+                    // Draw fireball to the screen
+                    e.Graphics.FillEllipse(f.projBrush, f.x, f.y, f.diameter, f.diameter);
                 }
             }
 
