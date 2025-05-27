@@ -19,8 +19,8 @@ namespace BrickBreaker
             y = _y;
             speed = _speed;
 
-            // Set colour of the fireball to a fiery red
-            projBrush = new SolidBrush(Color.Firebrick);
+            // Set colour of the fireball to yellow
+            projBrush = new SolidBrush(Color.Yellow);
 
             // Set all constant variables
             InitProjectile();

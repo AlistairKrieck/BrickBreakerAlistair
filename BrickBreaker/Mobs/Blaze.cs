@@ -16,7 +16,7 @@ namespace BrickBreaker
 
         public FireBall AttackPlayer()
         {
-            return new FireBall(x + width / 2, y + height / 2, GameScreen.spitSpeed);
+            return new FireBall(x + width / 2, y + height / 2, GameScreen.fireBallSpeed);
         }
     }
 }

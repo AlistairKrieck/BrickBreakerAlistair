@@ -23,7 +23,6 @@ namespace BrickBreaker
         //TODO
         /*
          * Background music
-         * Fix breaking images sizing so they don't have to stretch
          * Add health values in bricks for new blocks in levels 3 and 4
          * Optimize for performance
          * Comment everything
@@ -123,8 +122,8 @@ namespace BrickBreaker
         public static int spitDiameter = 20;
 
         // Variables to define a fireball object
-        public static int fireBallSpeed = 6;
-        public static int fireBallDiameter = 15;
+        public static int fireBallSpeed = 12;
+        public static int fireBallDiameter = 20;
 
         // Object to load each new level from XML files
         LevelLoader levelLoader = new LevelLoader();
@@ -146,7 +145,7 @@ namespace BrickBreaker
             points = 0;
 
             // Load level 0
-            level = 0;
+            level = 4;
             LoadLevel(level);
         }
 
@@ -754,6 +753,15 @@ namespace BrickBreaker
                 {
                     // Create a new spit object
                     ZombieSpit s = (ZombieSpit)proj;
+
+                    // Draw spit to the screen
+                    e.Graphics.FillEllipse(s.projBrush, s.x, s.y, s.diameter, s.diameter);
+                }
+
+                if (proj is FireBall)
+                {
+                    // Create a new spit object
+                    FireBall s = (FireBall)proj;
 
                     // Draw spit to the screen
                     e.Graphics.FillEllipse(s.projBrush, s.x, s.y, s.diameter, s.diameter);
