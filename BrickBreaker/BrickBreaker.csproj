@@ -294,6 +294,12 @@
   <ItemGroup>
     <None Include="Resources\emptyHeartImage.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minecraft_hit_soundmp3converter.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\impact2.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -123,14 +123,14 @@ namespace BrickBreaker
             InitializeComponent();
 
             // Update labels to show default values
-            scoreLabel.Text = $"{points}";
+            scoreLabel.Text = $"Score: {points}";
 
             // Set all variables to their starting values and objects to starting positions
             OnStart();
             points = 0;
 
             // Load level 0
-            level = 0;
+            level = 1;
             LoadLevel(level);
         }
 
@@ -396,6 +396,7 @@ namespace BrickBreaker
                 // Update high score on win
                 CheckHighScore();
 
+                // Go to the win screen
                 Form1.ChangeScreen(this, new WinScreen());
             }
 
@@ -437,6 +438,7 @@ namespace BrickBreaker
             }
         }
 
+        // Draws hearts to the screen based on the players remaining health
         private void UpdateHearts(PaintEventArgs e)
         {
             // Horizontal distance between hearts
@@ -453,51 +455,70 @@ namespace BrickBreaker
             // Draw maxLives worth of hearts
             for (int i = 0; i < maxLives; i++)
             {
+                // Position the hearts in the top left corner with some margin
                 int x = horizSpacing + i * (heartSize + heartSpacing);
                 int y = vertSpacing;
 
+                // Draw a red heart for each life the player has left, and a gray heart for each life the player has below max health
                 Image image = i < lives ? Properties.Resources.minecraftHeartImage : Properties.Resources.emptyHeartImage;
 
+                // Draw the heart to the screen
                 e.Graphics.DrawImage(image, x, y, heartSize, heartSize);
             }
 
             // Draw extra (gold) hearts
             for (int i = 0; i < extraLives; i++)
             {
+                // Position the extra hearts in the left of the red hearts
                 int x = (lives + i) * (heartSize + horizSpacing);
                 int y = vertSpacing;
 
+                // Draws a golden heart for each health above maxLives (gotten from power ups)
                 Image image = Properties.Resources.goldenHeartImage;
 
+                // Draw the heart to the screen
                 e.Graphics.DrawImage(image, x, y, heartSize, heartSize);
             }
         }
 
+        // Method to remove health, play damage sound, and check if the player has died
         public void TakeDamage()
         {
+            // Remove extra lives (lives above maxLives count from power ups) before removing regular lives
             if (extraLives > 0)
             {
                 extraLives--;
             }
+
+            // Remove lives if there are no extra lives and the player is not dead
             else if (lives > 0)
             {
                 lives--;
             }
 
-            if (lives == 0)
+            // Play damage sound effect
+            SoundPlayer player = new SoundPlayer(Properties.Resources.paddleHit);
+            player.Play();
+
+            // End the game and go to death screen if the player has 0 or less lives
+            if (lives <= 0)
             {
+                // Stop the game timer to prevent crashes when switching screens
                 gameTimer.Enabled = false;
+
+                // Run the OnEnd method
                 OnEnd();
             }
         }
 
+        // Saves the players high score and goes to the death screen
         public void OnEnd()
         {
             // Update high score on death
             CheckHighScore();
 
-            // Goes to the game over screen
-            Form1.ChangeScreen(this, new MenuScreen());
+            // Go to the game over screen
+            Form1.ChangeScreen(this, new GameOverScreen());
         }
 
         private void CheckBallBlockCollision()

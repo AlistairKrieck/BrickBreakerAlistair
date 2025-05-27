@@ -249,6 +249,15 @@ namespace BrickBreaker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream impact2 {
+            get {
+                return ResourceManager.GetStream("impact2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap ironOreBlock {
@@ -356,6 +365,15 @@ namespace BrickBreaker.Properties {
             get {
                 object obj = ResourceManager.GetObject("minecraftHeartImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream paddleHit {
+            get {
+                return ResourceManager.GetStream("paddleHit", resourceCulture);
             }
         }
         

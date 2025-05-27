@@ -175,6 +175,9 @@
   <data name="grassBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\grassBlock-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="impact2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\impact2.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="ironOreBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ironOreBlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -198,6 +201,9 @@
   </data>
   <data name="minecraftHeartImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\minecraftHeartImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="paddleHit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\minecraft_hit_soundmp3converter.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="playerData" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\playerData.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>

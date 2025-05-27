@@ -2,58 +2,58 @@
 <Level>
 	<Block>
 		<x>916</x>
-		<y>445</y>
+		<y>538</y>
 		<type>grass</type>
 	</Block>
 	<Block>
 		<x>664</x>
-		<y>445</y>
+		<y>538</y>
 		<type>grass</type>
 	</Block>
 	<Block>
 		<x>538</x>
-		<y>445</y>
+		<y>538</y>
 		<type>grass</type>
 	</Block>
 	<Block>
 		<x>790</x>
-		<y>445</y>
+		<y>538</y>
 		<type>grass</type>
 	</Block>
 	<Block>
 		<x>412</x>
-		<y>445</y>
+		<y>538</y>
 		<type>grass</type>
 	</Block>
 	<Block>
 		<x>286</x>
-		<y>445</y>
+		<y>538</y>
 		<type>grass</type>
 	</Block>
 	<Block>
 		<x>160</x>
-		<y>445</y>
+		<y>538</y>
 		<type>grass</type>
 	</Block>
 	<Block>
 		<x>34</x>
-		<y>445</y>
+		<y>538</y>
 		<type>grass</type>
 	</Block>
 	<Block>
 		<x>916</x>
 		<y>629</y>
-		<type>stone</type>
+		<type>dirt</type>
 	</Block>
 	<Block>
 		<x>664</x>
 		<y>629</y>
-		<type>stone</type>
+		<type>dirt</type>
 	</Block>
 	<Block>
 		<x>538</x>
 		<y>629</y>
-		<type>stone</type>
+		<type>dirt</type>
 	</Block>
 	<Block>
 		<x>790</x>
@@ -68,12 +68,12 @@
 	<Block>
 		<x>286</x>
 		<y>629</y>
-		<type>stone</type>
+		<type>dirt</type>
 	</Block>
 	<Block>
 		<x>160</x>
 		<y>629</y>
-		<type>stone</type>
+		<type>dirt</type>
 	</Block>
 	<Block>
 		<x>34</x>
@@ -83,12 +83,12 @@
 	<Block>
 		<x>916</x>
 		<y>582</y>
-		<type>stone</type>
+		<type>dirt</type>
 	</Block>
 	<Block>
 		<x>664</x>
 		<y>582</y>
-		<type>stone</type>
+		<type>dirt</type>
 	</Block>
 	<Block>
 		<x>538</x>
@@ -108,96 +108,16 @@
 	<Block>
 		<x>286</x>
 		<y>582</y>
-		<type>stone</type>
-	</Block>
-	<Block>
-		<x>160</x>
-		<y>582</y>
-		<type>stone</type>
-	</Block>
-	<Block>
-		<x>34</x>
-		<y>582</y>
-		<type>stone</type>
-	</Block>
-	<Block>
-		<x>916</x>
-		<y>538</y>
-		<type>dirt</type>
-	</Block>
-	<Block>
-		<x>664</x>
-		<y>538</y>
-		<type>dirt</type>
-	</Block>
-	<Block>
-		<x>538</x>
-		<y>538</y>
-		<type>dirt</type>
-	</Block>
-	<Block>
-		<x>790</x>
-		<y>538</y>
-		<type>stone</type>
-	</Block>
-	<Block>
-		<x>412</x>
-		<y>538</y>
-		<type>stone</type>
-	</Block>
-	<Block>
-		<x>286</x>
-		<y>538</y>
-		<type>dirt</type>
-	</Block>
-	<Block>
-		<x>160</x>
-		<y>538</y>
-		<type>dirt</type>
-	</Block>
-	<Block>
-		<x>34</x>
-		<y>538</y>
-		<type>stone</type>
-	</Block>
-	<Block>
-		<x>916</x>
-		<y>491</y>
-		<type>dirt</type>
-	</Block>
-	<Block>
-		<x>664</x>
-		<y>491</y>
-		<type>dirt</type>
-	</Block>
-	<Block>
-		<x>538</x>
-		<y>491</y>
-		<type>dirt</type>
-	</Block>
-	<Block>
-		<x>790</x>
-		<y>491</y>
-		<type>dirt</type>
-	</Block>
-	<Block>
-		<x>412</x>
-		<y>491</y>
-		<type>dirt</type>
-	</Block>
-	<Block>
-		<x>286</x>
-		<y>491</y>
 		<type>dirt</type>
 	</Block>
 	<Block>
 		<x>161</x>
-		<y>491</y>
+		<y>582</y>
 		<type>dirt</type>
 	</Block>
 	<Block>
 		<x>34</x>
-		<y>491</y>
+		<y>582</y>
 		<type>dirt</type>
 	</Block>
 </Level>
