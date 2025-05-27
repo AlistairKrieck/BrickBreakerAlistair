@@ -164,7 +164,7 @@ namespace BrickBreaker
             int paddleHeight = 10;
             int paddleX = ((this.Width / 2) - (paddleWidth / 2));
             int paddleY = 10 + paddleHeight;
-            int paddleSpeed = 10;
+            int paddleSpeed = 15;
             paddle = new Paddle(paddleX, paddleY, paddleWidth, paddleHeight, paddleSpeed, Color.White);
 
             // setup starting ball values
