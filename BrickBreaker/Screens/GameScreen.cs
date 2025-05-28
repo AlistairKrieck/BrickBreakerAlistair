@@ -60,9 +60,7 @@ namespace BrickBreaker
         public static int points = 0;
 
         // Set of all levels
-        // Temporarily only include first and final levels for demonstration
-        // To fix readd commented levels between 0 and 4
-        public static string[] levels = new string[2] { "level0", "level4" }; // "level1", "level2", "level3", 
+        public static string[] levels = new string[5] { "level0","level1", "level2", "level3",  "level4" };
 
         // Current level as a position in the levels array
         int level = 0;
@@ -149,7 +147,7 @@ namespace BrickBreaker
             points = 0;
 
             // Load level 0
-            level = 2;
+            level = 0;
             LoadLevel(level);
         }
 
@@ -436,10 +434,6 @@ namespace BrickBreaker
 
                 // Update high score on level clear
                 CheckHighScore();
-
-                //TODO
-                //Remove this line, it is only there for demonstration purposes
-                level = 4;
 
                 // Load next level
                 LoadLevel(level);
