@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,6 +19,11 @@ namespace BrickBreaker
 
             playerScoreLabel.Text = Form1.player.score.ToString();
             playNameLabel.Text = Form1.player.username;
+
+            // Play win sound effect
+            SoundPlayer player = new SoundPlayer(Properties.Resources.winSound);
+            player.Play();
+
 
             // Play background music
             Form1.backgroundPlayer.Open(new Uri(Application.StartupPath + "/Resources/Precipice.mp3"));
