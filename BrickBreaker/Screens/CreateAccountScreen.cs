@@ -157,7 +157,7 @@ namespace BrickBreaker
         // Go to log in screen
         private void logInButton_Click(object sender, EventArgs e)
         {
-            Form1.ChangeScreen(this, new LogInScreen());
+            Form1.ChangeScreen(this, new LoginScreen());
         }
     }
 }

@@ -142,6 +142,9 @@
   <data name="copperOreBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\copperOreBlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="deathMusic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Eleven.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="deathScreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\deathScreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -205,11 +208,17 @@
   <data name="leaderboardBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\leaderboardBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="leaderboardMusic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dragon Fish.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="level0" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\level0.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="level0Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\level1Background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="level0Music" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sweden.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="level1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\level1.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
@@ -217,11 +226,17 @@
   <data name="level1Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\level2Background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="level1Music" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\otherside.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="level2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\level2.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="level2Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\level3Background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="level2Music" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Infinite Amethyst.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="level3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\level3.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
@@ -229,14 +244,23 @@
   <data name="level3Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\level4Background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="level3Music" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ancestry.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="level4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\level4.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="level4Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\level5Background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="level4Music" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pigstep.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="magmaBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\magmaBlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mainMenuMusic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Minecraft.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="minecraftHeartImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\minecraftHeartImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -276,6 +300,9 @@
   </data>
   <data name="stoneBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\stoneBlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="winMusic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Precipice.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="winScreens" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\winScreen1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

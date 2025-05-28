@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WMPLib;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace BrickBreaker
@@ -19,6 +21,9 @@ namespace BrickBreaker
         // Player object to store currently signed in player
         public static PlayerData player = new PlayerData();
 
+        // Background music player
+        public static System.Windows.Media.MediaPlayer backgroundPlayer = new System.Windows.Media.MediaPlayer();
+
         public Form1()
         {
             InitializeComponent();
@@ -27,12 +32,28 @@ namespace BrickBreaker
 
             // Load all saved players into a list
             players = player.LoadAllPlayerData();
+
+            // Add method to loop audio to backgroundPlayer
+            backgroundPlayer.MediaEnded += new EventHandler(backgroundPlayer_MediaEnded);
+
+
+            // Play starting background music
+            Form1.backgroundPlayer.Open(new Uri(Application.StartupPath + "/Resources/Sweden.mp3"));
+            Form1.backgroundPlayer.Play();
+
+        }
+
+        // Loop audio
+        public static void backgroundPlayer_MediaEnded(object sender, EventArgs e)
+        {
+            backgroundPlayer.Stop();
+            backgroundPlayer.Play();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Start the program centred on the Menu Screen
-            ChangeScreen(this, new LogInScreen());
+            // Start the program centred on the Login Screen
+            ChangeScreen(this, new LoginScreen());
         }
 
         public static void ChangeScreen(object sender, UserControl next)

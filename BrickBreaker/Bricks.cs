@@ -41,22 +41,27 @@ namespace BrickBreaker
             {
                 case "dirt":
                 case "grass":
+                case "netherack":
                     maxHp = hp = 1;
                     break;
 
                 case "stone":
                 case "andesite":
                 case "granite":
+                case "magma":
                     maxHp = hp = 2;
                     break;
 
                 case "coal":
                 case "iron":
                 case "copper":
+                case "netherGold":
+                case "quartz":
                     maxHp = hp = 3;
                     break;
 
                 case "deepslate":
+                case "deepslateTile":
                     maxHp = hp = 3;
                     break;
 
@@ -68,6 +73,8 @@ namespace BrickBreaker
                     maxHp = hp = 4;
                     break;
 
+                case "netherite":
+                case "obsidian":
                 case "bedrock":
                     maxHp = hp = 5;
                     break;

@@ -12,12 +12,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
@@ -28,8 +28,6 @@ namespace BrickBreaker
         //TODO
         /*
          * If we had extra time:
-         * Background music
-         * Add health values in bricks for new blocks in levels 3 and 4
          * Optimize for performance
          * Comment everything
          * Find out why the nether level is so slow compared to everything else
@@ -121,10 +119,10 @@ namespace BrickBreaker
         // Variables to define an arrow object
         public static int arrowHeight = 20;
         public static int arrowWidth = 5;
-        public static int arrowSpeed = 5;
+        public static int arrowSpeed = 10;
 
         // Variables to define a zombie spit object
-        public static int spitSpeed = 4;
+        public static int spitSpeed = 8;
         public static int spitDiameter = 20;
 
         // Variables to define a fireball object
@@ -151,7 +149,7 @@ namespace BrickBreaker
             points = 0;
 
             // Load level 0
-            level = 0;
+            level = 2;
             LoadLevel(level);
         }
 
@@ -266,7 +264,7 @@ namespace BrickBreaker
             foreach (Bricks m in bricks)
             {
                 // Some chance each frame that each enemy will attack
-                if (randGen.Next(0, 600) < 1)
+                if (randGen.Next(0, 500) < 1)
                 {
                     if (m is Skeleton)
                     {
@@ -632,32 +630,37 @@ namespace BrickBreaker
             // Get the list of bricks from the relevant XML file
             bricks = levelLoader.LoadLevel(levelNum);
 
-            // Change screen background to level background
+            // Change screen background to level background and play music
             switch (levelNum)
             {
                 case 0:
                     this.BackgroundImage = Properties.Resources.level0Background;
-                    // play background music player
+                    Form1.backgroundPlayer.Open(new Uri(Application.StartupPath + "/Resources/Sweden.mp3"));
+                    Form1.backgroundPlayer.Play();
                     break;
 
                 case 1:
                     this.BackgroundImage = Properties.Resources.level1Background;
-                    // play background music player
+                    Form1.backgroundPlayer.Open(new Uri(Application.StartupPath + "/Resources/Otherside.mp3"));
+                    Form1.backgroundPlayer.Play();
                     break;
 
                 case 2:
                     this.BackgroundImage = Properties.Resources.level2Background;
-                    // play background music player
+                    Form1.backgroundPlayer.Open(new Uri(Application.StartupPath + "/Resources/Infinite Amethyst.mp3"));
+                    Form1.backgroundPlayer.Play();
                     break;
 
                 case 3:
                     this.BackgroundImage = Properties.Resources.level3Background;
-                    // play background music player
+                    Form1.backgroundPlayer.Open(new Uri(Application.StartupPath + "/Resources/Ancestry.mp3"));
+                    Form1.backgroundPlayer.Play();
                     break;
 
                 case 4:
                     this.BackgroundImage = Properties.Resources.level4Background;
-                    // play background music player
+                    Form1.backgroundPlayer.Open(new Uri(Application.StartupPath + "/Resources/Pigstep.mp3"));
+                    Form1.backgroundPlayer.Play();
                     break;
             }
         }

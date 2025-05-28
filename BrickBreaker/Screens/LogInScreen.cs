@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace BrickBreaker
 {
-    public partial class LogInScreen : UserControl
+    public partial class LoginScreen : UserControl
     {
         // Array of "watermark text" displayed in each input box when they are empty
         string[] watermarks = new string[] { "Enter Username...", "Enter Password..." };
 
-        public LogInScreen()
+        public LoginScreen()
         {
             InitializeComponent();
 

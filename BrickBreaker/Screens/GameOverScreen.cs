@@ -18,6 +18,10 @@ namespace BrickBreaker
 
             playerScoreLabel.Text = Form1.player.score.ToString();
             playerNameLabel.Text = Form1.player.username;
+
+            // Play background music
+            Form1.backgroundPlayer.Open(new Uri(Application.StartupPath + "/Resources/Eleven.mp3"));
+            Form1.backgroundPlayer.Play();
         }
 
         private void mainMenuButton_Click(object sender, EventArgs e)

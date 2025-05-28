@@ -139,6 +139,16 @@ namespace BrickBreaker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] deathMusic {
+            get {
+                object obj = ResourceManager.GetObject("deathMusic", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap deathScreen {
@@ -348,6 +358,16 @@ namespace BrickBreaker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] leaderboardMusic {
+            get {
+                object obj = ResourceManager.GetObject("leaderboardMusic", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
         ///&lt;Level&gt;
         ///	&lt;Block&gt;
@@ -397,6 +417,16 @@ namespace BrickBreaker.Properties {
             get {
                 object obj = ResourceManager.GetObject("level0Background", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] level0Music {
+            get {
+                object obj = ResourceManager.GetObject("level0Music", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
@@ -454,6 +484,16 @@ namespace BrickBreaker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] level1Music {
+            get {
+                object obj = ResourceManager.GetObject("level1Music", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;Level&gt;&lt;Block&gt;&lt;x&gt;916&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;stone&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;664&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;dirt&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;538&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;andesite&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;790&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;zombie&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;412&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;andesite&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;286&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;stone&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;160&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;dirt&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;34&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;stone&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;916&lt;/x&gt;&lt;y&gt;629&lt;/y&gt;&lt;type&gt;stone&lt; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string level2 {
@@ -473,6 +513,16 @@ namespace BrickBreaker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] level2Music {
+            get {
+                object obj = ResourceManager.GetObject("level2Music", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;Level&gt;&lt;Block&gt;&lt;x&gt;916&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;deepslate&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;664&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;deepslate&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;538&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;deepslateTile&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;790&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;deepslate&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;412&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;deepslate&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;286&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;deepslate&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;160&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;deepslateTile&lt;/type&gt;&lt;/Block&gt;&lt;Block&gt;&lt;x&gt;34&lt;/x&gt;&lt;y&gt;445&lt;/y&gt;&lt;type&gt;deepslate&lt;/type&gt;&lt;/Block&gt;&lt;Blo [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string level3 {
@@ -488,6 +538,16 @@ namespace BrickBreaker.Properties {
             get {
                 object obj = ResourceManager.GetObject("level3Background", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] level3Music {
+            get {
+                object obj = ResourceManager.GetObject("level3Music", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
@@ -545,12 +605,32 @@ namespace BrickBreaker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] level4Music {
+            get {
+                object obj = ResourceManager.GetObject("level4Music", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap magmaBlock {
             get {
                 object obj = ResourceManager.GetObject("magmaBlock", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] mainMenuMusic {
+            get {
+                object obj = ResourceManager.GetObject("mainMenuMusic", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
@@ -686,6 +766,16 @@ namespace BrickBreaker.Properties {
             get {
                 object obj = ResourceManager.GetObject("stoneBlock", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] winMusic {
+            get {
+                object obj = ResourceManager.GetObject("winMusic", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         

@@ -1,6 +1,6 @@
 ﻿namespace BrickBreaker
 {
-    partial class LogInScreen
+    partial class LoginScreen
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogInScreen));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginScreen));
             this.passwordInput = new System.Windows.Forms.TextBox();
             this.usernameInput = new System.Windows.Forms.TextBox();
             this.titleLabel = new System.Windows.Forms.Label();
