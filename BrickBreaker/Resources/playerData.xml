@@ -1,4 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Players>
-
+	<Player>
+		<Username>ME!</Username>
+		<Password>adshiuhfequ89h</Password>
+		<Score>1000</Score>
+	</Player>
 </Players>
